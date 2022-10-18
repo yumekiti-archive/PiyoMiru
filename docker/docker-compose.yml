@@ -6,7 +6,7 @@ services:
     container_name: piyomiru-web
     working_dir: /app
     volumes:
-      - ./web:/app
+      - ../web:/app
     ports:
       - 3000:3000
     command: >
@@ -20,7 +20,7 @@ services:
     container_name: piyomiru-api
     working_dir: /app
     volumes:
-      - .:/app
+      - ../api:/app
     ports:
       - 1337:1337
     command: >
