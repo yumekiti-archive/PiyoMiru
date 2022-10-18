@@ -2,7 +2,7 @@ version: "3.9"
 
 services:
   web:
-    image: node:17-alpine
+    image: node:lts-alpine
     container_name: piyomiru-web
     working_dir: /app
     volumes:
@@ -16,7 +16,7 @@ services:
       "
 
   api:
-    image: node:17-alpine
+    image: node:lts-alpine
     container_name: piyomiru-api
     working_dir: /app
     volumes:
