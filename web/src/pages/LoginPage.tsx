@@ -1,11 +1,20 @@
 import { FC, useState } from 'react';
 import NameLogo from '../assets/nameLogo.svg';
-
 import FormText from '../components/atoms/FormText';
+import { useNavigate } from 'react-router-dom';
+import FormButton from '../components/atoms/FormButton';
 
 const Login: FC = () => {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
+  const navigate = useNavigate();
+
+  const login = () => {
+    if (email === 'admin' && password === 'admin') {
+      console.log('login success');
+      navigate('/home');
+    } else console.log('login failed');
+  };
 
   return (
     <div className='flex h-screen bg-[#FBD579] items-center justify-center fixed top-0 left-0 w-full flex-col'>
@@ -17,9 +26,7 @@ const Login: FC = () => {
         <FormText label='パスワード' value={password} onChange={(e) => setPassword(e.target.value)} />
       </div>
       <div className='h-1/6 w-10/12 flex items-start justify-center'>
-        <button className='w-full h-16 bg-[#FFFF88] rounded-2xl text-2xl' onClick={() => console.log(email, password)}>
-          ログイン
-        </button>
+        <FormButton text='ログイン' onClick={login} />
       </div>
     </div>
   );

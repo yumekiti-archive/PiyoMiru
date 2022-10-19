@@ -12,7 +12,7 @@ const FormText: FC<Props> = ({ label, value, onChange }) => {
       <input
         type='text'
         id='name'
-        className='h-16 px-4 bg-[#FFFAE3] rounded-2xl text-2xl focus:outline-none w-full'
+        className='h-16 pt-2 px-4 bg-[#FFFAE3] rounded-xl text-2xl focus:outline-none w-full'
         value={value}
         onChange={onChange}
       />
