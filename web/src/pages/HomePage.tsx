@@ -1,4 +1,6 @@
 import { FC } from 'react';
+import { Link } from 'react-router-dom';
+
 import Sora from '../assets/sora.svg';
 import Bus from '../assets/bus.svg';
 import Tulip from '../assets/tulip.svg';
@@ -20,11 +22,11 @@ const HomePage: FC = () => {
         <img src={Bus} alt='bus' className='w-80' />
       </div>
       <div className='h-2/6 flex items-center justify-center'>
-        <button className='w-11/12 h-16 bg-[#FBD579] rounded-2xl text-4xl flex items-center justify-center relative'>
+        <Link className='w-11/12 h-16 bg-[#FBD579] rounded-2xl text-4xl flex items-center justify-center relative' to='/list'>
           乗車中園児確認
           <img src={Tulip} alt='tulip' className='w-10 h-10 mt-2 ml-1' />
           <div className='w-full h-16 bg-[#DAB357] rounded-2xl -z-10 absolute top-4 left-0' />
-        </button>
+        </Link>
       </div>
     </div>
   );
