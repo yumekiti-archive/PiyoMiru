@@ -10,10 +10,7 @@ const Login: FC = () => {
   const navigate = useNavigate();
 
   const login = () => {
-    if (email === 'admin' && password === 'admin') {
-      console.log('login success');
-      navigate('/home');
-    } else console.log('login failed');
+    navigate('/home');
   };
 
   return (

@@ -8,7 +8,7 @@ interface Props {
 
 const Header: FC<Props> = ({ title }) => {
   return (
-    <div className='flex w-full items-end justify-center h-20 bg-[#FBD579] pb-2'>
+    <div className='flex w-full items-end justify-center h-20 bg-[#FBD579] pb-2 absolute top-0 left-0 z-50'>
       <h1 className='text-2xl'>{title}</h1>
       <Link to='/home' className='absolute left-4'>
         <img src={Back} alt='戻る' />
