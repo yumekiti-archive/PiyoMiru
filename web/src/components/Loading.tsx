@@ -4,7 +4,7 @@ import Logo from '../assets/loadingLogo.svg';
 
 const Loading: FC = () => {
   return (
-    <div className="loading bg-[#FBD579] h-screen w-full fixed top-0 left-0 z-50">
+    <div className='loading bg-[#FBD579] h-screen w-full fixed top-0 left-0 z-50'>
       <div className='h-1/6' />
       <div className='h-1/6 w-full flex items-center justify-center'>
         <img src={Logo} alt='logo' className='w-72' />

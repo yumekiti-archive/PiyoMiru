@@ -14,6 +14,6 @@ const Background: FC = () => {
       </div>
     </>
   );
-}
+};
 
 export default Background;

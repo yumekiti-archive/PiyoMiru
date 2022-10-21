@@ -8,15 +8,11 @@ const ListCard: FC = () => {
         <img src={Icon} alt='icon' className='w-20 h-20' />
       </div>
       <div className='pl-6 w-4/5'>
-        <div className='text-3xl w-full h-1/2 flex items-center justify-start'>
-        ○○ ○○ さん
-        </div>
-        <div className='w-full h-1/2 flex items-center justify-start'>
-        2022/10/17 8:45
-        </div>
+        <div className='text-3xl w-full h-1/2 flex items-center justify-start'>○○ ○○ さん</div>
+        <div className='w-full h-1/2 flex items-center justify-start'>2022/10/17 8:45</div>
       </div>
     </div>
   );
-}
+};
 
 export default ListCard;

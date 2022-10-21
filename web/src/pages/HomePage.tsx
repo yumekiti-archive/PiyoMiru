@@ -9,7 +9,7 @@ import Background from '../components/organisms/Background';
 const HomePage: FC = () => {
   return (
     <>
-      <Header title="乗車中園児 一覧" />
+      <Header title='乗車中園児 一覧' />
       <Background />
       <div className='bg-sora h-screen'>
         <div className='h-2/6 flex items-end justify-center'>
@@ -19,7 +19,10 @@ const HomePage: FC = () => {
           <img src={Bus} alt='bus' className='w-80' />
         </div>
         <div className='h-2/6 flex items-center justify-center'>
-          <Link className='w-11/12 h-16 bg-[#FBD579] rounded-2xl text-4xl flex items-center justify-center relative' to='/list'>
+          <Link
+            className='w-11/12 h-16 bg-[#FBD579] rounded-2xl text-4xl flex items-center justify-center relative'
+            to='/list'
+          >
             乗車中園児確認
             <img src={Tulip} alt='tulip' className='w-10 h-10 mt-2 ml-1' />
             <div className='w-full h-16 bg-[#DAB357] rounded-2xl -z-10 absolute top-4 left-0' />

@@ -5,7 +5,7 @@ import UsageButton from '../components/atoms/UsageButton';
 
 const UsagePage: FC = () => {
   return (
-    <div className="bg-[#FBD579] h-screen w-full">
+    <div className='bg-[#FBD579] h-screen w-full'>
       <div className='h-2/6 w-full flex items-end justify-center'>
         <img src={NameLogo} alt='logo' className='w-72' />
       </div>
@@ -22,6 +22,6 @@ const UsagePage: FC = () => {
       </div>
     </div>
   );
-}
+};
 
 export default UsagePage;
