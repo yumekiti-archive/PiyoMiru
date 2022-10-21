@@ -3,18 +3,20 @@ import Loading from './components/Loading';
 import { Routes, Route } from 'react-router-dom';
 
 import LoginPage from './pages/LoginPage';
-import HomePage from './pages/HomePage';
+import DrivePage from './pages/DrivePage';
 import ListPage from './pages/ListPage';
-import UsagePage from './pages/UsagePage';
+import UsagePage from './pages/initials/UsagePage';
+import HomePage from './pages/HomePage';
 
 const App: FC = () => {
   return (
     <>
       <Loading />
       <Routes>
-        <Route path='/' element={<LoginPage />} />
+        <Route path='/' element={<HomePage />} />
+        <Route path='/login' element={<LoginPage />} />
         <Route path='/usage' element={<UsagePage />} />
-        <Route path='/home' element={<HomePage />} />
+        <Route path='/drive' element={<DrivePage />} />
         <Route path='/list' element={<ListPage />} />
       </Routes>
     </>

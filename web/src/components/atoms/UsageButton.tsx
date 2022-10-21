@@ -1,14 +1,12 @@
 import { FC } from 'react';
-import Parents from '../../assets/parents.svg';
-import Driver from '../../assets/driver.svg';
 
 interface Props {
   text: string;
-  driver: boolean;
+  img: string;
   onClick?: () => void;
 }
 
-const UsageButton: FC<Props> = ({ text, driver, onClick }) => {
+const UsageButton: FC<Props> = ({ text, img, onClick }) => {
   return (
     <button className='w-full h-44 bg-[#FFFAE3] rounded-2xl' onClick={onClick}>
       <div className='h-1/2 flex justify-center items-center pt-4'>
@@ -17,7 +15,7 @@ const UsageButton: FC<Props> = ({ text, driver, onClick }) => {
         こちら
       </div>
       <div className='h-1/2 flex justify-center items-end'>
-        <img src={driver ? Driver : Parents} alt='icon' />
+        <img src={img} alt='icon' />
       </div>
     </button>
   );

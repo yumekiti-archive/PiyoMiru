@@ -1,7 +1,9 @@
 import { FC } from 'react';
-import NameLogo from '../assets/nameLogo.svg';
-import FormButton from '../components/atoms/FormButton';
-import UsageButton from '../components/atoms/UsageButton';
+import NameLogo from '../../assets/nameLogo.svg';
+import FormButton from '../../components/atoms/FormButton';
+import UsageButton from '../../components/atoms/UsageButton';
+import Parents from '../../assets/parents.svg';
+import Driver from '../../assets/driver.svg';
 
 const UsagePage: FC = () => {
   return (
@@ -12,10 +14,10 @@ const UsagePage: FC = () => {
       </div>
       <div className='h-2/6 w-full flex justify-evenly items-start'>
         <div className='w-4/12'>
-          <UsageButton text='保護者様は' driver={false} />
+          <UsageButton text='保護者様は' img={Parents} />
         </div>
         <div className='w-4/12'>
-          <UsageButton text='運転手の方は' driver={true} />
+          <UsageButton text='運転手の方は' img={Driver} />
         </div>
       </div>
       <div className='h-2/6 w-full flex items-center justify-center'>
