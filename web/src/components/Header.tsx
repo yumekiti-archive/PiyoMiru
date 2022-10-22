@@ -25,7 +25,7 @@ const Header: FC<Props> = ({ title }) => {
       ) : (
         <>
           <h1 className='text-2xl'>{title}</h1>
-          <Link to='/home' className='absolute left-4'>
+          <Link to='/' className='absolute left-4'>
             <img src={Back} alt='戻る' />
           </Link>
         </>

@@ -23,7 +23,7 @@ const BusButton: FC<Props> = ({ to, name, drive }) => {
         )}
       </div>
       {drive && (
-        <div className='z-50 top-4 right-0 absolute'>
+        <div className='z-10 top-4 right-0 absolute'>
           <img src={Label} alt='label' />
         </div>
       )}
