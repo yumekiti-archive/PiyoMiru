@@ -7,11 +7,11 @@ import Tulip from '../assets/button/tulip.svg';
 import Header from '../components/Header';
 import Background from '../components/organisms/Background';
 
-const DrivePage: FC = () => {
+const BusPage: FC = () => {
   return (
     <>
       <Header title='乗車中園児 一覧' />
-      <Background />
+      <Background type='bus' />
       <div className='bg-sora h-screen'>
         <div className='h-2/6 flex items-end justify-center'>
           <div className='text-4xl font-bold'>バス運行中. . .</div>
@@ -34,4 +34,4 @@ const DrivePage: FC = () => {
   );
 };
 
-export default DrivePage;
+export default BusPage;
