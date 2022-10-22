@@ -7,6 +7,7 @@ import BusPage from './pages/BusPage';
 import ListPage from './pages/ListPage';
 import UsagePage from './pages/initials/UsagePage';
 import HomePage from './pages/HomePage';
+import LP from './pages/initials/LP';
 
 const App: FC = () => {
   return (
@@ -18,6 +19,7 @@ const App: FC = () => {
         <Route path='/usage' element={<UsagePage />} />
         <Route path='/bus' element={<BusPage />} />
         <Route path='/list' element={<ListPage />} />
+        <Route path='/lp' element={<LP />} />
       </Routes>
     </>
   );
