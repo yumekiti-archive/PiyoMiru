@@ -10,7 +10,7 @@ const Login: FC = () => {
   const navigate = useNavigate();
 
   const login = () => {
-    navigate('/home');
+    navigate('/');
   };
 
   return (
