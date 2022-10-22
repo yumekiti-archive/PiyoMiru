@@ -1,7 +1,7 @@
 import { FC } from 'react';
 
-import Kumo from '../../assets/kumo.svg';
-import Sora from '../../assets/sora.svg';
+import Kumo from '../../assets/background/kumo.svg';
+import Sora from '../../assets/background/sora.svg';
 
 const Background: FC = () => {
   return (

@@ -2,7 +2,8 @@ import { FC } from 'react';
 import { Link } from 'react-router-dom';
 
 import Bus from '../assets/bus.svg';
-import Tulip from '../assets/tulip.svg';
+import Tulip from '../assets/button/tulip.svg';
+
 import Header from '../components/Header';
 import Background from '../components/organisms/Background';
 

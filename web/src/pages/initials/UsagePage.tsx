@@ -1,9 +1,11 @@
 import { FC } from 'react';
-import NameLogo from '../../assets/nameLogo.svg';
+
 import FormButton from '../../components/atoms/FormButton';
 import UsageButton from '../../components/atoms/UsageButton';
-import Parents from '../../assets/parents.svg';
-import Driver from '../../assets/driver.svg';
+
+import NameLogo from '../../assets/nameLogo.svg';
+import Parents from '../../assets/button/parents.svg';
+import Driver from '../../assets/button/driver.svg';
 
 const UsagePage: FC = () => {
   return (
