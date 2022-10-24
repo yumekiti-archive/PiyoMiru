@@ -10,7 +10,7 @@ const HomePage: FC = () => {
     <>
       <Background type='home' />
       <Header title='' />
-      <div className='h-screen w-full mb-6'>
+      <div className='h-screen w-full pb-6'>
         <div className='h-1/6' />
         <div className='h-5/6'>
           <div className='flex justify-center items-center'>
