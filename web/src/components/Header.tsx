@@ -1,10 +1,11 @@
 import { FC } from 'react';
 import { Link } from 'react-router-dom';
 
+import HeaderButton from '../components/atoms/HeaderButton';
+
 import Back from '../assets/button/back.svg';
 import NameLogo from '../assets/nameLogo.svg';
 import Bear from '../assets/button/bear.svg';
-import HeaderButton from '../components/atoms/HeaderButton';
 import Frog from '../assets/button/frog.svg';
 
 interface Props {

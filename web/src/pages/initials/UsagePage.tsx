@@ -1,4 +1,5 @@
 import { FC } from 'react';
+import { useNavigate } from 'react-router-dom';
 
 import FormButton from '../../components/atoms/FormButton';
 import UsageButton from '../../components/atoms/UsageButton';
@@ -8,6 +9,11 @@ import Parents from '../../assets/button/parents.svg';
 import Driver from '../../assets/button/driver.svg';
 
 const UsagePage: FC = () => {
+  const navigate = useNavigate();
+  const decision = () => {
+    navigate('/');
+  };
+
   return (
     <div className='h-screen bg-[#FBD579] w-full'>
       <div className='h-1/6' />
@@ -24,7 +30,7 @@ const UsagePage: FC = () => {
       </div>
       <div className='h-2/6 w-full flex items-center justify-center'>
         <div className='w-10/12'>
-          <FormButton text='決定' />
+          <FormButton text='決定' onClick={decision} />
         </div>
       </div>
     </div>

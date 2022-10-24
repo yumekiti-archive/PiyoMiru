@@ -1,7 +1,9 @@
 import { FC, useState } from 'react';
-import NameLogo from '../assets/nameLogo.svg';
-import FormText from '../components/atoms/FormText';
 import { useNavigate } from 'react-router-dom';
+
+import FormText from '../components/atoms/FormText';
+import NameLogo from '../assets/nameLogo.svg';
+
 import FormButton from '../components/atoms/FormButton';
 
 const Login: FC = () => {

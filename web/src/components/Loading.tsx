@@ -1,4 +1,5 @@
 import { FC } from 'react';
+
 import Hiyoko from '../assets/hiyoko.svg';
 import Logo from '../assets/loadingLogo.svg';
 
