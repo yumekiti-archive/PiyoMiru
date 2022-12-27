@@ -2,11 +2,11 @@ version: "3.9"
 
 services:
   web:
-    image: node:lts-alpine
+    image: node:16-alpine
     container_name: piyomiru-web
     working_dir: /app
     volumes:
-      - ../web:/app
+      - ./web:/app
     ports:
       - 3000:3000
     command: >
@@ -16,11 +16,11 @@ services:
       "
 
   api:
-    image: node:lts-alpine
+    image: node:16-alpine
     container_name: piyomiru-api
     working_dir: /app
     volumes:
-      - ../api:/app
+      - ./api:/app
     ports:
       - 1337:1337
     command: >
