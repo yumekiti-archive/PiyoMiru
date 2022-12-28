@@ -5,9 +5,10 @@ import { Routes, Route } from 'react-router-dom';
 import LoginPage from './pages/LoginPage';
 import BusPage from './pages/BusPage';
 import ListPage from './pages/ListPage';
-import UsagePage from './pages/initials/UsagePage';
+import UsagePage from './pages/Register/UsagePage';
 import HomePage from './pages/HomePage';
-import LP from './pages/initials/LP';
+import LP from './pages/Register/LP';
+import RegisterPage from './pages/RegisterPage';
 
 const App: FC = () => {
   return (
@@ -20,6 +21,7 @@ const App: FC = () => {
         <Route path='/bus' element={<BusPage />} />
         <Route path='/list' element={<ListPage />} />
         <Route path='/lp' element={<LP />} />
+        <Route path='/register' element={<RegisterPage />} />
       </Routes>
     </>
   );
