@@ -15,6 +15,10 @@ const Login: FC = () => {
     navigate('/');
   };
 
+  const register = () => {
+    navigate('/register');
+  };
+
   return (
     <div className='h-screen bg-[#FBD579] w-full'>
       <div className='h-1/6' />
@@ -32,6 +36,10 @@ const Login: FC = () => {
       <div className='h-2/6 w-full flex items-center justify-center'>
         <div className='w-10/12'>
           <FormButton text='ログイン' onClick={login} />
+          <p className='text-center text-sm mt-4'>
+            アカウントをお持ちでない場合
+            <span className='underline' onClick={register}>登録はこちら</span>
+          </p>
         </div>
       </div>
     </div>
