@@ -1,4 +1,5 @@
-import { FC } from 'react';
+import { FC, useEffect } from 'react';
+import { useNavigate } from 'react-router-dom';
 
 import Header from '../components/Header';
 import Background from '../components/organisms/Background';
@@ -6,6 +7,14 @@ import BusButton from '../components/atoms/BusButton';
 import Pluss from '../assets/button/pluss.svg';
 
 const HomePage: FC = () => {
+  const navigate = useNavigate();
+
+  useEffect(() => {
+    if (localStorage.getItem('jwt') === null) {
+      navigate('/login');
+    }
+  }, []);
+
   return (
     <>
       <Background type='home' />
