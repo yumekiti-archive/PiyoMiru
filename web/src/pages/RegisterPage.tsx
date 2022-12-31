@@ -28,11 +28,10 @@ const Login: FC = () => {
       password: password,
     };
 
-    register(data)
-      .then((res) => {
-        localStorage.setItem('jwt', res.data.jwt);
-        navigate('/');
-      })
+    register(data).then((res) => {
+      localStorage.setItem('jwt', res.data.jwt);
+      navigate('/');
+    });
   };
 
   return (
@@ -41,9 +40,7 @@ const Login: FC = () => {
         <Header title='' />
       </div>
       <div className='h-3/6 flex justify-start flex-col items-center space-y-4 pt-10'>
-        <p className='text-2xl'>
-          ---&ensp;基本情報登録&ensp;---
-        </p>
+        <p className='text-2xl'>---&ensp;基本情報登録&ensp;---</p>
         <div className='w-10/12 flex justify-center'>
           <FormText label='ユーザーネーム' value={name} onChange={(e) => setName(e.target.value)} />
         </div>
@@ -54,7 +51,11 @@ const Login: FC = () => {
           <FormText label='パスワード' value={password} onChange={(e) => setPassword(e.target.value)} />
         </div>
         <div className='w-10/12 flex justify-center'>
-          <FormText label='パスワード確認' value={passwordConfirmation} onChange={(e) => setPasswordConfirmation(e.target.value)} />
+          <FormText
+            label='パスワード確認'
+            value={passwordConfirmation}
+            onChange={(e) => setPasswordConfirmation(e.target.value)}
+          />
         </div>
       </div>
       <div className='h-2/6 w-full flex items-center justify-center'>

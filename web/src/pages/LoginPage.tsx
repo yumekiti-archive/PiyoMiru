@@ -38,7 +38,9 @@ const Login: FC = () => {
           <FormButton text='ログイン' onClick={login} />
           <p className='text-center text-sm mt-4'>
             アカウントをお持ちでない場合
-            <span className='underline' onClick={register}>登録はこちら</span>
+            <span className='underline' onClick={register}>
+              登録はこちら
+            </span>
           </p>
         </div>
       </div>

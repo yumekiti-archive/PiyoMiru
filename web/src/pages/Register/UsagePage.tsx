@@ -11,7 +11,7 @@ import Driver from '../../assets/button/driver.svg';
 const UsagePage: FC = () => {
   const navigate = useNavigate();
   const decision = () => {
-    navigate('/');
+    navigate('/register');
   };
 
   return (

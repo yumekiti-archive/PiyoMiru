@@ -1,5 +1,5 @@
 import { FC } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 
 import HeaderButton from '../components/atoms/HeaderButton';
 
@@ -13,20 +13,24 @@ interface Props {
 }
 
 const Header: FC<Props> = ({ title }) => {
+  const navigate = useNavigate();
+
+  const home = () => {
+    navigate('/');
+  };
+
   return (
     <div className='flex w-full items-end justify-center h-24 bg-[#FBD579] pb-2 absolute top-0 left-0 z-10 border-b-2 border-[#FFFFFF]'>
       {title === '' ? (
         <>
-          <img src={NameLogo} alt='nameLogo' className='px-4 w-1/2 h-4/6' />
+          <img src={NameLogo} alt='nameLogo' className='px-4 w-1/2 h-4/6' onClick={home} />
           <div className='w-1/2 flex justify-end items-center space-x-2 mr-2'>
-            {
-              window.location.pathname === '/' && (
-                <>
-                  <HeaderButton path='/usage' text='園児' img={Bear} />
-                  <HeaderButton path='/login' text='ログアウト' img={Frog} />
-                </>
-              )
-            }
+            {window.location.pathname === '/' && (
+              <>
+                <HeaderButton path='/usage' text='園児' img={Bear} />
+                <HeaderButton path='/login' text='ログアウト' img={Frog} />
+              </>
+            )}
           </div>
         </>
       ) : (
