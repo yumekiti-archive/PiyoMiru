@@ -4,15 +4,25 @@ import { useNavigate } from 'react-router-dom';
 import FormText from '../components/atoms/FormText';
 import NameLogo from '../assets/nameLogo.svg';
 
+import { login } from '../libs/auth';
+
 import FormButton from '../components/atoms/FormButton';
 
-const Login: FC = () => {
+const LoginPage: FC = () => {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const navigate = useNavigate();
 
-  const login = () => {
-    navigate('/');
+  const onClickLogin = () => {
+    const data = {
+      identifier: email,
+      password: password,
+    };
+
+    login(data).then((res) => {
+      localStorage.setItem('jwt', res.data.jwt);
+      navigate('/');
+    });
   };
 
   const register = () => {
@@ -27,15 +37,15 @@ const Login: FC = () => {
       </div>
       <div className='h-2/6 flex justify-start flex-col items-center space-y-8 pt-10'>
         <div className='w-10/12 flex justify-center'>
-          <FormText label='パスワード' value={password} onChange={(e) => setPassword(e.target.value)} />
+          <FormText label='メールアドレス' value={email} onChange={(e) => setEmail(e.target.value)} />
         </div>
         <div className='w-10/12 flex justify-center'>
-          <FormText label='ユーザーネーム' value={email} onChange={(e) => setEmail(e.target.value)} />
+          <FormText label='パスワード' value={password} onChange={(e) => setPassword(e.target.value)} />
         </div>
       </div>
       <div className='h-2/6 w-full flex items-center justify-center'>
         <div className='w-10/12'>
-          <FormButton text='ログイン' onClick={login} />
+          <FormButton text='ログイン' onClick={onClickLogin} />
           <p className='text-center text-sm mt-4'>
             アカウントをお持ちでない場合
             <span className='underline' onClick={register}>
@@ -48,4 +58,4 @@ const Login: FC = () => {
   );
 };
 
-export default Login;
+export default LoginPage;
