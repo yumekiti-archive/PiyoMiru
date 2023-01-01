@@ -1,4 +1,4 @@
-import { FC } from 'react';
+import { FC, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 
 import FormButton from '../../components/atoms/FormButton';
@@ -11,8 +11,10 @@ import Driver from '../../assets/button/driver.svg';
 const UsagePage: FC = () => {
   const navigate = useNavigate();
   const decision = () => {
-    navigate('/register');
+    navigate('/register', { state: { driver } });
   };
+
+  const [driver, setDriver] = useState(false);
 
   return (
     <div className='h-screen bg-[#FBD579] w-full'>
@@ -22,10 +24,10 @@ const UsagePage: FC = () => {
       </div>
       <div className='h-2/6 w-full flex justify-evenly items-start'>
         <div className='w-4/12'>
-          <UsageButton text='保護者様は' img={Parents} />
+          <UsageButton toggle={!driver} text='保護者様は' img={Parents} onClick={() => setDriver(false)} />
         </div>
         <div className='w-4/12'>
-          <UsageButton text='運転手の方は' img={Driver} />
+          <UsageButton toggle={driver} text='運転手の方は' img={Driver} onClick={() => setDriver(true)} />
         </div>
       </div>
       <div className='h-2/6 w-full flex items-center justify-center'>

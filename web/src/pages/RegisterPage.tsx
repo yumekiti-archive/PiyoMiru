@@ -1,5 +1,5 @@
 import { FC, useState } from 'react';
-import { useNavigate } from 'react-router-dom';
+import { useNavigate, useLocation } from 'react-router-dom';
 
 import FormText from '../components/atoms/FormText';
 import NameLogo from '../assets/nameLogo.svg';
@@ -8,13 +8,15 @@ import Header from '../components/Header';
 import FormButton from '../components/atoms/FormButton';
 import { register } from '../libs/auth';
 
-const Login: FC = () => {
+const RegisterPage: FC = () => {
+  const location = useLocation();
+  const navigate = useNavigate();
+
+  const [driver, setDriver] = useState(location.state.driver);
   const [name, setName] = useState('');
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [passwordConfirmation, setPasswordConfirmation] = useState('');
-
-  const navigate = useNavigate();
 
   const onClickRegister = () => {
     if (password !== passwordConfirmation) {
@@ -26,6 +28,7 @@ const Login: FC = () => {
       username: name,
       email: email,
       password: password,
+      driver: driver,
     };
 
     register(data).then((res) => {
@@ -67,4 +70,4 @@ const Login: FC = () => {
   );
 };
 
-export default Login;
+export default RegisterPage;

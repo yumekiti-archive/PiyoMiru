@@ -9,7 +9,7 @@ import { ReactComponent as LandingPage3 } from '../../assets/lp/landingPage3.svg
 import { ReactComponent as Right } from '../../assets/lp/right.svg';
 import { ReactComponent as Left } from '../../assets/lp/left.svg';
 
-const LP: FC = () => {
+const LPPage: FC = () => {
   const [page, setPage] = useState(1);
   const navigate = useNavigate();
 
@@ -51,4 +51,4 @@ const LP: FC = () => {
   );
 };
 
-export default LP;
+export default LPPage;
