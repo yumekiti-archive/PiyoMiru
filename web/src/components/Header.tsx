@@ -20,7 +20,7 @@ const Header: FC<Props> = ({ title }) => {
   };
 
   return (
-    <div className='flex w-full items-end justify-center h-24 bg-[#FBD579] pb-2 absolute top-0 left-0 z-10 border-b-2 border-[#FFFFFF]'>
+    <div className='flex w-full items-end justify-center h-24 bg-[#FBD579] pb-2 absolute top-0 left-0 z-10 border-b-2 border-[#FFFAE3]'>
       {title === '' ? (
         <>
           <img src={NameLogo} alt='nameLogo' className='px-4 w-1/2 h-4/6' onClick={home} />
