@@ -9,6 +9,7 @@ import UsagePage from './pages/Register/UsagePage';
 import HomePage from './pages/HomePage';
 import LP from './pages/Register/LP';
 import RegisterPage from './pages/RegisterPage';
+import GroupPage from './pages/GroupPage';
 
 const App: FC = () => {
   return (
@@ -22,6 +23,7 @@ const App: FC = () => {
         <Route path='/list' element={<ListPage />} />
         <Route path='/lp' element={<LP />} />
         <Route path='/register' element={<RegisterPage />} />
+        <Route path='/group' element={<GroupPage />} />
       </Routes>
     </>
   );

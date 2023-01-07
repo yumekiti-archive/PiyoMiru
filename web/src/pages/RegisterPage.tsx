@@ -45,7 +45,7 @@ const RegisterPage: FC = () => {
       <div className='h-3/6 flex justify-start flex-col items-center space-y-4 pt-10'>
         <p className='text-2xl'>---&ensp;基本情報登録&ensp;---</p>
         <div className='w-10/12 flex justify-center'>
-          <FormText label='ユーザーネーム' value={name} onChange={(e) => setName(e.target.value)} />
+          <FormText icon={true} label='ユーザーネーム' value={name} onChange={(e) => setName(e.target.value)} />
         </div>
         <div className='w-10/12 flex justify-center'>
           <FormText label='メールアドレス' value={email} onChange={(e) => setEmail(e.target.value)} />

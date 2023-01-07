@@ -1,14 +1,17 @@
 import { FC } from 'react';
+import ListIcon from '../../assets/listIcon.svg';
 
 interface Props {
+  icon?: boolean;
   label: string;
   value: string;
   onChange?: (e: React.ChangeEvent<HTMLInputElement>) => void;
 }
 
-const FormText: FC<Props> = ({ label, value, onChange }) => {
+const FormText: FC<Props> = ({ icon, label, value, onChange }) => {
   return (
     <div className='relative w-full'>
+      { icon && <img src={ListIcon} alt='listIcon' style={{ height: '60%' }} className='absolute -top-6 right-4' /> }
       <input
         type='text'
         id='name'
