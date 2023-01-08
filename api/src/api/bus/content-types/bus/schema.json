@@ -4,7 +4,8 @@
   "info": {
     "singularName": "bus",
     "pluralName": "buses",
-    "displayName": "Bus"
+    "displayName": "Bus",
+    "description": ""
   },
   "options": {
     "draftAndPublish": true
@@ -12,7 +13,8 @@
   "pluginOptions": {},
   "attributes": {
     "name": {
-      "type": "string"
+      "type": "string",
+      "required": true
     },
     "groups": {
       "type": "relation",

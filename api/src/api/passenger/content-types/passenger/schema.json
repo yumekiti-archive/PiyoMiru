@@ -4,7 +4,8 @@
   "info": {
     "singularName": "passenger",
     "pluralName": "passengers",
-    "displayName": "Passenger"
+    "displayName": "Passenger",
+    "description": ""
   },
   "options": {
     "draftAndPublish": true
@@ -12,7 +13,8 @@
   "pluginOptions": {},
   "attributes": {
     "status": {
-      "type": "boolean"
+      "type": "boolean",
+      "default": false
     },
     "operation": {
       "type": "relation",

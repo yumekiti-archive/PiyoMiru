@@ -4,7 +4,8 @@
     "info": {
         "singularName": "operation",
         "pluralName": "operations",
-        "displayName": "Operation"
+        "displayName": "Operation",
+        "description": ""
     },
     "options": {
         "draftAndPublish": true
@@ -12,10 +13,12 @@
     "pluginOptions": {},
     "attributes": {
         "start": {
-            "type": "datetime"
+            "type": "datetime",
+            "required": true
         },
         "emd": {
-            "type": "datetime"
+            "type": "datetime",
+            "required": true
         },
         "bus": {
             "type": "relation",
