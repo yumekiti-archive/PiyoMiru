@@ -74,7 +74,12 @@
             "target": "api::family.family"
         },
         "driver": {
-            "type": "boolean"
+            "type": "boolean",
+            "default": false
+        },
+        "displayname": {
+            "type": "string",
+            "required": true
         }
     }
 }
