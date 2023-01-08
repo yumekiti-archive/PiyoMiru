@@ -14,7 +14,7 @@
     "attributes": {
         "status": {
             "type": "boolean",
-            "default": false
+            "default": true
         },
         "operation": {
             "type": "relation",
