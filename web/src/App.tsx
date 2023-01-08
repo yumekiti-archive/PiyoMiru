@@ -1,5 +1,4 @@
 import { FC } from 'react';
-import Loading from './components/Loading';
 import { Routes, Route } from 'react-router-dom';
 
 import LoginPage from './pages/LoginPage';
@@ -13,19 +12,16 @@ import GroupPage from './pages/GroupPage';
 
 const App: FC = () => {
   return (
-    <>
-      <Loading />
-      <Routes>
-        <Route path='/' element={<HomePage />} />
-        <Route path='/login' element={<LoginPage />} />
-        <Route path='/usage' element={<UsagePage />} />
-        <Route path='/bus' element={<BusPage />} />
-        <Route path='/list' element={<ListPage />} />
-        <Route path='/lp' element={<LP />} />
-        <Route path='/register' element={<RegisterPage />} />
-        <Route path='/group' element={<GroupPage />} />
-      </Routes>
-    </>
+    <Routes>
+      <Route path='/' element={<HomePage />} />
+      <Route path='/login' element={<LoginPage />} />
+      <Route path='/usage' element={<UsagePage />} />
+      <Route path='/bus' element={<BusPage />} />
+      <Route path='/list' element={<ListPage />} />
+      <Route path='/lp' element={<LP />} />
+      <Route path='/register' element={<RegisterPage />} />
+      <Route path='/group' element={<GroupPage />} />
+    </Routes>
   );
 };
 
