@@ -5,3 +5,6 @@ const client = axios.create({
 });
 
 export default client;
+
+export const fetcher = (url: string) =>
+  client.get(url, { headers: { Authorization: `Bearer ${localStorage.getItem('jwt')}` } }).then((res) => res.data);

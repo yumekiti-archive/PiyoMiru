@@ -1,10 +1,7 @@
-import client from './client';
+import { fetcher } from './client';
+import useSWR from 'swr';
 
 // me
-export const me = () => {
-  return client.get('api/users/me', {
-    headers: {
-      Authorization: `Bearer ${localStorage.getItem('jwt')}`,
-    },
-  });
-}
+export const useMe = () => {
+  return useSWR('/api/users/me', fetcher);
+};
