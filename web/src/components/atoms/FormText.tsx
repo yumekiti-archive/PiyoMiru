@@ -11,7 +11,7 @@ interface Props {
 const FormText: FC<Props> = ({ icon, label, value, onChange }) => {
   return (
     <div className='relative w-full'>
-      { icon && <img src={ListIcon} alt='listIcon' style={{ height: '60%' }} className='absolute -top-6 right-4' /> }
+      {icon && <img src={ListIcon} alt='listIcon' style={{ height: '60%' }} className='absolute -top-6 right-4' />}
       <input
         type='text'
         id='name'

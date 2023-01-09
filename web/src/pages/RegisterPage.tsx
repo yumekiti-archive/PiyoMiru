@@ -44,12 +44,14 @@ const RegisterPage: FC = () => {
       driver: driver,
     };
 
-    register(data).then((res) => {
-      localStorage.setItem('jwt', res.data.jwt);
-      navigate('/');
-    }).catch((err) => {
-      setErrors(err.response.data.error.details.errors);
-    });
+    register(data)
+      .then((res) => {
+        localStorage.setItem('jwt', res.data.jwt);
+        navigate('/');
+      })
+      .catch((err) => {
+        setErrors(err.response.data.error.details.errors);
+      });
   };
 
   return (
@@ -62,7 +64,12 @@ const RegisterPage: FC = () => {
           <div className='h-3/6 flex justify-start flex-col items-center space-y-4 pt-10'>
             <p className='text-2xl'>---&ensp;基本情報登録&ensp;---</p>
             <div className='w-10/12 flex justify-center'>
-              <FormText icon={true} label='ユーザーネーム' value={displayname} onChange={(e) => setDisplayname(e.target.value)} />
+              <FormText
+                icon={true}
+                label='ユーザーネーム'
+                value={displayname}
+                onChange={(e) => setDisplayname(e.target.value)}
+              />
             </div>
             <div className='w-10/12 flex justify-center'>
               <FormText label='メールアドレス' value={email} onChange={(e) => setEmail(e.target.value)} />
@@ -90,8 +97,10 @@ const RegisterPage: FC = () => {
             <p className='text-2xl'>---&ensp;基本情報登録&ensp;---</p>
             <div className='w-10/12 flex-wrap flex justify-center'>
               <FormText icon={true} label='ユーザーID' value={username} onChange={(e) => setUsername(e.target.value)} />
-              {errors.map((err: any, index:any) => (
-                <p key={index} className='text-red-500 text-sm'>{err.message}</p>
+              {errors.map((err: any, index: any) => (
+                <p key={index} className='text-red-500 text-sm'>
+                  {err.message}
+                </p>
               ))}
             </div>
           </div>
