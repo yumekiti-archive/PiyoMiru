@@ -6,6 +6,8 @@ import Background from '../components/organisms/Background';
 import BusButton from '../components/atoms/BusButton';
 import Pluss from '../assets/button/pluss.svg';
 
+import { me } from '../libs/users';
+
 const HomePage: FC = () => {
   const navigate = useNavigate();
 
@@ -13,6 +15,10 @@ const HomePage: FC = () => {
     if (localStorage.getItem('jwt') === null) {
       navigate('/login');
     }
+
+    me().then((res) => {
+      console.log(res.data);
+    });
   }, []);
 
   return (
