@@ -20,7 +20,7 @@ const RegisterPage: FC = () => {
   const [passwordConfirmation, setPasswordConfirmation] = useState('');
 
   const [nextFlag, setNextFlag] = useState(false);
-  const [error, setError] = useState({ half: false, duplicate: false, password: false });
+  const [errors, setErrors] = useState<any>([]);
 
   const onClickNext = () => {
     setNextFlag(true);
@@ -31,15 +31,8 @@ const RegisterPage: FC = () => {
   };
 
   const onClickRegister = () => {
-    setError({ half: false, duplicate: false, password: false });
-
-    if (!username.match(/^[a-zA-Z0-9]+$/)) {
-      setError({ half: true, duplicate: false, password: false });
-      return;
-    }
-
-    if (password !== passwordConfirmation) {
-      setError({ half: false, duplicate: false, password: true });
+    if (displayname === '') {
+      setErrors([{ message: 'ユーザーネームを入力してください' }]);
       return;
     }
 
@@ -55,9 +48,7 @@ const RegisterPage: FC = () => {
       localStorage.setItem('jwt', res.data.jwt);
       navigate('/');
     }).catch((err) => {
-      if (err.response.data.error.message === 'Email or Username are already taken') {
-        setError({ half: false, duplicate: true, password: false });
-      }
+      setErrors(err.response.data.error.details.errors);
     });
   };
 
@@ -88,7 +79,7 @@ const RegisterPage: FC = () => {
             </div>
           </div>
           <div className='h-2/6 w-full flex items-center justify-center z-10'>
-            <div className='w-8/12'>
+            <div className='w-10/12'>
               <FormButton text='つぎへ' onClick={onClickNext} />
             </div>
           </div>
@@ -99,9 +90,9 @@ const RegisterPage: FC = () => {
             <p className='text-2xl'>---&ensp;基本情報登録&ensp;---</p>
             <div className='w-10/12 flex-wrap flex justify-center'>
               <FormText icon={true} label='ユーザーID' value={username} onChange={(e) => setUsername(e.target.value)} />
-              {error.half && <p className='text-sm text-red-400'>ユーザーIDは半角英数字で入力してください</p>}
-              {error.duplicate && <p className='text-sm text-red-400'>入力したユーザーID、メールアドレスは既に登録されています</p>}
-              {error.password && <p className='text-sm text-red-400'>パスワードが一致しません</p>}
+              {errors.map((err: any, index:any) => (
+                <p key={index} className='text-red-500 text-sm'>{err.message}</p>
+              ))}
             </div>
           </div>
           <div className='h-2/6 w-full flex items-center justify-center z-10'>

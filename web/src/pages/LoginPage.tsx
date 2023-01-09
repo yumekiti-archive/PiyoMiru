@@ -12,6 +12,7 @@ import FormButton from '../components/atoms/FormButton';
 const LoginPage: FC = () => {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
+  const [error, setError] = useState([]);
   const navigate = useNavigate();
 
   const onClickLogin = () => {
@@ -23,7 +24,9 @@ const LoginPage: FC = () => {
     login(data).then((res) => {
       localStorage.setItem('jwt', res.data.jwt);
       navigate('/');
-    });
+    }).catch((err) => {
+      setError(err.response.data.error.details.errors);
+    })
   };
 
   const register = () => {
@@ -40,10 +43,13 @@ const LoginPage: FC = () => {
         </div>
         <div className='h-2/6 flex justify-start flex-col items-center space-y-8 pt-10'>
           <div className='w-10/12 flex justify-center'>
-            <FormText label='メールアドレス' value={email} onChange={(e) => setEmail(e.target.value)} />
+            <FormText label='ユーザーID&ensp;/&ensp;メールアドレス' value={email} onChange={(e) => setEmail(e.target.value)} />
           </div>
-          <div className='w-10/12 flex justify-center'>
+          <div className='w-10/12 flex justify-center flex-wrap'>
             <FormText label='パスワード' value={password} onChange={(e) => setPassword(e.target.value)} />
+            {error.map((err: any, index) => (
+              <p key={index} className='text-red-500 text-sm'>{err.message}</p>
+            ))}
           </div>
         </div>
         <div className='h-2/6 w-full flex items-center justify-center'>
