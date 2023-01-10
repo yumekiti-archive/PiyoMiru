@@ -15,11 +15,6 @@
         "name": {
             "type": "string",
             "required": true
-        },
-        "groups": {
-            "type": "relation",
-            "relation": "oneToMany",
-            "target": "api::group.group"
         }
     }
 }
