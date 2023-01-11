@@ -1,14 +1,14 @@
 import { FC } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 
-import HeaderButton from '../components/atoms/HeaderButton';
+import HeaderButton from '../atoms/HeaderButton';
 
-import Back from '../assets/button/back.svg';
-import NameLogo from '../assets/nameLogo.svg';
-import Bear from '../assets/button/bear.svg';
-import Frog from '../assets/button/frog.svg';
+import Back from '../../assets/button/back.svg';
+import NameLogo from '../../assets/nameLogo.svg';
+import Bear from '../../assets/button/bear.svg';
+import Frog from '../../assets/button/frog.svg';
 
-import { logout } from '../libs/auth';
+import { logout } from '../../libs/auth';
 
 interface Props {
   title: string;
@@ -34,7 +34,7 @@ const Header: FC<Props> = ({ title }) => {
             {window.location.pathname === '/' && (
               <>
                 <HeaderButton text='園児' img={Bear} onClick={usage} />
-                <HeaderButton text='ログアウト' img={Frog} onClick={logout} />
+                <HeaderButton text='設定' img={Frog} onClick={logout} />
               </>
             )}
           </div>

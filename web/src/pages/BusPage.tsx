@@ -4,7 +4,7 @@ import { Link } from 'react-router-dom';
 import Bus from '../assets/bus.svg';
 import Tulip from '../assets/button/tulip.svg';
 
-import Header from '../components/Header';
+import Header from '../components/organisms/Header';
 import Background from '../components/organisms/Background';
 
 const BusPage: FC = () => {

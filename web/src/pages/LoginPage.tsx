@@ -3,7 +3,7 @@ import { useNavigate } from 'react-router-dom';
 
 import FormText from '../components/atoms/FormText';
 import NameLogo from '../assets/nameLogo.svg';
-import Loading from '../components/Loading';
+import Loading from '../components/organisms/Loading';
 
 import { login } from '../libs/auth';
 

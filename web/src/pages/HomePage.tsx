@@ -1,7 +1,7 @@
 import { FC, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 
-import Header from '../components/Header';
+import Header from '../components/organisms/Header';
 import Background from '../components/organisms/Background';
 import BusButton from '../components/atoms/BusButton';
 import Pluss from '../assets/button/pluss.svg';

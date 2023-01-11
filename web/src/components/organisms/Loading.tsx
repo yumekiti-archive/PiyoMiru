@@ -1,7 +1,7 @@
 import { FC } from 'react';
 
-import Hiyoko from '../assets/hiyoko.svg';
-import Logo from '../assets/loadingLogo.svg';
+import Hiyoko from '../../assets/hiyoko.svg';
+import Logo from '../../assets/loadingLogo.svg';
 
 const Loading: FC = () => {
   return (

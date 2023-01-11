@@ -3,7 +3,7 @@ import { useNavigate, useLocation } from 'react-router-dom';
 
 import FormText from '../components/atoms/FormText';
 import NameLogo from '../assets/nameLogo.svg';
-import Header from '../components/Header';
+import Header from '../components/organisms/Header';
 
 import FormButton from '../components/atoms/FormButton';
 import { register } from '../libs/auth';

@@ -9,6 +9,7 @@ import HomePage from './pages/HomePage';
 import LP from './pages/Register/LP';
 import RegisterPage from './pages/RegisterPage';
 import GroupPage from './pages/GroupPage';
+import SettingsPage from './pages/SettingsPage';
 
 const App: FC = () => {
   return (
@@ -21,6 +22,7 @@ const App: FC = () => {
       <Route path='/lp' element={<LP />} />
       <Route path='/register' element={<RegisterPage />} />
       <Route path='/group' element={<GroupPage />} />
+      <Route path='/settings' element={<SettingsPage />} />
     </Routes>
   );
 };

@@ -1,6 +1,6 @@
 import { FC } from 'react';
 
-import Header from '../components/Header';
+import Header from '../components/organisms/Header';
 import ListCard from '../components/atoms/ListCard';
 
 const ListPage: FC = () => {
