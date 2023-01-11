@@ -8,8 +8,6 @@ import NameLogo from '../../assets/nameLogo.svg';
 import Bear from '../../assets/button/bear.svg';
 import Frog from '../../assets/button/frog.svg';
 
-import { logout } from '../../libs/auth';
-
 interface Props {
   title: string;
 }
@@ -25,6 +23,10 @@ const Header: FC<Props> = ({ title }) => {
     navigate('/usage');
   };
 
+  const settings = () => {
+    navigate('/settings');
+  };
+
   return (
     <div className='flex w-full items-end justify-center h-24 bg-[#FBD579] pb-2 absolute top-0 left-0 z-10 border-b-2 border-[#FFFAE3]'>
       {title === '' ? (
@@ -34,7 +36,7 @@ const Header: FC<Props> = ({ title }) => {
             {window.location.pathname === '/' && (
               <>
                 <HeaderButton text='園児' img={Bear} onClick={usage} />
-                <HeaderButton text='設定' img={Frog} onClick={logout} />
+                <HeaderButton text='設定' img={Frog} onClick={settings} />
               </>
             )}
           </div>
