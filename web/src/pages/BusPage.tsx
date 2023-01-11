@@ -41,7 +41,7 @@ const BusPage: FC = () => {
     user && bus && (
       <>
         <Header title='乗車中園児 一覧' />
-        <Background type='bus' />
+        {bus.attributes.status && <Background type='bus' /> }
         <div className='bg-sora h-screen'>
           <div className='h-2/6 flex items-end justify-center'>
             <div className='text-4xl font-bold'>
