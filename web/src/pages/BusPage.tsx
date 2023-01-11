@@ -1,5 +1,6 @@
 import { FC } from 'react';
 import { Link, useParams } from 'react-router-dom';
+import { useRecoilValue } from 'recoil';
 
 import Bus from '../assets/bus.svg';
 import BusRun from '../assets/busRun.svg';
@@ -10,10 +11,14 @@ import Header from '../components/organisms/Header';
 import Background from '../components/organisms/Background';
 
 import { useBusesFindOne } from '../libs/buses';
+import { userState } from '../recoil/userState';
 
 const BusPage: FC = () => {
   const { id } = useParams<{ id: string }>();
   const { data, error, isLoading } = useBusesFindOne(id);
+  const user = useRecoilValue(userState)
+
+  console.log(user);
 
   return (
     data && (
