@@ -1,6 +1,6 @@
-import { FC } from 'react';
+import { FC, useEffect } from 'react';
 import { Link, useParams } from 'react-router-dom';
-import { useRecoilValue } from 'recoil';
+import { useRecoilValue, useRecoilState } from 'recoil';
 
 import Bus from '../assets/bus.svg';
 import BusRun from '../assets/busRun.svg';
@@ -11,32 +11,46 @@ import ChickBeginner from '../assets/button/chickBeginner.svg';
 import Header from '../components/organisms/Header';
 import Background from '../components/organisms/Background';
 
-import { useBusesFindOne } from '../libs/buses';
-import { userState } from '../recoil/atoms';
+import { useBusesFindOne, useBusesUpdate } from '../libs/buses';
+import { userState, busState } from '../recoil/atoms';
 
 const BusPage: FC = () => {
   const { id } = useParams<{ id: string }>();
-  const { data, error, isLoading } = useBusesFindOne(id);
   const user = useRecoilValue(userState);
+  const { data, error, isLoading } = useBusesFindOne(id);
+  const [bus, setBus] = useRecoilState(busState);
 
-  const handleStart = () => {
-    console.log('start');
+  useEffect(() => {
+    if (!data) return;
+    setBus(data.data);
+  }, [data]);
+
+  const HandleStart = () => {
+    const body = {
+      data: {
+        status: !bus.attributes.status,
+      }
+    };
+
+    useBusesUpdate(bus.id, body).then((res) => {
+      setBus(res.data.data);
+    });
   };
 
   return (
-    user && data && (
+    user && bus && (
       <>
         <Header title='乗車中園児 一覧' />
         <Background type='bus' />
         <div className='bg-sora h-screen'>
           <div className='h-2/6 flex items-end justify-center'>
             <div className='text-4xl font-bold'>
-              {data.data.attributes.name}
-              {data.data.attributes.status ? '運行中' : '停車中'}
+              {bus.attributes.name}
+              {bus.attributes.status ? '運行中...' : '停車中'}
             </div>
           </div>
           <div className='h-2/6 flex items-center justify-center'>
-            {data.data.attributes.status ? (
+            {bus.attributes.status ? (
               <img src={BusRun} alt='bus' className='w-80' />
             ) : (
               <img src={Bus} alt='bus' className='w-80' />
@@ -47,7 +61,7 @@ const BusPage: FC = () => {
               <>
                 <button
                   className='w-8/12 h-16 bg-[#ED6D47] rounded-2xl text-4xl flex items-center justify-center relative text-white relative'
-                  onClick={handleStart}
+                  onClick={HandleStart}
                 >
                   運転開始
                   <div className='w-full h-16 bg-[#DC3C14] rounded-2xl -z-10 absolute top-4 left-0' />
