@@ -17,7 +17,7 @@ import { useMe } from './libs/users';
 
 const Router: FC = () => {
   const navigate = useNavigate();
-  const [user, setUser] = useRecoilState(userState)
+  const [user, setUser] = useRecoilState(userState);
   const { data, error, isLoading } = useMe();
 
   useEffect(() => {
@@ -26,7 +26,7 @@ const Router: FC = () => {
     }
     if (error) localStorage.removeItem('jwt');
     if (!data) return;
-    setUser(data)
+    setUser(data);
   }, [data, error]);
 
   return (

@@ -16,7 +16,7 @@ import { userState } from '../recoil/userState';
 const BusPage: FC = () => {
   const { id } = useParams<{ id: string }>();
   const { data, error, isLoading } = useBusesFindOne(id);
-  const user = useRecoilValue(userState)
+  const user = useRecoilValue(userState);
 
   console.log(user);
 
@@ -28,14 +28,16 @@ const BusPage: FC = () => {
         <div className='bg-sora h-screen'>
           <div className='h-2/6 flex items-end justify-center'>
             <div className='text-4xl font-bold'>
-              { data.data.attributes.name }
-              { data.data.attributes.status ? '運行中' : '停車中' }
+              {data.data.attributes.name}
+              {data.data.attributes.status ? '運行中' : '停車中'}
             </div>
           </div>
           <div className='h-2/6 flex items-center justify-center'>
-            { data.data.attributes.status ?
-              <img src={BusRun} alt='bus' className='w-80' /> :
-              <img src={Bus} alt='bus' className='w-80' /> }
+            {data.data.attributes.status ? (
+              <img src={BusRun} alt='bus' className='w-80' />
+            ) : (
+              <img src={Bus} alt='bus' className='w-80' />
+            )}
           </div>
           <div className='h-2/6 flex items-center justify-center'>
             <Link
@@ -54,7 +56,7 @@ const BusPage: FC = () => {
               <img src={ChickTag} alt='tulip' className='w-10 h-10 mt-2 ml-1' />
               <div className='w-full h-16 bg-[#DAB357] rounded-2xl -z-10 absolute top-10 left-0' />
             </Link>
-            
+
             {/* <Link
               className='w-11/12 h-16 bg-[#FBD579] rounded-2xl text-4xl flex items-center justify-center relative'
               to='/list'
