@@ -16,9 +16,9 @@ import { userState, busState } from '../recoil/atoms';
 
 const BusPage: FC = () => {
   const { id } = useParams<{ id: string }>();
-  const user = useRecoilValue(userState);
   const { data, error, isLoading } = useBusesFindOne(id);
   const [bus, setBus] = useRecoilState(busState);
+  const [user, setUser] = useRecoilState(userState);
 
   useEffect(() => {
     if (!data) return;
