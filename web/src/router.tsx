@@ -12,7 +12,7 @@ import RegisterPage from './pages/RegisterPage';
 import GroupPage from './pages/GroupPage';
 import SettingsPage from './pages/SettingsPage';
 
-import { userState } from './recoil/userState';
+import { userState } from './recoil/atoms';
 import { useMe } from './libs/users';
 
 const Router: FC = () => {

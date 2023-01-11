@@ -6,7 +6,7 @@ import Background from '../components/organisms/Background';
 import BusButton from '../components/atoms/BusButton';
 import Pluss from '../assets/button/pluss.svg';
 
-import { userState } from '../recoil/userState';
+import { userState } from '../recoil/atoms';
 
 const HomePage: FC = () => {
   const user = useRecoilValue(userState);
