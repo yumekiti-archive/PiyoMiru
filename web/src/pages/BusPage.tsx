@@ -64,14 +64,14 @@ const BusPage: FC = () => {
               <>
                 <button
                   className={`w-8/12 h-16 ${
-                    bus.attributes.status ? 'bg-[#ED6D47] text-white' : 'bg-[#90D7EC] text-[#666666]'
+                    !bus.attributes.status ? 'bg-[#ED6D47] text-white' : 'bg-[#90D7EC] text-[#666666]'
                   } rounded-2xl text-4xl flex items-center justify-center relative relative`}
                   onClick={HandleStart}
                 >
-                  {bus.attributes.status ? '運転開始' : '運転終了'}
+                  {!bus.attributes.status ? '運転開始' : '運転終了'}
                   <div
                     className={`w-full h-16 ${
-                      bus.attributes.status ? 'bg-[#DC3C14]' : 'bg-[#6EC5CA]'
+                      !bus.attributes.status ? 'bg-[#DC3C14]' : 'bg-[#6EC5CA]'
                     } rounded-2xl -z-10 absolute top-4 left-0`}
                   />
                   <img
