@@ -14,11 +14,11 @@
   "attributes": {
     "start": {
       "type": "datetime",
-      "required": true
+      "required": false
     },
     "emd": {
       "type": "datetime",
-      "required": true
+      "required": false
     },
     "bus": {
       "type": "relation",
