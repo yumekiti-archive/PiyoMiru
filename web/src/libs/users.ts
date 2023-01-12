@@ -10,6 +10,6 @@ export const useMe = () => {
 };
 
 // passenger
-export const usePassenger = (id: string) => {
+export const usePassenger = (id: string | undefined) => {
   return useSWR(`/api/users?filters[group][id][$eq]=${id}`, fetcher);
 };
