@@ -12,6 +12,21 @@ services:
       - web
       - api
 
+  socket:
+    image: node:16-alpine
+    container_name: piyomiru-socket
+    working_dir: /app
+    volumes:
+      - ./socket:/app
+    ports:
+      - 3001:3001
+    command: >
+      sh -c "
+        npm install -g nodemon &&
+        npm install &&
+        nodemon app
+      "
+
   web:
     image: node:16-alpine
     container_name: piyomiru-web
