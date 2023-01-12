@@ -11,7 +11,6 @@ import RegisterPage from './pages/RegisterPage';
 import GroupPage from './pages/GroupPage';
 import SettingsPage from './pages/SettingsPage';
 
-
 const Router: FC = () => {
   return (
     <Routes>

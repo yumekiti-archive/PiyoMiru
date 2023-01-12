@@ -31,7 +31,7 @@ const BusPage: FC = () => {
     const body = {
       data: {
         status: !bus.attributes.status,
-      }
+      },
     };
 
     useBusesUpdate(bus.id, body).then((res) => {
@@ -40,10 +40,11 @@ const BusPage: FC = () => {
   };
 
   return (
-    user && bus && (
+    user &&
+    bus && (
       <>
         <Header title='乗車中園児 一覧' />
-        {bus.attributes.status && <Background type='bus' /> }
+        {bus.attributes.status && <Background type='bus' />}
         <div className='bg-sora h-screen'>
           <div className='h-2/6 flex items-end justify-center'>
             <div className='text-4xl font-bold'>
@@ -67,7 +68,12 @@ const BusPage: FC = () => {
                 >
                   運転開始
                   <div className='w-full h-16 bg-[#DC3C14] rounded-2xl -z-10 absolute top-4 left-0' />
-                  <img src={ChickBeginner} alt='ChickBeginner' style={{ height: '60%' }} className='absolute -top-8 right-2' />
+                  <img
+                    src={ChickBeginner}
+                    alt='ChickBeginner'
+                    style={{ height: '60%' }}
+                    className='absolute -top-8 right-2'
+                  />
                 </button>
               </>
             ) : (

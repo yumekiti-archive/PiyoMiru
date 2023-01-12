@@ -10,7 +10,6 @@ import Pluss from '../assets/button/pluss.svg';
 import { userState } from '../recoil/atoms';
 import { useMe } from '../libs/users';
 
-
 const HomePage: FC = () => {
   const navigate = useNavigate();
   const [user, setUser] = useRecoilState(userState);

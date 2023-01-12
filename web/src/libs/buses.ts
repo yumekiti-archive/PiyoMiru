@@ -10,4 +10,4 @@ export const useBusesFindOne = (id: string | undefined) => {
 // update
 export const useBusesUpdate = (id: string | undefined, body: any) => {
   return client.put(`/api/buses/${id}`, body);
-}
+};
