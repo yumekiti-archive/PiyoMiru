@@ -1,4 +1,4 @@
-import { fetcherWithOauth } from './client';
+import { fetcher, fetcherWithOauth } from './client';
 import useSWR from 'swr';
 
 // me
@@ -7,4 +7,9 @@ export const useMe = () => {
     '/api/users/me?populate[family][populate]&populate[group][populate][buses][populate]',
     fetcherWithOauth,
   );
+};
+
+// passenger
+export const usePassenger = (id: string) => {
+  return useSWR(`/api/users?filters[group][id][$eq]=${id}`, fetcher);
 };

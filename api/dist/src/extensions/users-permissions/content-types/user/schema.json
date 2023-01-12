@@ -80,6 +80,10 @@
         "displayname": {
             "type": "string",
             "required": true
+        },
+        "passenger": {
+            "type": "boolean",
+            "default": false
         }
     }
 }

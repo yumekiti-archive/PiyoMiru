@@ -20,7 +20,7 @@ const Header: FC<Props> = ({ title }) => {
   };
 
   const usage = () => {
-    navigate('/usage');
+    navigate('/list');
   };
 
   const settings = () => {
