@@ -24,7 +24,7 @@ const Header: FC<Props> = ({ title }) => {
   };
 
   const usage = () => {
-    navigate('/list', { state: { id: user.id } });
+    navigate('/list', { state: { id: user.group.id } });
   };
 
   const settings = () => {
