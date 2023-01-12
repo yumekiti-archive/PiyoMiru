@@ -34,12 +34,12 @@ const LPPage: FC = () => {
         {page === 3 && <LandingPage3 className='animate-slide-in-fwd-center' style={{ height: '120%' }} />}
 
         {(page === 2 || page === 3) && (
-          <div className='absolute top-48 left-6'>
+          <div className='absolute mt-8 top-1/2 left-6'>
             <Left style={{ height: '100%' }} onClick={prevPage} />
           </div>
         )}
         {(page === 1 || page === 2) && (
-          <div className='absolute top-48 right-6'>
+          <div className='absolute mt-8 top-1/2 right-6'>
             <Right style={{ height: '100%' }} onClick={nextPage} />
           </div>
         )}
