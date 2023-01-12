@@ -1,0 +1,27 @@
+{
+  "name": "piyomiru",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "prepare": "husky install",
+    "format": "prettier --write --ignore-path .gitignore './**/*.{js,jsx,ts,tsx,json,css}'"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/yumekiti/piyomiru.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/yumekiti/piyomiru/issues"
+  },
+  "homepage": "https://github.com/yumekiti/piyomiru#readme",
+  "devDependencies": {
+    "husky": "^8.0.0"
+  },
+  "dependencies": {
+    "prettier": "^2.8.2"
+  }
+}
