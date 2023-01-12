@@ -1,6 +1,5 @@
 import { FC, useEffect } from 'react';
 import { Routes, Route, useNavigate } from 'react-router-dom';
-import { useRecoilState } from 'recoil';
 
 import LoginPage from './pages/LoginPage';
 import BusPage from './pages/BusPage';
@@ -12,23 +11,8 @@ import RegisterPage from './pages/RegisterPage';
 import GroupPage from './pages/GroupPage';
 import SettingsPage from './pages/SettingsPage';
 
-import { userState } from './recoil/atoms';
-import { useMe } from './libs/users';
 
 const Router: FC = () => {
-  const navigate = useNavigate();
-  const [user, setUser] = useRecoilState(userState);
-  const { data, error, isLoading } = useMe();
-
-  useEffect(() => {
-    if (localStorage.getItem('jwt') === null) {
-      navigate('/login');
-    }
-    if (error) localStorage.removeItem('jwt');
-    if (!data) return;
-    setUser(data);
-  }, [data, error]);
-
   return (
     <Routes>
       <Route path='/' element={<HomePage />} />

@@ -1,5 +1,5 @@
 import { FC, useEffect } from 'react';
-import { Link, useParams } from 'react-router-dom';
+import { Link, useParams, useNavigate } from 'react-router-dom';
 import { useRecoilValue, useRecoilState } from 'recoil';
 
 import Bus from '../assets/bus.svg';
@@ -15,12 +15,14 @@ import { useBusesFindOne, useBusesUpdate } from '../libs/buses';
 import { userState, busState } from '../recoil/atoms';
 
 const BusPage: FC = () => {
+  const navigate = useNavigate();
   const { id } = useParams<{ id: string }>();
   const { data, error, isLoading } = useBusesFindOne(id);
   const [bus, setBus] = useRecoilState(busState);
   const [user, setUser] = useRecoilState(userState);
 
   useEffect(() => {
+    if (!user) navigate('/');
     if (!data) return;
     setBus(data.data);
   }, [data]);
