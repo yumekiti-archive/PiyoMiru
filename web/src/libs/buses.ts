@@ -11,3 +11,8 @@ export const useBusesFindOne = (id: string | undefined) => {
 export const useBusesUpdate = (id: string | undefined, body: any) => {
   return client.put(`/api/buses/${id}`, body);
 };
+
+// create
+export const useBusesCreate = (body: any) => {
+  return client.post(`/api/buses`, body);
+};

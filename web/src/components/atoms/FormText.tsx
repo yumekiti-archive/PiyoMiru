@@ -3,7 +3,7 @@ import ListIcon from '../../assets/listIcon.svg';
 
 interface Props {
   icon?: boolean;
-  label: string;
+  label?: string;
   value: string;
   onChange?: (e: React.ChangeEvent<HTMLInputElement>) => void;
 }
