@@ -16,7 +16,7 @@
             "type": "datetime",
             "required": false
         },
-        "emd": {
+        "end": {
             "type": "datetime",
             "required": false
         },
