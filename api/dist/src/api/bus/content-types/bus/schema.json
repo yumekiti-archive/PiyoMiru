@@ -1,24 +1,24 @@
 {
-  "kind": "collectionType",
-  "collectionName": "buses",
-  "info": {
-    "singularName": "bus",
-    "pluralName": "buses",
-    "displayName": "Bus",
-    "description": ""
-  },
-  "options": {
-    "draftAndPublish": true
-  },
-  "pluginOptions": {},
-  "attributes": {
-    "name": {
-      "type": "string",
-      "required": true
+    "kind": "collectionType",
+    "collectionName": "buses",
+    "info": {
+        "singularName": "bus",
+        "pluralName": "buses",
+        "displayName": "Bus",
+        "description": ""
     },
-    "status": {
-      "type": "boolean",
-      "default": false
+    "options": {
+        "draftAndPublish": true
+    },
+    "pluginOptions": {},
+    "attributes": {
+        "name": {
+            "type": "string",
+            "required": true
+        },
+        "status": {
+            "type": "boolean",
+            "default": false
+        }
     }
-  }
 }

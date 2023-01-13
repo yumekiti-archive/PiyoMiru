@@ -1,30 +1,30 @@
 {
-  "kind": "collectionType",
-  "collectionName": "passengers",
-  "info": {
-    "singularName": "passenger",
-    "pluralName": "passengers",
-    "displayName": "Passenger",
-    "description": ""
-  },
-  "options": {
-    "draftAndPublish": true
-  },
-  "pluginOptions": {},
-  "attributes": {
-    "status": {
-      "type": "boolean",
-      "default": true
+    "kind": "collectionType",
+    "collectionName": "passengers",
+    "info": {
+        "singularName": "passenger",
+        "pluralName": "passengers",
+        "displayName": "Passenger",
+        "description": ""
     },
-    "operation": {
-      "type": "relation",
-      "relation": "oneToOne",
-      "target": "api::operation.operation"
+    "options": {
+        "draftAndPublish": true
     },
-    "users_permissions_user": {
-      "type": "relation",
-      "relation": "oneToOne",
-      "target": "plugin::users-permissions.user"
+    "pluginOptions": {},
+    "attributes": {
+        "status": {
+            "type": "boolean",
+            "default": true
+        },
+        "operation": {
+            "type": "relation",
+            "relation": "oneToOne",
+            "target": "api::operation.operation"
+        },
+        "users_permissions_user": {
+            "type": "relation",
+            "relation": "oneToOne",
+            "target": "plugin::users-permissions.user"
+        }
     }
-  }
 }

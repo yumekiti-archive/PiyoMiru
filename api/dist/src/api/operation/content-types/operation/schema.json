@@ -1,29 +1,29 @@
 {
-  "kind": "collectionType",
-  "collectionName": "operations",
-  "info": {
-    "singularName": "operation",
-    "pluralName": "operations",
-    "displayName": "Operation",
-    "description": ""
-  },
-  "options": {
-    "draftAndPublish": true
-  },
-  "pluginOptions": {},
-  "attributes": {
-    "start": {
-      "type": "datetime",
-      "required": false
+    "kind": "collectionType",
+    "collectionName": "operations",
+    "info": {
+        "singularName": "operation",
+        "pluralName": "operations",
+        "displayName": "Operation",
+        "description": ""
     },
-    "end": {
-      "type": "datetime",
-      "required": false
+    "options": {
+        "draftAndPublish": true
     },
-    "bus": {
-      "type": "relation",
-      "relation": "oneToOne",
-      "target": "api::bus.bus"
+    "pluginOptions": {},
+    "attributes": {
+        "start": {
+            "type": "datetime",
+            "required": false
+        },
+        "end": {
+            "type": "datetime",
+            "required": false
+        },
+        "bus": {
+            "type": "relation",
+            "relation": "oneToOne",
+            "target": "api::bus.bus"
+        }
     }
-  }
 }
