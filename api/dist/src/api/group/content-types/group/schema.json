@@ -1,34 +1,34 @@
 {
-    "kind": "collectionType",
-    "collectionName": "groups",
-    "info": {
-        "singularName": "group",
-        "pluralName": "groups",
-        "displayName": "Group",
-        "description": ""
+  "kind": "collectionType",
+  "collectionName": "groups",
+  "info": {
+    "singularName": "group",
+    "pluralName": "groups",
+    "displayName": "Group",
+    "description": ""
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "displayname": {
+      "type": "string",
+      "required": true
     },
-    "options": {
-        "draftAndPublish": true
+    "address": {
+      "type": "string",
+      "required": true
     },
-    "pluginOptions": {},
-    "attributes": {
-        "displayname": {
-            "type": "string",
-            "required": true
-        },
-        "address": {
-            "type": "string",
-            "required": true
-        },
-        "groupname": {
-            "type": "string",
-            "unique": true,
-            "required": true
-        },
-        "buses": {
-            "type": "relation",
-            "relation": "oneToMany",
-            "target": "api::bus.bus"
-        }
+    "groupname": {
+      "type": "string",
+      "unique": true,
+      "required": true
+    },
+    "buses": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::bus.bus"
     }
+  }
 }
