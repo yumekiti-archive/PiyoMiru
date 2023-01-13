@@ -1,8 +1,1 @@
 node_modules
-build
-_
-
-.tmp
-.cache
-.strapi-updater.json
-
