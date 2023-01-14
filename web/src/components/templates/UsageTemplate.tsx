@@ -9,12 +9,12 @@ import Parents from '../../assets/button/parents.svg';
 import Driver from '../../assets/button/driver.svg';
 
 interface Props {
-  driver: boolean;
-  setDriver: (driver: boolean) => void;
+  manager: boolean;
+  setManager: (driver: boolean) => void;
   decision: () => void;
 }
 
-const UsageTemplate: FC<Props> = ({ driver, setDriver, decision }) => {
+const UsageTemplate: FC<Props> = ({ manager, setManager, decision }) => {
   return (
     <div className='h-screen bg-[#FBD579] w-full'>
       <div className='h-1/6' />
@@ -23,10 +23,10 @@ const UsageTemplate: FC<Props> = ({ driver, setDriver, decision }) => {
       </div>
       <div className='h-2/6 w-full flex justify-evenly items-start'>
         <div className='w-4/12'>
-          <UsageButton toggle={!driver} text='保護者様は' img={Parents} onClick={() => setDriver(false)} />
+          <UsageButton toggle={!manager} text='保護者様は' img={Parents} onClick={() => setManager(false)} />
         </div>
         <div className='w-4/12'>
-          <UsageButton toggle={driver} text='運転手の方は' img={Driver} onClick={() => setDriver(true)} />
+          <UsageButton toggle={manager} text='運転手の方は' img={Driver} onClick={() => setManager(true)} />
         </div>
       </div>
       <div className='h-2/6 w-full flex items-center justify-center'>

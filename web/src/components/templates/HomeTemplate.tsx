@@ -48,7 +48,7 @@ const HomeTemplate: FC<Props> = ({ addBusFlag, busName, setBusName, setAddBusFla
                       <BusButton to={`/bus/${bus.id}`} name={bus.name} drive={bus.status} />
                     </div>
                   ))}
-                  {data.driver && (
+                  {data.manager && (
                     <div className='w-1/2 h-36 flex items-center justify-center'>
                       <button
                         className='w-10/12 h-28 rounded-xl bg-[#FFE39E] flex justify-center items-center'
