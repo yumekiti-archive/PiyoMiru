@@ -79,7 +79,8 @@
         },
         "displayname": {
             "type": "string",
-            "required": true
+            "required": true,
+            "default": "ゲスト"
         },
         "passenger": {
             "type": "boolean",
