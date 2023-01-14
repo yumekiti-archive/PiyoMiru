@@ -1,7 +1,7 @@
 import { FC, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 
-import FormButton from '../../components/atoms/FormButton';
+import Button from '../../components/atoms/Button';
 
 import { ReactComponent as LandingPage1 } from '../../assets/lp/landingPage1.svg';
 import { ReactComponent as LandingPage2 } from '../../assets/lp/landingPage2.svg';
@@ -45,7 +45,7 @@ const LPPage: FC = () => {
         )}
       </div>
       <div className='h-2/6 w-full flex items-center justify-center'>
-        <div className='w-10/12'>{page === 3 && <FormButton text='はじめる' onClick={usagePage} />}</div>
+        <div className='w-10/12'>{page === 3 && <Button text='はじめる' onClick={usagePage} />}</div>
       </div>
     </div>
   );

@@ -7,7 +7,7 @@ import Loading from '../components/organisms/Loading';
 
 import { login } from '../libs/auth';
 
-import FormButton from '../components/atoms/FormButton';
+import Button from '../components/atoms/Button';
 
 const LoginPage: FC = () => {
   const [email, setEmail] = useState('');
@@ -62,7 +62,7 @@ const LoginPage: FC = () => {
         </div>
         <div className='h-2/6 w-full flex items-center justify-center'>
           <div className='w-10/12'>
-            <FormButton text='ログイン' onClick={onClickLogin} />
+            <Button text='ログイン' onClick={onClickLogin} />
             <p className='text-center text-sm mt-4'>
               アカウントをお持ちでない場合
               <span className='underline' onClick={register}>

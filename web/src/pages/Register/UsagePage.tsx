@@ -1,7 +1,7 @@
 import { FC, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 
-import FormButton from '../../components/atoms/FormButton';
+import Button from '../../components/atoms/Button';
 import UsageButton from '../../components/atoms/UsageButton';
 
 import NameLogo from '../../assets/nameLogo.svg';
@@ -32,7 +32,7 @@ const UsagePage: FC = () => {
       </div>
       <div className='h-2/6 w-full flex items-center justify-center'>
         <div className='w-10/12'>
-          <FormButton text='決定' onClick={decision} />
+          <Button text='決定' onClick={decision} />
         </div>
       </div>
     </div>

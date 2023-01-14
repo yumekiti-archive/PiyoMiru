@@ -5,7 +5,7 @@ import FormText from '../components/atoms/FormText';
 import NameLogo from '../assets/nameLogo.svg';
 import Header from '../components/organisms/Header';
 
-import FormButton from '../components/atoms/FormButton';
+import Button from '../components/atoms/Button';
 import { register } from '../libs/auth';
 
 const RegisterPage: FC = () => {
@@ -87,7 +87,7 @@ const RegisterPage: FC = () => {
           </div>
           <div className='h-2/6 w-full flex items-center justify-center z-10'>
             <div className='w-10/12'>
-              <FormButton text='つぎへ' onClick={onClickNext} />
+              <Button text='つぎへ' onClick={onClickNext} />
             </div>
           </div>
         </>
@@ -106,10 +106,10 @@ const RegisterPage: FC = () => {
           </div>
           <div className='h-2/6 w-full flex items-center justify-center z-10'>
             <div className='w-4/12 mr-4'>
-              <FormButton text='もどる' onClick={onClickBack} />
+              <Button text='もどる' onClick={onClickBack} />
             </div>
             <div className='w-6/12'>
-              <FormButton text='とうろく' onClick={onClickRegister} />
+              <Button text='とうろく' onClick={onClickRegister} />
             </div>
           </div>
         </>

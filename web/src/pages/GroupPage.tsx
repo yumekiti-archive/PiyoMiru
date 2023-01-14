@@ -5,7 +5,7 @@ import FormText from '../components/atoms/FormText';
 import NameLogo from '../assets/nameLogo.svg';
 import Header from '../components/organisms/Header';
 
-import FormButton from '../components/atoms/FormButton';
+import Button from '../components/atoms/Button';
 import { register } from '../libs/auth';
 
 const GroupPage: FC = () => {
@@ -34,7 +34,7 @@ const GroupPage: FC = () => {
       </div>
       <div className='h-2/6 w-full flex items-center justify-center'>
         <div className='w-10/12'>
-          <FormButton text='とうろく' onClick={onClickRegister} />
+          <Button text='とうろく' onClick={onClickRegister} />
         </div>
       </div>
     </div>
