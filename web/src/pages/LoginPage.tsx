@@ -2,7 +2,7 @@ import { FC, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { login } from '../libs/auth';
 
-import Login from '../components/templates/LoginTemplate';
+import LoginTemplate from '../components/templates/LoginTemplate';
 
 const LoginPage: FC = () => {
   const navigate = useNavigate();
@@ -34,7 +34,7 @@ const LoginPage: FC = () => {
   };
 
   return (
-    <Login
+    <LoginTemplate
       identifier={identifier}
       password={password}
       error={error}
