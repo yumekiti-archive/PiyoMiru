@@ -11,11 +11,7 @@ const SettingsPage: FC = () => {
     navigate('/login');
   };
 
-  return (
-    <SettingsTemplate
-      onClickLogout={onClickLogout}
-    />
-  );
+  return <SettingsTemplate onClickLogout={onClickLogout} />;
 };
 
 export default SettingsPage;
