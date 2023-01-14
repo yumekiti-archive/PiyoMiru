@@ -73,7 +73,7 @@
       "relation": "oneToOne",
       "target": "api::family.family"
     },
-    "manager": {
+    "driver": {
       "type": "boolean",
       "default": false
     },

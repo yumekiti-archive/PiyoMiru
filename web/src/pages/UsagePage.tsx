@@ -6,12 +6,12 @@ import UsageTemplate from '../components/templates/UsageTemplate';
 const UsagePage: FC = () => {
   const navigate = useNavigate();
   const decision = () => {
-    navigate('/register', { state: { manager } });
+    navigate('/register', { state: { driver } });
   };
 
-  const [manager, setManager] = useState(false);
+  const [driver, setDriver] = useState(false);
 
-  return <UsageTemplate manager={manager} setManager={setManager} decision={decision} />;
+  return <UsageTemplate driver={driver} setDriver={setDriver} decision={decision} />;
 };
 
 export default UsagePage;

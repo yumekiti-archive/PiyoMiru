@@ -60,7 +60,7 @@ const BusPage: FC = () => {
             )}
           </div>
           <div className='h-2/6 flex items-center justify-center'>
-            {user.manager ? (
+            {user.driver ? (
               <>
                 <button
                   className={`w-8/12 h-16 ${

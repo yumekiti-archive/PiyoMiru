@@ -8,7 +8,7 @@ const RegisterPage: FC = () => {
   const location = useLocation();
   const navigate = useNavigate();
 
-  const [manager, setManager] = useState(location.state?.manager || false);
+  const [driver, setDriver] = useState(location.state?.driver || false);
   const [username, setUsername] = useState('');
   const [displayname, setDisplayname] = useState('');
   const [email, setEmail] = useState('');
@@ -25,7 +25,7 @@ const RegisterPage: FC = () => {
       displayname: displayname,
       email: email,
       password: password,
-      manager: manager,
+      driver: driver,
     };
 
     register(body)
