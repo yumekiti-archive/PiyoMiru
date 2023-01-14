@@ -9,14 +9,12 @@ import { useMe } from '../libs/users';
 
 const HomePage: FC = () => {
   const navigate = useNavigate();
+
   const [addBusFlag, setAddBusFlag] = useState(false);
   const [busName, setBusName] = useState('');
+
   const [user, setUser] = useRecoilState(userState);
   const { data, error, isLoading } = useMe();
-
-  const ChangeAddBusFlag = () => {
-    setAddBusFlag(!addBusFlag);
-  };
 
   const AddBus = () => {
     console.log('hoge');
@@ -36,9 +34,8 @@ const HomePage: FC = () => {
       addBusFlag={addBusFlag}
       busName={busName}
       setBusName={setBusName}
-      setAddBusFlag={ChangeAddBusFlag}
+      setAddBusFlag={setAddBusFlag}
       addBus={AddBus}
-
       data={data}
     />
   );

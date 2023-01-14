@@ -19,10 +19,7 @@ interface Props {
   data: any;
 }
 
-const HomeTemplate: FC<Props> = ({
-  addBusFlag, busName, setBusName, setAddBusFlag, addBus,
-  data
-}) => {
+const HomeTemplate: FC<Props> = ({ addBusFlag, busName, setBusName, setAddBusFlag, addBus, data }) => {
   return (
     data && (
       <>
@@ -40,7 +37,9 @@ const HomeTemplate: FC<Props> = ({
               <div className='h-2/6 w-full flex justify-center items-center'>
                 <button
                   className=' h-12 w-4/12 bg-[#E3EEF9] text-[#666666] rounded-xl mr-16'
-                  onClick={() => {setAddBusFlag(!addBusFlag)}}
+                  onClick={() => {
+                    setAddBusFlag(!addBusFlag);
+                  }}
                 >
                   キャンセル
                 </button>
@@ -60,7 +59,7 @@ const HomeTemplate: FC<Props> = ({
               </div>
             </div>
             <div className='flex justify-center'>
-              {data.group &&
+              {data.group && (
                 <div className='w-10/12 flex justify-start flex-wrap'>
                   {data.group.buses.map((bus: any, index: number) => (
                     <div key={index} className='w-1/2 h-36 flex items-center justify-center'>
@@ -71,14 +70,16 @@ const HomeTemplate: FC<Props> = ({
                     <div className='w-1/2 h-36 flex items-center justify-center'>
                       <button
                         className='w-10/12 h-28 rounded-xl bg-[#FFE39E] flex justify-center items-center'
-                        onClick={() => {setAddBusFlag(!addBusFlag)}}
+                        onClick={() => {
+                          setAddBusFlag(!addBusFlag);
+                        }}
                       >
                         <img src={Pluss} alt='pluss' />
                       </button>
                     </div>
                   )}
                 </div>
-              }
+              )}
             </div>
           </div>
         </div>
