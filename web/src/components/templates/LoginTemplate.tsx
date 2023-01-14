@@ -52,7 +52,7 @@ const LoginTemplate: FC<Props> = ({
             <Button text='ログイン' onClick={onClickLogin} />
             <p className='text-center text-sm mt-4'>
               アカウントをお持ちでない場合
-              <Link to='register' className='underline'>
+              <Link to='/lp' className='underline'>
                 登録はこちら
               </Link>
             </p>

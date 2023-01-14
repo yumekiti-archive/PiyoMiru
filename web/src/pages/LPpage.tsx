@@ -1,13 +1,13 @@
 import { FC, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 
-import Button from '../../components/atoms/Button';
+import Button from '../components/atoms/Button';
 
-import { ReactComponent as LandingPage1 } from '../../assets/lp/landingPage1.svg';
-import { ReactComponent as LandingPage2 } from '../../assets/lp/landingPage2.svg';
-import { ReactComponent as LandingPage3 } from '../../assets/lp/landingPage3.svg';
-import { ReactComponent as Right } from '../../assets/lp/right.svg';
-import { ReactComponent as Left } from '../../assets/lp/left.svg';
+import { ReactComponent as LandingPage1 } from '../assets/lp/landingPage1.svg';
+import { ReactComponent as LandingPage2 } from '../assets/lp/landingPage2.svg';
+import { ReactComponent as LandingPage3 } from '../assets/lp/landingPage3.svg';
+import { ReactComponent as Right } from '../assets/lp/right.svg';
+import { ReactComponent as Left } from '../assets/lp/left.svg';
 
 const LPPage: FC = () => {
   const [page, setPage] = useState(1);

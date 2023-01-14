@@ -1,12 +1,12 @@
 import { FC, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 
-import Button from '../../components/atoms/Button';
-import UsageButton from '../../components/atoms/UsageButton';
+import Button from '../components/atoms/Button';
+import UsageButton from '../components/atoms/UsageButton';
 
-import NameLogo from '../../assets/nameLogo.svg';
-import Parents from '../../assets/button/parents.svg';
-import Driver from '../../assets/button/driver.svg';
+import NameLogo from '../assets/nameLogo.svg';
+import Parents from '../assets/button/parents.svg';
+import Driver from '../assets/button/driver.svg';
 
 const UsagePage: FC = () => {
   const navigate = useNavigate();
