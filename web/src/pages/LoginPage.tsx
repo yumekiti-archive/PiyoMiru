@@ -10,7 +10,7 @@ const LoginPage: FC = () => {
   const [identifier, setIdentifier] = useState('');
   const [password, setPassword] = useState('');
   const [error, setError] = useState('');
-  const [errorsDetails, setErrorsDetails] = useState([]);
+  const [errorDetails, setErrorsDetails] = useState([]);
 
   const onClickLogin = (identifier: string, password: string) => {
     const body = {
@@ -38,7 +38,7 @@ const LoginPage: FC = () => {
       identifier={identifier}
       password={password}
       error={error}
-      errorsDetails={errorsDetails}
+      errorDetails={errorDetails}
 
       setIdentifier={setIdentifier}
       setPassword={setPassword}

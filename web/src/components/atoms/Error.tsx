@@ -2,14 +2,14 @@ import { FC } from 'react';
 
 interface Props {
   error : string
-  errorsDetails : Array<any>
+  errorDetails : Array<any>
 }
 
-const Error: FC<Props> = ({ error, errorsDetails }) => {
+const Error: FC<Props> = ({ error, errorDetails }) => {
   return (
     <>
-      { errorsDetails.length > 0 ? (
-        errorsDetails.map((err: any, index: number) => (
+      { errorDetails.length > 0 ? (
+        errorDetails.map((err: any, index: number) => (
           <p key={index} className='text-red-500 text-sm'>
             {err.message}
           </p>

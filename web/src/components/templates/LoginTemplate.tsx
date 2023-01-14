@@ -12,7 +12,7 @@ interface Props {
   identifier: string;
   password: string;
   error: string;
-  errorsDetails: Array<any>;
+  errorDetails: Array<any>;
 
   setIdentifier: (value: string) => void;
   setPassword: (value: string) => void;
@@ -21,7 +21,7 @@ interface Props {
 }
 
 const LoginTemplate: FC<Props> = ({
-  identifier, password, error, errorsDetails, setIdentifier, setPassword, onClickLogin
+  identifier, password, error, errorDetails, setIdentifier, setPassword, onClickLogin
 }) => {
   return (
     <>
@@ -43,7 +43,7 @@ const LoginTemplate: FC<Props> = ({
           </div>
           <div className='w-10/12 flex justify-center flex-wrap'>
             <FormText label='パスワード' value={password} onChange={(e) => setPassword(e.target.value)} />
-            <Error error={error} errorsDetails={errorsDetails} />
+            <Error error={error} errorDetails={errorDetails} />
           </div>
         </div>
 
