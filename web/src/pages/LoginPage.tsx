@@ -39,10 +39,8 @@ const LoginPage: FC = () => {
       password={password}
       error={error}
       errorDetails={errorDetails}
-
       setIdentifier={setIdentifier}
       setPassword={setPassword}
-
       onClickLogin={() => onClickLogin(identifier, password)}
     />
   );

@@ -11,13 +11,7 @@ const UsagePage: FC = () => {
 
   const [driver, setDriver] = useState(false);
 
-  return (
-    <UsageTemplate
-      driver={driver}
-      setDriver={setDriver}
-      decision={decision}
-    />
-  );
+  return <UsageTemplate driver={driver} setDriver={setDriver} decision={decision} />;
 };
 
 export default UsagePage;

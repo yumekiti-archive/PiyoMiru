@@ -13,13 +13,7 @@ const LPPage: FC = () => {
     page !== 1 && setPage(page - 1);
   };
 
-  return (
-    <LPTemplate
-      page={page}
-      nextPage={nextPage}
-      prevPage={prevPage}
-    />
-  );
+  return <LPTemplate page={page} nextPage={nextPage} prevPage={prevPage} />;
 };
 
 export default LPPage;

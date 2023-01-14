@@ -24,15 +24,25 @@ interface Props {
   nextFlag: boolean;
   setNextFlag: (nextFlag: boolean) => void;
 
-  onClickRegister : () => void;
+  onClickRegister: () => void;
 }
 
 const RegisterPage: FC<Props> = ({
-  username, displayname, email, password, passwordConfirmation,
-  setUsername, setDisplayname, setEmail, setPassword, setPasswordConfirmation,
-  error, errorDetails,
-  nextFlag, setNextFlag,
-  onClickRegister
+  username,
+  displayname,
+  email,
+  password,
+  passwordConfirmation,
+  setUsername,
+  setDisplayname,
+  setEmail,
+  setPassword,
+  setPasswordConfirmation,
+  error,
+  errorDetails,
+  nextFlag,
+  setNextFlag,
+  onClickRegister,
 }) => {
   return (
     <div className='h-screen bg-[#FBD579] w-full'>
@@ -72,9 +82,7 @@ const RegisterPage: FC<Props> = ({
             </div>
           </div>
         </>
-
       ) : (
-
         <>
           <div className='h-3/6 flex justify-start flex-col items-center space-y-4 pt-10'>
             <p className='text-2xl'>---&ensp;基本情報登録&ensp;---</p>

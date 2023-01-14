@@ -21,13 +21,18 @@ interface Props {
 }
 
 const LoginTemplate: FC<Props> = ({
-  identifier, password, error, errorDetails, setIdentifier, setPassword, onClickLogin
+  identifier,
+  password,
+  error,
+  errorDetails,
+  setIdentifier,
+  setPassword,
+  onClickLogin,
 }) => {
   return (
     <>
       <Loading />
       <div className='h-screen bg-[#FBD579] w-full'>
-
         <div className='h-1/6' />
         <div className='h-1/6 w-full flex items-center justify-center'>
           <img src={NameLogo} alt='logo' className='w-72' />
