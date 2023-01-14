@@ -1,6 +1,7 @@
 import { FC } from 'react';
 
 import FormText from '../atoms/FormText';
+import Button from '../atoms/Button';
 
 interface Props {
   addBusFlag: boolean;
@@ -21,17 +22,25 @@ const AddBus: FC<Props> = ({ addBusFlag, busName, setAddBusFlag, setBusName, add
           <FormText value={busName} onChange={(e) => setBusName(e.target.value)} />
         </div>
         <div className='h-2/6 w-full flex justify-center items-center'>
-          <button
-            className=' h-12 w-4/12 bg-[#E3EEF9] text-[#666666] rounded-xl mr-16'
-            onClick={() => {
-              setAddBusFlag(!addBusFlag);
-            }}
-          >
-            キャンセル
-          </button>
-          <button className=' h-12 w-4/12 bg-[#ED6D47] text-white rounded-xl' onClick={addBus}>
-            追加
-          </button>
+          <div className='h-12 w-4/12 bg-[#E3EEF9] rounded-xl mr-16'>
+            <Button
+              text='キャンセル'
+              size='text-xl'
+              bgColor='bg-[#E3EEF9]'
+              onClick={() => {
+                setAddBusFlag(!addBusFlag);
+              }}
+            />
+          </div>
+          <div className='h-12 w-4/12 bg-[#ED6D47] rounded-xl'>
+            <Button
+              text='追加'
+              size='text-xl'
+              bgColor='bg-[#ED6D47]'
+              color='text-white'
+              onClick={addBus}
+            />
+          </div>
         </div>
       </div>
     </div>

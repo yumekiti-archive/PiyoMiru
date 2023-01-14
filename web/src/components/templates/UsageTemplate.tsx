@@ -30,7 +30,7 @@ const UsageTemplate: FC<Props> = ({ manager, setManager, decision }) => {
         </div>
       </div>
       <div className='h-2/6 w-full flex items-center justify-center'>
-        <div className='w-10/12'>
+        <div className='w-10/12 h-16'>
           <Button text='決定' onClick={decision} />
         </div>
       </div>

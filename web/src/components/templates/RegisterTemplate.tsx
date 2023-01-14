@@ -77,7 +77,7 @@ const RegisterPage: FC<Props> = ({
             </div>
           </div>
           <div className='h-2/6 w-full flex items-center justify-center z-10'>
-            <div className='w-10/12'>
+            <div className='w-10/12 h-16'>
               <Button text='つぎへ' onClick={() => setNextFlag(true)} />
             </div>
           </div>
@@ -92,10 +92,10 @@ const RegisterPage: FC<Props> = ({
             </div>
           </div>
           <div className='h-2/6 w-full flex items-center justify-center z-10'>
-            <div className='w-4/12 mr-4'>
+            <div className='w-4/12 h-16 mr-4'>
               <Button text='もどる' onClick={() => setNextFlag(false)} />
             </div>
-            <div className='w-6/12'>
+            <div className='w-6/12 h-16'>
               <Button text='とうろく' onClick={onClickRegister} />
             </div>
           </div>

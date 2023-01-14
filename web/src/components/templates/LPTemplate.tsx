@@ -37,7 +37,7 @@ const LPTemplate: FC<Props> = ({ page, prevPage, nextPage }) => {
         )}
       </div>
       <div className='h-2/6 w-full flex items-center justify-center'>
-        <Link to='/usage' className='w-10/12'>
+        <Link to='/usage' className='w-10/12 h-16'>
           {page === 3 && <Button text='はじめる' />}
         </Link>
       </div>

@@ -53,7 +53,7 @@ const LoginTemplate: FC<Props> = ({
         </div>
 
         <div className='h-2/6 w-full flex items-center justify-center'>
-          <div className='w-10/12'>
+          <div className='h-16 w-10/12'>
             <Button text='ログイン' onClick={onClickLogin} />
             <p className='text-center text-sm mt-4'>
               アカウントをお持ちでない場合

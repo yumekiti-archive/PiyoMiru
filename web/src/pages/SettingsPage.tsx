@@ -20,18 +20,18 @@ const SettingsPage: FC = () => {
         </div>
         <div className='h-4/6 flex justify-start flex-col items-center space-y-8 pt-10'>
           <p className='text-2xl'>---&ensp;設定&ensp;---</p>
-          <div className='w-10/12 flex justify-center flex-wrap'>
+          <div className='w-10/12 h-16 flex justify-center flex-wrap'>
             <Button text='プロフィール変更' onClick={onClickLogout} />
           </div>
-          <div className='w-10/12 flex justify-center flex-wrap'>
+          <div className='w-10/12 h-16 flex justify-center flex-wrap'>
             <Button text='通知' onClick={onClickLogout} />
           </div>
-          <div className='w-10/12 flex justify-center flex-wrap'>
+          <div className='w-10/12 h-16 flex justify-center flex-wrap'>
             <Button text='お問い合わせ' onClick={onClickLogout} />
           </div>
         </div>
         <div className='h-1/6 w-full flex items-center justify-center'>
-          <div className='w-10/12'>
+          <div className='w-10/12 h-16'>
             <Button text='ログアウト' onClick={onClickLogout} />
           </div>
         </div>

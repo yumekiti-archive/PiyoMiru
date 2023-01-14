@@ -5,15 +5,17 @@ interface Props {
   onClick?: () => void;
   bgColor?: string;
   color?: string;
+  size?: string;
 }
 
-const Button: FC<Props> = ({ text, onClick, bgColor, color }) => {
+const Button: FC<Props> = ({ text, onClick, bgColor, color, size }) => {
   return (
     <button
       className={`
-      ${color ? `text-${color}` : 'text-[#666666]'}
-      ${bgColor ? `bg-${bgColor}` : 'bg-[#FFFF88]'}
-      w-full h-16 rounded-2xl text-2xl
+      ${color ? color : 'text-[#666666]'}
+      ${bgColor ? bgColor : 'bg-[#FFFF88]'}
+      ${size ? size : 'text-2xl'}
+      w-full h-full rounded-2xl
     `}
       onClick={onClick}
     >
