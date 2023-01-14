@@ -19,9 +19,11 @@ const FormText: FC<Props> = ({ icon, label, value, onChange }) => {
         value={value}
         onChange={onChange}
       />
-      <label htmlFor='name' className='absolute top-2 left-4 text-xs'>
-        {label}
-      </label>
+      {label && (
+        <label htmlFor='name' className='absolute top-2 left-4 text-xs'>
+          {label}
+        </label>
+      )}
     </div>
   );
 };
