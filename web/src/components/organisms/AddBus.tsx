@@ -33,13 +33,7 @@ const AddBus: FC<Props> = ({ addBusFlag, busName, setAddBusFlag, setBusName, add
             />
           </div>
           <div className='h-12 w-4/12 bg-[#ED6D47] rounded-xl'>
-            <Button
-              text='追加'
-              size='text-xl'
-              bgColor='bg-[#ED6D47]'
-              color='text-white'
-              onClick={addBus}
-            />
+            <Button text='追加' size='text-xl' bgColor='bg-[#ED6D47]' color='text-white' onClick={addBus} />
           </div>
         </div>
       </div>
