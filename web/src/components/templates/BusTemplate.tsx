@@ -1,14 +1,15 @@
 import { FC } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 
 import Bus from '../../assets/bus.svg';
 import BusRun from '../../assets/busRun.svg';
 import TulipTag from '../../assets/button/tulipTag.svg';
 import ChickTag from '../../assets/button/chickTag.svg';
-import ChickBeginner from '../../assets/button/chickBeginner.svg';
 
+import BusStatus from '../atoms/BusStatus';
 import Header from '../organisms/Header';
 import Background from '../organisms/Background';
+import EmphasisButton from '../atoms/EmphasisButton';
 
 interface Props {
   data: any;
@@ -17,6 +18,8 @@ interface Props {
 }
 
 const BusTemplate: FC<Props> = ({ data, user, onClickStart }) => {
+  const navigate = useNavigate();
+
   return (
     user &&
     data && (
@@ -25,10 +28,10 @@ const BusTemplate: FC<Props> = ({ data, user, onClickStart }) => {
         {data.data.attributes.status && <Background type='bus' />}
         <div className='bg-sora h-screen'>
           <div className='h-2/6 flex items-end justify-center'>
-            <div className='text-4xl font-bold'>
-              {data.data.attributes.name}
-              {data.data.attributes.status ? '運行中...' : '停車中'}
-            </div>
+            <BusStatus
+              name={data.data.attributes.name}
+              status={data.data.attributes.status}
+            />
           </div>
           <div className='h-2/6 flex items-center justify-center'>
             {data.data.attributes.status ? (
@@ -38,53 +41,68 @@ const BusTemplate: FC<Props> = ({ data, user, onClickStart }) => {
             )}
           </div>
           <div className='h-2/6 flex items-center justify-center'>
-            {user.driver ? (
+            {!user.driver ? (
               !data.data.attributes.status ? (
                 <>
-                  <button
-                    className='w-8/12 h-16 bg-[#ED6D47] text-white rounded-2xl text-4xl flex items-center justify-center relative relative'
-                    onClick={onClickStart}
-                  >
-                    運転開始
-                    <div className='w-full h-16 bg-[#DC3C14] rounded-2xl -z-10 absolute top-4 left-0' />
-                    <img
-                      src={ChickBeginner}
-                      alt='ChickBeginner'
-                      style={{ height: '60%' }}
-                      className='absolute -top-8 right-2'
+                  <div className='w-8/12 h-16 flex items-center justify-center'>
+                    <EmphasisButton
+                      text='運転開始'
+                      onClick={onClickStart}
+                      mainBgColor='bg-[#ED6D47]'
+                      subBgColor='bg-[#DC3C14]'
+                      color='text-white'
+                      size='text-4xl'
+                      top='top-4'
+                      chick={true}
                     />
-                  </button>
+                  </div>
                 </>
               ) : (
                 <>
-                  <Link
-                    className='w-4/12 h-24 bg-[#FBD579] rounded-2xl text-sm font-bold flex flex-col items-center justify-center relative mr-10'
-                    to='/list'
-                  >
-                    <p className='mt-2'>乗車中園児確認</p>
-                    <img src={TulipTag} alt='tulip' className='w-10 h-10 mt-2 ml-1' />
-                    <div className='w-full h-16 bg-[#DAB357] rounded-2xl -z-10 absolute top-10 left-0' />
-                  </Link>
-                  <Link
-                    className='w-4/12 h-24 bg-[#FBD579] rounded-2xl text-sm font-bold flex flex-col items-center justify-center relative'
-                    to='/list'
-                  >
-                    <p className='mt-2'>NFCスキャナー</p>
-                    <img src={ChickTag} alt='tulip' className='w-10 h-10 mt-2 ml-1' />
-                    <div className='w-full h-16 bg-[#DAB357] rounded-2xl -z-10 absolute top-10 left-0' />
-                  </Link>
+                  <div className='w-4/12 h-24 flex items-center justify-center mr-10'>
+                    <EmphasisButton
+                      text='乗車中園児確認'
+                      onClick={() => {navigate('/list')}}
+                      mainBgColor='bg-[#FBD579]'
+                      subBgColor='bg-[#DAB357]'
+                      color='text-[#666666]'
+                      size='text-sm'
+                      top='top-10'
+                      bold={true}
+                      col={true}
+                      img={TulipTag}
+                    />
+                  </div>
+                  <div className='w-4/12 h-24 flex items-center justify-center'>
+                    <EmphasisButton
+                      text='NFCスキャナー'
+                      onClick={() => {navigate('/list')}}
+                      mainBgColor='bg-[#FBD579]'
+                      subBgColor='bg-[#DAB357]'
+                      color='text-[#666666]'
+                      size='text-sm'
+                      top='top-10'
+                      bold={true}
+                      col={true}
+                      img={ChickTag}
+                    />
+                  </div>
                 </>
               )
             ) : (
               <>
-                <Link
-                  className='w-11/12 h-16 bg-[#FBD579] rounded-2xl text-4xl flex items-center justify-center relative'
-                  to='/list'
-                >
-                  乗車中園児確認
-                  <img src={TulipTag} alt='tulip' className='w-10 h-10 mt-2 ml-1' />
-                  <div className='w-full h-16 bg-[#DAB357] rounded-2xl -z-10 absolute top-4 left-0' />
-                </Link>
+                <div className='w-11/12 h-16 flex items-center justify-center'>
+                  <EmphasisButton
+                    text='乗車中園児確認'
+                    onClick={() => {navigate('/list')}}
+                    mainBgColor='bg-[#FBD579]'
+                    subBgColor='bg-[#DAB357]'
+                    color='text-[#666666]'
+                    size='text-4xl'
+                    top='top-4'
+                    img={TulipTag}
+                  />
+                </div>
               </>
             )}
           </div>
