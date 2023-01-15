@@ -28,7 +28,12 @@ const SettingsTemplate: FC<Props> = ({ onClickLogout }) => {
         </div>
         <div className='h-1/6 w-full flex items-center justify-center'>
           <div className='w-10/12 h-16'>
-            <Button text='ログアウト' onClick={onClickLogout} />
+            <Button
+              text='ログアウト'
+              bgColor='bg-[#ED6D47]'
+              color='text-white'
+              onClick={onClickLogout}
+            />
           </div>
         </div>
       </div>
