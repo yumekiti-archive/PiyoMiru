@@ -46,9 +46,7 @@ const BusTemplate: FC<Props> = ({ data, user, onClickStart }) => {
                     onClick={onClickStart}
                   >
                     運転開始
-                    <div
-                      className='w-full h-16 bg-[#DC3C14] rounded-2xl -z-10 absolute top-4 left-0'
-                    />
+                    <div className='w-full h-16 bg-[#DC3C14] rounded-2xl -z-10 absolute top-4 left-0' />
                     <img
                       src={ChickBeginner}
                       alt='ChickBeginner'
