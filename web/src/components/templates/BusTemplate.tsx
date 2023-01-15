@@ -28,10 +28,7 @@ const BusTemplate: FC<Props> = ({ data, user, onClickStart }) => {
         {data.data.attributes.status && <Background type='bus' />}
         <div className='bg-sora h-screen'>
           <div className='h-2/6 flex items-end justify-center'>
-            <BusStatus
-              name={data.data.attributes.name}
-              status={data.data.attributes.status}
-            />
+            <BusStatus name={data.data.attributes.name} status={data.data.attributes.status} />
           </div>
           <div className='h-2/6 flex items-center justify-center'>
             {data.data.attributes.status ? (
@@ -62,7 +59,9 @@ const BusTemplate: FC<Props> = ({ data, user, onClickStart }) => {
                   <div className='w-4/12 h-24 flex items-center justify-center mr-10'>
                     <EmphasisButton
                       text='乗車中園児確認'
-                      onClick={() => {navigate('/list')}}
+                      onClick={() => {
+                        navigate('/list');
+                      }}
                       mainBgColor='bg-[#FBD579]'
                       subBgColor='bg-[#DAB357]'
                       color='text-[#666666]'
@@ -76,7 +75,9 @@ const BusTemplate: FC<Props> = ({ data, user, onClickStart }) => {
                   <div className='w-4/12 h-24 flex items-center justify-center'>
                     <EmphasisButton
                       text='NFCスキャナー'
-                      onClick={() => {navigate('/list')}}
+                      onClick={() => {
+                        navigate('/list');
+                      }}
                       mainBgColor='bg-[#FBD579]'
                       subBgColor='bg-[#DAB357]'
                       color='text-[#666666]'
@@ -94,7 +95,9 @@ const BusTemplate: FC<Props> = ({ data, user, onClickStart }) => {
                 <div className='w-11/12 h-16 flex items-center justify-center'>
                   <EmphasisButton
                     text='乗車中園児確認'
-                    onClick={() => {navigate('/list')}}
+                    onClick={() => {
+                      navigate('/list');
+                    }}
                     mainBgColor='bg-[#FBD579]'
                     subBgColor='bg-[#DAB357]'
                     color='text-[#666666]'
