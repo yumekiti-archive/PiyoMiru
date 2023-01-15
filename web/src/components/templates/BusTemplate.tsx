@@ -38,7 +38,7 @@ const BusTemplate: FC<Props> = ({ data, user, onClickStart }) => {
             )}
           </div>
           <div className='h-2/6 flex items-center justify-center'>
-            {!user.driver ? (
+            {user.driver ? (
               !data.data.attributes.status ? (
                 <>
                   <div className='w-8/12 h-16 flex items-center justify-center'>
