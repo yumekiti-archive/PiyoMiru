@@ -1,38 +1,39 @@
-import { FC, useEffect } from 'react';
+import { FC, useEffect, useState } from 'react';
 import { Link, useParams, useNavigate } from 'react-router-dom';
 import { useRecoilValue, useRecoilState } from 'recoil';
 
 import BusTemplate from '../components/templates/BusTemplate';
 
 import { useBusesFindOne, useBusesUpdate } from '../libs/buses';
-import { userState, busState } from '../recoil/atoms';
+import { userState } from '../recoil/atoms';
 
 const BusPage: FC = () => {
   const navigate = useNavigate();
   const { id } = useParams<{ id: string }>();
   const { data, error, isLoading } = useBusesFindOne(id);
-  const [bus, setBus] = useRecoilState(busState);
-  const [user, setUser] = useRecoilState(userState);
+  const [bus, setBus] = useState(data);
+  // const [user, setUser] = useRecoilState(userState);
+  const user = useRecoilValue(userState);
 
   useEffect(() => {
     if (!user) navigate('/');
     if (!data) return;
-    setBus(data.data);
+    setBus(data);
   }, [data]);
 
-  const HandleStart = () => {
+  const BusUpdate = () => {
     const body = {
       data: {
-        status: !bus.attributes.status,
+        status: !data.data.attributes.status,
       },
     };
 
-    useBusesUpdate(bus.id, body).then((res) => {
-      setBus(res.data.data);
+    useBusesUpdate(data.data.id, body).then((res) => {
+      setBus(res.data);
     });
   };
 
-  return <BusTemplate data={bus} user={user} onClickStart={HandleStart} />;
+  return <BusTemplate data={bus} user={user} onClickStart={BusUpdate} />;
 };
 
 export default BusPage;
