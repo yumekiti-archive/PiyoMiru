@@ -32,13 +32,7 @@ const BusPage: FC = () => {
     });
   };
 
-  return (
-    <BusTemplate
-      data={bus}
-      user={user}
-      onClickStart={HandleStart}
-    />
-  );
+  return <BusTemplate data={bus} user={user} onClickStart={HandleStart} />;
 };
 
 export default BusPage;
