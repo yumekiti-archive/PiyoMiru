@@ -92,9 +92,7 @@ const BusTemplate: FC<Props> = ({ data, user, onClickStart, onClickList }) => {
               <div className='w-11/12 h-16 flex items-center justify-center'>
                 <EmphasisButton
                   text='乗車中園児確認'
-                  onClick={() => {
-                    navigate('/list');
-                  }}
+                  onClick={onClickList}
                   mainBgColor='bg-[#FBD579]'
                   subBgColor='bg-[#DAB357]'
                   color='text-[#666666]'
