@@ -11,7 +11,7 @@ import { usePassengersFind } from '../hooks/passengers';
 import { useOperationsFindOne, useOperationsUpdate } from '../hooks/operations';
 
 const OperationListPage: FC = () => {
-  const queryClient = useQueryClient()
+  const queryClient = useQueryClient();
   const { id } = useParams<{ id: string }>();
   const navigate = useNavigate();
 
@@ -25,7 +25,7 @@ const OperationListPage: FC = () => {
       },
     };
     useBusesUpdate(operation.attributes.bus.data.id, body);
-    queryClient.invalidateQueries('bus')
+    queryClient.invalidateQueries('bus');
 
     const operationBody = {
       data: {
@@ -33,7 +33,7 @@ const OperationListPage: FC = () => {
       },
     };
     useOperationsUpdate(operation.id, operationBody);
-    queryClient.invalidateQueries('operation')
+    queryClient.invalidateQueries('operation');
 
     navigate('/');
   };

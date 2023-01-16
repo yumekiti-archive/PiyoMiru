@@ -10,7 +10,7 @@ import { useOperationsCreate, useOperationsFind } from '../hooks/operations';
 
 const BusPage: FC = () => {
   const navigate = useNavigate();
-  const queryClient = useQueryClient()
+  const queryClient = useQueryClient();
   const { id } = useParams<{ id: string }>();
 
   const { data: bus } = useQuery('bus', () => useBusesFindOne(id).then((res) => res.data));
@@ -30,7 +30,7 @@ const BusPage: FC = () => {
     };
 
     useBusesUpdate(bus.id, body).then((res) => {
-      queryClient.invalidateQueries('bus')
+      queryClient.invalidateQueries('bus');
     });
 
     const operationBody = {
@@ -40,7 +40,7 @@ const BusPage: FC = () => {
       },
     };
     useOperationsCreate(operationBody).then((res) => {
-      queryClient.invalidateQueries('operation')
+      queryClient.invalidateQueries('operation');
     });
   };
 

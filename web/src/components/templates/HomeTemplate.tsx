@@ -8,6 +8,7 @@ import BusButton from '../atoms/BusButton';
 import Pluss from '../../assets/button/pluss.svg';
 
 interface Props {
+  groupId: string;
   addBusFlag: boolean;
   busName: string;
   setBusName: (value: string) => void;
@@ -17,12 +18,12 @@ interface Props {
   data: any;
 }
 
-const HomeTemplate: FC<Props> = ({ addBusFlag, busName, setBusName, setAddBusFlag, addBus, data }) => {
+const HomeTemplate: FC<Props> = ({ groupId, addBusFlag, busName, setBusName, setAddBusFlag, addBus, data }) => {
   return (
     data && (
       <>
         <Background type='home' />
-        <Header title='' />
+        <Header title='' groupId={groupId} />
         {addBusFlag && (
           <AddBus
             addBusFlag={addBusFlag}

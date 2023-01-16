@@ -8,7 +8,7 @@ import { useMe } from '../hooks/users';
 
 const HomePage: FC = () => {
   if (localStorage.getItem('jwt') === null) return <Navigate to='/login' />;
-  const { data } = useQuery('me', () => useMe().then((res) => res.data));
+  const { data: me } = useQuery('me', () => useMe().then((res) => res.data));
 
   const [addBusFlag, setAddBusFlag] = useState(false);
   const [busName, setBusName] = useState('');
@@ -17,14 +17,15 @@ const HomePage: FC = () => {
   };
 
   return (
-    data && (
+    me && (
       <HomeTemplate
+        groupId={me.group.id}
         addBusFlag={addBusFlag}
         busName={busName}
         setBusName={setBusName}
         setAddBusFlag={setAddBusFlag}
         addBus={AddBus}
-        data={data}
+        data={me}
       />
     )
   );

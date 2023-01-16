@@ -13,18 +13,18 @@ import { useMe } from '../../hooks/users';
 
 interface Props {
   title: string;
+  groupId?: string;
 }
 
-const Header: FC<Props> = ({ title }) => {
+const Header: FC<Props> = ({ title, groupId }) => {
   const navigate = useNavigate();
-  const { data } = useQuery('me', () => useMe().then((res) => res.data));
 
   const home = () => {
     navigate('/');
   };
 
   const usage = () => {
-    navigate('/list', { state: { id: data.group.id } });
+    navigate('/list', { state: { id: groupId } });
   };
 
   const settings = () => {
