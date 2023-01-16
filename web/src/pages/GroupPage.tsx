@@ -1,15 +1,10 @@
 import { FC, useState } from 'react';
-import { useNavigate, useLocation } from 'react-router-dom';
 
 import FormText from '../components/atoms/FormText';
-import NameLogo from '../assets/nameLogo.svg';
 import Header from '../components/organisms/Header';
-
 import Button from '../components/atoms/Button';
 
 const GroupPage: FC = () => {
-  const navigate = useNavigate();
-
   const [name, setName] = useState('');
   const [email, setEmail] = useState('');
 

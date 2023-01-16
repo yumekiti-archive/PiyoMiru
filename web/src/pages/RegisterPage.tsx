@@ -3,13 +3,11 @@ import { useNavigate, useLocation } from 'react-router-dom';
 
 import RegisterTemplate from '../components/templates/RegisterTemplate';
 import { register } from '../hooks/auth';
-import { useMe } from '../hooks/users';
 
 const RegisterPage: FC = () => {
   const location = useLocation();
   const navigate = useNavigate();
 
-  const [driver, setDriver] = useState(location.state?.driver || false);
   const [username, setUsername] = useState('');
   const [displayname, setDisplayname] = useState('');
   const [email, setEmail] = useState('');
@@ -26,7 +24,7 @@ const RegisterPage: FC = () => {
       displayname: displayname,
       email: email,
       password: password,
-      driver: driver,
+      driver: location.state?.driver,
     };
 
     register(body)

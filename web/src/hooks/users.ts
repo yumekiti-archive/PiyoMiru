@@ -1,5 +1,5 @@
 import { useQuery } from 'react-query';
-import { fetch, fetchWithOauth } from '../libs/client';
+import { fetchWithOauth } from '../libs/client';
 
 export const useMe = () => {
   return useQuery('me', () =>

@@ -1,5 +1,5 @@
 import { useQuery } from 'react-query';
-import { fetch, fetchWithOauth } from '../libs/client';
+import { fetch } from '../libs/client';
 
 // findOne
 export const useBusesFindOne = (id: string | undefined) => {

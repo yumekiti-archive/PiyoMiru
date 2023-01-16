@@ -1,5 +1,5 @@
-import { FC, useEffect, useState } from 'react';
-import { Link, useParams, useNavigate } from 'react-router-dom';
+import { FC } from 'react';
+import { useParams } from 'react-router-dom';
 
 import BusTemplate from '../components/templates/BusTemplate';
 
@@ -7,7 +7,6 @@ import { useMe } from '../hooks/users';
 import { useBusesFindOne, useBusesUpdate } from '../hooks/buses';
 
 const BusPage: FC = () => {
-  const navigate = useNavigate();
   const { id } = useParams<{ id: string }>();
   const { data } = useBusesFindOne(id);
   const { data: user } = useMe();
