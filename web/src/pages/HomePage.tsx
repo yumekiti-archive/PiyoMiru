@@ -20,15 +20,16 @@ const HomePage: FC = () => {
   };
 
   return (
-    data &&
-    <HomeTemplate
-      addBusFlag={addBusFlag}
-      busName={busName}
-      setBusName={setBusName}
-      setAddBusFlag={setAddBusFlag}
-      addBus={AddBus}
-      data={data}
-    />
+    data && (
+      <HomeTemplate
+        addBusFlag={addBusFlag}
+        busName={busName}
+        setBusName={setBusName}
+        setAddBusFlag={setAddBusFlag}
+        addBus={AddBus}
+        data={data}
+      />
+    )
   );
 };
 
