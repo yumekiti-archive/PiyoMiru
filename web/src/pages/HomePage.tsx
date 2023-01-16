@@ -1,5 +1,5 @@
 import { FC, useState } from 'react';
-import { useNavigate } from 'react-router-dom';
+import { Navigate } from 'react-router-dom';
 import { useQuery } from 'react-query';
 
 import HomeTemplate from '../components/templates/HomeTemplate';
@@ -7,15 +7,11 @@ import HomeTemplate from '../components/templates/HomeTemplate';
 import { useMe } from '../hooks/users';
 
 const HomePage: FC = () => {
-  const navigate = useNavigate();
+  if (localStorage.getItem('jwt') === null) return <Navigate to='/login' />;
+  const { data } = useQuery('me', () => useMe().then((res) => res.data));
 
   const [addBusFlag, setAddBusFlag] = useState(false);
   const [busName, setBusName] = useState('');
-
-  if (localStorage.getItem('jwt') === null) navigate('/login');
-
-  const { data } = useQuery('user', () => useMe().then((res) => res.data));
-
   const AddBus = () => {
     console.log('hoge');
   };

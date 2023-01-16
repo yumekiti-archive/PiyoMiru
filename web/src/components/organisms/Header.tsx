@@ -9,13 +9,15 @@ import NameLogo from '../../assets/nameLogo.svg';
 import Bear from '../../assets/button/bear.svg';
 import Frog from '../../assets/button/frog.svg';
 
+import { useMe } from '../../hooks/users';
+
 interface Props {
   title: string;
 }
 
 const Header: FC<Props> = ({ title }) => {
   const navigate = useNavigate();
-  const { data } = useQuery<any>('user');
+  const { data } = useQuery('me', () => useMe().then((res) => res.data));
 
   const home = () => {
     navigate('/');

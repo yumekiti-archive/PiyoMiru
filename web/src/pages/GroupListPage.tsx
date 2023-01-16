@@ -1,5 +1,5 @@
 import { FC } from 'react';
-import { useLocation } from 'react-router-dom';
+import { useLocation, Navigate } from 'react-router-dom';
 import { useQuery } from 'react-query';
 
 import Header from '../components/organisms/Header';
@@ -7,8 +7,11 @@ import ListCard from '../components/atoms/ListCard';
 
 import { usePassengersFindWithFilterGroupId } from '../hooks/passengers';
 
-const ListPage: FC = () => {
+const GroupListPage: FC = () => {
   const location = useLocation();
+
+  if (location.state === null) return <Navigate to='/' />;
+
   const { data } = useQuery('passengers', () =>
     usePassengersFindWithFilterGroupId(location.state.id).then((res) => res.data),
   );
@@ -27,4 +30,4 @@ const ListPage: FC = () => {
   );
 };
 
-export default ListPage;
+export default GroupListPage;
