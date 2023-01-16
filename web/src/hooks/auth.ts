@@ -1,9 +1,8 @@
-import { fetch, fetchWithOauth } from '../libs/client';
-import { useNavigate } from 'react-router-dom';
+import { fetch } from '../libs/client';
 
 // 登録
-export const register = (data: { username: string; email: string; password: string }) => {
-  return fetch.post('api/auth/local/register', data).then((res) => {
+export const register = (body: { username: string; email: string; password: string }) => {
+  return fetch.post('api/auth/local/register', body).then((res) => {
     localStorage.setItem('jwt', res.data.jwt);
   });
 };
