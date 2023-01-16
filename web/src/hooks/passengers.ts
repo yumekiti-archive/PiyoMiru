@@ -1,6 +1,5 @@
 import { fetch } from '../libs/client';
 
-// find with filter group id
-export const usePassengersFindWithFilterGroupId = (id: string | undefined) => {
-  return fetch.get(`/api/users?filters[group][id][$eq]=${id}`);
+export const usePassengersFind = (operationId: string | undefined) => {
+  return fetch.get(`api/passengers?populate=*&filters[operation][id][$eq]=${operationId}`);
 };
