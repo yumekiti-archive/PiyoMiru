@@ -17,4 +17,4 @@ export const usePassengersFindMyId = (id: string | undefined) => {
 // update
 export const usePassengersUpdate = (id: string | undefined, body: any) => {
   return fetch.put(`/api/passengers/${id}`, body);
-}
+};
