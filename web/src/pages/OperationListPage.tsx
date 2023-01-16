@@ -43,13 +43,14 @@ const OperationListPage: FC = () => {
   };
 
   return (
-    passengers && me && (
+    passengers &&
+    me && (
       <>
         <div className='h-screen w-full relative'>
           <div className='h-1/6 w-full flex items-center justify-center'>
             <Header title='乗車中園児 一覧' />
           </div>
-          { passengers.length !== 0 ? (
+          {passengers.length !== 0 ? (
             <div className='mt-32 w-full flex items-center justify-start mb-40 flex-col space-y-4'>
               {passengers.map((passenger: any) => (
                 <ListCard
@@ -61,15 +62,13 @@ const OperationListPage: FC = () => {
             </div>
           ) : (
             <>
-              <div className='h-2/6 w-full flex items-center justify-center'>
-                現在、乗車中の園児はいません
-              </div>
+              <div className='h-2/6 w-full flex items-center justify-center'>現在、乗車中の園児はいません</div>
               <div className='h-1/6 w-full flex items-center justify-center'>
                 <ThreePeople />
               </div>
             </>
           )}
-          { me.driver && (
+          {me.driver && (
             <div className='h-screen w-full flex items-end justify-center sticky bottom-0'>
               <div className='w-8/12 h-16 flex items-center justify-center absolute bottom-10'>
                 <EmphasisButton
