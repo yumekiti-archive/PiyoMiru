@@ -29,7 +29,6 @@ const RegisterPage: FC = () => {
 
     register(body)
       .then((res) => {
-        localStorage.setItem('jwt', res.data.jwt);
         navigate('/');
       })
       .catch((err) => {

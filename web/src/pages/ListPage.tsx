@@ -1,17 +1,13 @@
-import { FC, useEffect, useState } from 'react';
-import { useLocation, useNavigate } from 'react-router-dom';
+import { FC } from 'react';
+import { useLocation } from 'react-router-dom';
 
 import Header from '../components/organisms/Header';
 import ListCard from '../components/atoms/ListCard';
 
-import { useMe } from '../hooks/users';
 import { usePassengersFindWithFilterGroupId } from '../hooks/passengers';
 
 const ListPage: FC = () => {
   const location = useLocation();
-  const navigate = useNavigate();
-  const [id, setId] = useState('');
-  const { data: user } = useMe();
   const { data } = usePassengersFindWithFilterGroupId(location.state.id);
 
   return (
