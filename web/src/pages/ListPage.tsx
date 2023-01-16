@@ -9,7 +9,9 @@ import { usePassengersFindWithFilterGroupId } from '../hooks/passengers';
 
 const ListPage: FC = () => {
   const location = useLocation();
-  const { data } = useQuery('passengers', () => usePassengersFindWithFilterGroupId(location.state.id).then((res) => res.data));
+  const { data } = useQuery('passengers', () =>
+    usePassengersFindWithFilterGroupId(location.state.id).then((res) => res.data),
+  );
 
   return (
     data && (
