@@ -2,7 +2,7 @@ import { FC, useState } from 'react';
 import { useNavigate, useLocation } from 'react-router-dom';
 
 import RegisterTemplate from '../components/templates/RegisterTemplate';
-import { register } from '../hooks/auth';
+import { useRegister } from '../hooks/auth';
 
 const RegisterPage: FC = () => {
   const location = useLocation();
@@ -18,7 +18,7 @@ const RegisterPage: FC = () => {
   const [error, setError] = useState('');
   const [errorDetails, setErrorsDetails] = useState([]);
 
-  const onClickRegister = () => {
+  const Register = () => {
     const body = {
       username: username,
       displayname: displayname,
@@ -27,7 +27,7 @@ const RegisterPage: FC = () => {
       driver: location.state?.driver,
     };
 
-    register(body)
+    useRegister(body)
       .then((res) => {
         navigate('/');
       })
@@ -57,7 +57,7 @@ const RegisterPage: FC = () => {
       setNextFlag={setNextFlag}
       error={error}
       errorDetails={errorDetails}
-      onClickRegister={onClickRegister}
+      onClickRegister={Register}
     />
   );
 };

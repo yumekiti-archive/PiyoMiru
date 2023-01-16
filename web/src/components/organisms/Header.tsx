@@ -1,5 +1,6 @@
 import { FC } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
+import { useQuery } from 'react-query';
 
 import HeaderButton from '../atoms/HeaderButton';
 
@@ -16,7 +17,7 @@ interface Props {
 
 const Header: FC<Props> = ({ title }) => {
   const navigate = useNavigate();
-  const { data } = useMe();
+  const { data } = useQuery('user', () => useMe().then((res) => res.data));
 
   const home = () => {
     navigate('/');

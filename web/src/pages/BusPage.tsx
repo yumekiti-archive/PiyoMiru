@@ -1,5 +1,6 @@
 import { FC, useState } from 'react';
 import { useParams } from 'react-router-dom';
+import { useQuery } from 'react-query';
 
 import BusTemplate from '../components/templates/BusTemplate';
 
@@ -8,8 +9,8 @@ import { useBusesFindOne, useBusesUpdate } from '../hooks/buses';
 
 const BusPage: FC = () => {
   const { id } = useParams<{ id: string }>();
-  const { isLoading, data } = useBusesFindOne(id);
-  const { data: user } = useMe();
+  const { data } = useQuery('bus', () => useBusesFindOne(id).then((res) => res.data));
+  const { data: user } = useQuery('user', () => useMe().then((res) => res.data));
   const [bus, setBus] = useState(data);
 
   if (data && !bus) setBus(data);

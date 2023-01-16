@@ -1,5 +1,6 @@
 import { FC } from 'react';
 import { useLocation } from 'react-router-dom';
+import { useQuery } from 'react-query';
 
 import Header from '../components/organisms/Header';
 import ListCard from '../components/atoms/ListCard';
@@ -8,7 +9,7 @@ import { usePassengersFindWithFilterGroupId } from '../hooks/passengers';
 
 const ListPage: FC = () => {
   const location = useLocation();
-  const { data } = usePassengersFindWithFilterGroupId(location.state.id);
+  const { data } = useQuery('passengers', () => usePassengersFindWithFilterGroupId(location.state.id).then((res) => res.data));
 
   return (
     data && (

@@ -3,15 +3,17 @@ import { useNavigate } from 'react-router-dom';
 
 import SettingsTemplate from '../components/templates/SettingsTemplate';
 
+import { useLogout } from '../hooks/auth';
+
 const SettingsPage: FC = () => {
   const navigate = useNavigate();
 
-  const onClickLogout = () => {
-    localStorage.removeItem('jwt');
+  const Logout = () => {
+    useLogout();
     navigate('/login');
   };
 
-  return <SettingsTemplate onClickLogout={onClickLogout} />;
+  return <SettingsTemplate onClickLogout={Logout} />;
 };
 
 export default SettingsPage;

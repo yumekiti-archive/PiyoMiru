@@ -1,7 +1,7 @@
 import { fetch } from '../libs/client';
 
 // 登録
-export const register = (body: { username: string; email: string; password: string }) => {
+export const useRegister = (body: { username: string; email: string; password: string }) => {
   return fetch.post('api/auth/local/register', body).then((res) => {
     localStorage.setItem('jwt', res.data.jwt);
   });
@@ -15,6 +15,6 @@ export const useLogin = (data: { identifier: string; password: string }) => {
 };
 
 // ログアウト
-export const logout = () => {
+export const useLogout = () => {
   localStorage.removeItem('jwt');
 };
