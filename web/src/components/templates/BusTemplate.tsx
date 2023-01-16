@@ -16,9 +16,10 @@ interface Props {
   user: any;
   onClickStart: () => void;
   onClickList: () => void;
+  onClickNFC: () => void;
 }
 
-const BusTemplate: FC<Props> = ({ data, user, onClickStart, onClickList }) => {
+const BusTemplate: FC<Props> = ({ data, user, onClickStart, onClickList, onClickNFC }) => {
   const navigate = useNavigate();
 
   return (
@@ -72,9 +73,7 @@ const BusTemplate: FC<Props> = ({ data, user, onClickStart, onClickList }) => {
                 <div className='w-4/12 h-24 flex items-center justify-center'>
                   <EmphasisButton
                     text='NFCスキャナー'
-                    onClick={() => {
-                      navigate('/list');
-                    }}
+                    onClick={onClickNFC}
                     mainBgColor='bg-[#FBD579]'
                     subBgColor='bg-[#DAB357]'
                     color='text-[#666666]'

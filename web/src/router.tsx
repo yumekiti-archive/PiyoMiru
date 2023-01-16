@@ -11,6 +11,7 @@ import LP from './pages/LPpage';
 import RegisterPage from './pages/RegisterPage';
 import GroupPage from './pages/GroupPage';
 import SettingsPage from './pages/SettingsPage';
+import RidePage from './pages/RidePage';
 
 const Router: FC = () => {
   return (
@@ -25,6 +26,7 @@ const Router: FC = () => {
       <Route path='/register' element={<RegisterPage />} />
       <Route path='/group' element={<GroupPage />} />
       <Route path='/settings' element={<SettingsPage />} />
+      <Route path='/ride/:id' element={<RidePage />} />
     </Routes>
   );
 };

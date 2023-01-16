@@ -48,7 +48,11 @@ const BusPage: FC = () => {
     navigate(`/list/${operation.id}`);
   };
 
-  return bus && user && <BusTemplate data={bus} user={user} onClickStart={Start} onClickList={List} />;
+  const NFC = () => {
+    localStorage.setItem('busId', bus.id);
+  };
+
+  return bus && user && <BusTemplate data={bus} user={user} onClickStart={Start} onClickList={List} onClickNFC={NFC} />;
 };
 
 export default BusPage;
