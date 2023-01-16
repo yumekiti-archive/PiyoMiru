@@ -40,9 +40,10 @@ const BusTemplate: FC<Props> = ({ data, user, onClickStart, onClickList, onClick
           )}
         </div>
         <div className='h-2/6 flex items-center justify-center'>
-          { modal && (
+          {modal && (
             <div className='fixed z-50 top-0 left-0 w-full h-full bg-black bg-opacity-50 flex items-center justify-center'>
-              <div className='bg-white w-10/12 h-48 rounded-2xl flex flex-col items-center justify-center relative'
+              <div
+                className='bg-white w-10/12 h-48 rounded-2xl flex flex-col items-center justify-center relative'
                 onClick={() => {
                   setModal(false);
                   onClickNFC();
@@ -60,10 +61,7 @@ const BusTemplate: FC<Props> = ({ data, user, onClickStart, onClickList, onClick
                     />
                   </div>
                 </div>
-                <img src={Anzen}
-                  alt='anzen'
-                  className='w-20 absolute left-0 -top-10'
-                />
+                <img src={Anzen} alt='anzen' className='w-20 absolute left-0 -top-10' />
               </div>
             </div>
           )}
