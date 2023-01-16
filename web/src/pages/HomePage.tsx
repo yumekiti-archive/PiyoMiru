@@ -20,6 +20,7 @@ const HomePage: FC = () => {
   };
 
   return (
+    data &&
     <HomeTemplate
       addBusFlag={addBusFlag}
       busName={busName}
