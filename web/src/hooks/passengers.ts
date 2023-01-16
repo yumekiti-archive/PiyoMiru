@@ -7,4 +7,4 @@ export const usePassengersFind = (operationId: string | undefined) => {
 // create
 export const usePassengersCreate = (body: any) => {
   return fetch.post('/api/passengers', body);
-}
+};
