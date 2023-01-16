@@ -36,7 +36,7 @@ const OperationListPage: FC = () => {
         end: new Date(),
       },
     };
-    useOperationsUpdate(operation.id, operationBody)
+    useOperationsUpdate(operation.id, operationBody);
 
     navigate('/');
   };
