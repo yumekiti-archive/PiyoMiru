@@ -51,7 +51,7 @@ const OperationListPage: FC = () => {
             <Header title='乗車中園児 一覧' />
           </div>
           {passengers.length !== 0 ? (
-            <div className='mt-32 w-full flex items-center justify-start mb-40 flex-col space-y-4'>
+            <div className='h-3/6 w-full flex items-center justify-start mb-40 flex-col space-y-4'>
               {passengers.map((passenger: any) => (
                 <ListCard
                   key={passenger.attributes.users_permissions_user.data.id}
