@@ -14,17 +14,19 @@ const BusPage: FC = () => {
 
   const { data } = useQuery('bus', () => useBusesFindOne(id).then((res) => res.data));
   const { data: user } = useQuery('user', () => useMe().then((res) => res.data));
-  const { data: operation } = useQuery('operation', () => useOperationsFind(id).then((res) => {
-    if (!res.data.data) return;
-    return res.data.data[0]
-  }));
+  const { data: operation } = useQuery('operation', () =>
+    useOperationsFind(id).then((res) => {
+      if (!res.data.data) return;
+      return res.data.data[0];
+    }),
+  );
 
   const [bus, setBus] = useState(data);
   const [latestOperation, setLatestOperation] = useState(operation);
 
   if (data && !bus) setBus(data);
   if (operation && !latestOperation) setLatestOperation(operation);
-  
+
   const Start = () => {
     const body = {
       data: {
