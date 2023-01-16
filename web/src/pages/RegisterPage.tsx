@@ -2,7 +2,8 @@ import { FC, useState } from 'react';
 import { useNavigate, useLocation } from 'react-router-dom';
 
 import RegisterTemplate from '../components/templates/RegisterTemplate';
-import { register } from '../libs/auth';
+import { register } from '../hooks/auth';
+import { useMe } from '../hooks/users';
 
 const RegisterPage: FC = () => {
   const location = useLocation();

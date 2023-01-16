@@ -4,7 +4,6 @@ import { useLocation, useNavigate } from 'react-router-dom';
 import Header from '../components/organisms/Header';
 import ListCard from '../components/atoms/ListCard';
 
-import { usePassenger } from '../libs/users';
 import { useMe } from '../hooks/users';
 import { usePassengersFindWithFilterGroupId } from '../hooks/passengers';
 

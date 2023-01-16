@@ -4,13 +4,12 @@ import { Link, useParams, useNavigate } from 'react-router-dom';
 import BusTemplate from '../components/templates/BusTemplate';
 
 import { useMe } from '../hooks/users';
-
-import { useBusesFindOne, useBusesUpdate } from '../libs/buses';
+import { useBusesFindOne, useBusesUpdate } from '../hooks/buses';
 
 const BusPage: FC = () => {
   const navigate = useNavigate();
   const { id } = useParams<{ id: string }>();
-  const { data, error, isLoading } = useBusesFindOne(id);
+  const { data } = useBusesFindOne(id);
   const { data: user } = useMe();
 
   const BusUpdate = () => {

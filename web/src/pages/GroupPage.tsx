@@ -6,7 +6,6 @@ import NameLogo from '../assets/nameLogo.svg';
 import Header from '../components/organisms/Header';
 
 import Button from '../components/atoms/Button';
-import { register } from '../libs/auth';
 
 const GroupPage: FC = () => {
   const navigate = useNavigate();
