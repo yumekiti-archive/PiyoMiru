@@ -1,6 +1,6 @@
 import { FC, useState } from 'react';
 import { useParams, useNavigate } from 'react-router-dom';
-import { useQuery } from 'react-query';
+import { useQuery, useQueryClient } from 'react-query';
 
 import Header from '../components/organisms/Header';
 import ListCard from '../components/atoms/ListCard';
@@ -11,17 +11,12 @@ import { usePassengersFind } from '../hooks/passengers';
 import { useOperationsFindOne, useOperationsUpdate } from '../hooks/operations';
 
 const OperationListPage: FC = () => {
+  const queryClient = useQueryClient()
   const { id } = useParams<{ id: string }>();
   const navigate = useNavigate();
 
-  const { data } = useQuery('passengers', () => usePassengersFind(id).then((res) => res.data.data));
-  const { data: operationData } = useQuery('operation', () => useOperationsFindOne(id).then((res) => res.data.data));
-
-  const [passengers, setPassengers] = useState(data);
-  const [operation, setOperation] = useState(operationData);
-
-  if (data && !passengers) setPassengers(data);
-  if (operationData && !operation) setOperation(operationData);
+  const { data: passengers } = useQuery('passengers', () => usePassengersFind(id).then((res) => res.data.data));
+  const { data: operation } = useQuery('operation', () => useOperationsFindOne(id).then((res) => res.data.data));
 
   const Stop = () => {
     const body = {
@@ -30,6 +25,7 @@ const OperationListPage: FC = () => {
       },
     };
     useBusesUpdate(operation.attributes.bus.data.id, body);
+    queryClient.invalidateQueries('bus')
 
     const operationBody = {
       data: {
@@ -37,6 +33,7 @@ const OperationListPage: FC = () => {
       },
     };
     useOperationsUpdate(operation.id, operationBody);
+    queryClient.invalidateQueries('operation')
 
     navigate('/');
   };

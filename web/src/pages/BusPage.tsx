@@ -1,6 +1,6 @@
 import { FC, useState } from 'react';
 import { useParams, useNavigate } from 'react-router-dom';
-import { useQuery } from 'react-query';
+import { useQuery, useQueryClient } from 'react-query';
 
 import BusTemplate from '../components/templates/BusTemplate';
 
@@ -10,9 +10,10 @@ import { useOperationsCreate, useOperationsFind } from '../hooks/operations';
 
 const BusPage: FC = () => {
   const navigate = useNavigate();
+  const queryClient = useQueryClient()
   const { id } = useParams<{ id: string }>();
 
-  const { data } = useQuery('bus', () => useBusesFindOne(id).then((res) => res.data));
+  const { data: bus } = useQuery('bus', () => useBusesFindOne(id).then((res) => res.data));
   const { data: user } = useQuery('user', () => useMe().then((res) => res.data));
   const { data: operation } = useQuery('operation', () =>
     useOperationsFind(id).then((res) => {
@@ -20,12 +21,6 @@ const BusPage: FC = () => {
       return res.data.data[0];
     }),
   );
-
-  const [bus, setBus] = useState(data);
-  const [latestOperation, setLatestOperation] = useState(operation);
-
-  if (data && !bus) setBus(data);
-  if (operation && !latestOperation) setLatestOperation(operation);
 
   const Start = () => {
     const body = {
@@ -35,7 +30,7 @@ const BusPage: FC = () => {
     };
 
     useBusesUpdate(bus.id, body).then((res) => {
-      setBus(res.data.data);
+      queryClient.invalidateQueries('bus')
     });
 
     const operationBody = {
@@ -45,15 +40,15 @@ const BusPage: FC = () => {
       },
     };
     useOperationsCreate(operationBody).then((res) => {
-      setLatestOperation(res.data.data);
+      queryClient.invalidateQueries('operation')
     });
   };
 
   const List = () => {
-    navigate(`/list/${latestOperation.id}`);
+    navigate(`/list/${operation.id}`);
   };
 
-  return data && user && <BusTemplate data={bus} user={user} onClickStart={Start} onClickList={List} />;
+  return bus && user && <BusTemplate data={bus} user={user} onClickStart={Start} onClickList={List} />;
 };
 
 export default BusPage;
