@@ -1,22 +1,44 @@
 import { FC, useState } from 'react';
-import { useParams } from 'react-router-dom';
+import { useParams, useNavigate } from 'react-router-dom';
 import { useQuery } from 'react-query';
 
 import Header from '../components/organisms/Header';
 import ListCard from '../components/atoms/ListCard';
 import EmphasisButton from '../components/atoms/EmphasisButton';
 
+import { useBusesUpdate } from '../hooks/buses';
 import { usePassengersFind } from '../hooks/passengers';
+import { useOperationsFindOne, useOperationsUpdate } from '../hooks/operations';
 
 const OperationListPage: FC = () => {
   const { id } = useParams<{ id: string }>();
+  const navigate = useNavigate();
+
   const { data } = useQuery('passengers', () => usePassengersFind(id).then((res) => res.data.data));
+  const { data: operationData } = useQuery('operation', () => useOperationsFindOne(id).then((res) => res.data.data));
+
   const [passengers, setPassengers] = useState(data);
+  const [operation, setOperation] = useState(operationData);
 
   if (data && !passengers) setPassengers(data);
+  if (operationData && !operation) setOperation(operationData);
 
   const Stop = () => {
-    console.log('運転終了');
+    const body = {
+      data: {
+        status: !operation.attributes.bus.data.attributes.status,
+      },
+    };
+    useBusesUpdate(operation.attributes.bus.data.id, body);
+
+    const operationBody = {
+      data: {
+        end: new Date(),
+      },
+    };
+    useOperationsUpdate(operation.id, operationBody)
+
+    navigate('/');
   };
 
   return (
