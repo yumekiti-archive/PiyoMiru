@@ -20,7 +20,7 @@ const Header: FC<Props> = ({ title }) => {
   const { data } = useQuery('me', () => useMe().then((res) => res.data));
 
   const home = () => {
-    navigate(-1);
+    navigate('/');
   };
 
   const usage = () => {
@@ -48,9 +48,9 @@ const Header: FC<Props> = ({ title }) => {
       ) : (
         <>
           <h1 className='text-2xl'>{title}</h1>
-          <Link to='/' className='absolute left-4'>
+          <button onClick={() => {navigate(-1)}} className='absolute left-4'>
             <img src={Back} alt='戻る' />
-          </Link>
+          </button>
         </>
       )}
     </div>
