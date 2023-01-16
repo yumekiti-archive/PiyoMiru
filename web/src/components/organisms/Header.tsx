@@ -20,7 +20,7 @@ const Header: FC<Props> = ({ title }) => {
   const { data } = useQuery('me', () => useMe().then((res) => res.data));
 
   const home = () => {
-    navigate('/');
+    navigate(-1);
   };
 
   const usage = () => {
