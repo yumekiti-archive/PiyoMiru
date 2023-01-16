@@ -1,8 +1,8 @@
 import { fetch } from '../libs/client';
 
 // find
-export const useOperationsFind = (busId: string) => {
-  return fetch.get(`/api/operations?populate=*&filters[bus][id][$eq]=${busId}`);
+export const useOperationsFind = (busId: string | undefined) => {
+  return fetch.get(`/api/operations?populate=*&sort[0]=id:desc&filters[bus][id][$eq]=${busId}`);
 };
 
 // update

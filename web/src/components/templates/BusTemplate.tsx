@@ -15,9 +15,10 @@ interface Props {
   data: any;
   user: any;
   onClickStart: () => void;
+  onClickList: () => void;
 }
 
-const BusTemplate: FC<Props> = ({ data, user, onClickStart }) => {
+const BusTemplate: FC<Props> = ({ data, user, onClickStart, onClickList }) => {
   const navigate = useNavigate();
 
   return (
@@ -57,9 +58,7 @@ const BusTemplate: FC<Props> = ({ data, user, onClickStart }) => {
                 <div className='w-4/12 h-24 flex items-center justify-center mr-10'>
                   <EmphasisButton
                     text='乗車中園児確認'
-                    onClick={() => {
-                      navigate('/list');
-                    }}
+                    onClick={onClickList}
                     mainBgColor='bg-[#FBD579]'
                     subBgColor='bg-[#DAB357]'
                     color='text-[#666666]'
