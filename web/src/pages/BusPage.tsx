@@ -20,13 +20,10 @@ const BusPage: FC = () => {
       },
     };
 
-    useBusesUpdate(data.data.id, body)
+    useBusesUpdate(data.data.id, body);
   };
 
-  return (
-    data && user &&
-    <BusTemplate data={data} user={user} onClickStart={BusUpdate} />
-  );
+  return data && user && <BusTemplate data={data} user={user} onClickStart={BusUpdate} />;
 };
 
 export default BusPage;

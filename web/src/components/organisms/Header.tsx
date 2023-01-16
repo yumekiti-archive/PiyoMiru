@@ -23,7 +23,7 @@ const Header: FC<Props> = ({ title }) => {
   };
 
   const usage = () => {
-    navigate('/list', { state: { id: data.group.id} });
+    navigate('/list', { state: { id: data.group.id } });
   };
 
   const settings = () => {

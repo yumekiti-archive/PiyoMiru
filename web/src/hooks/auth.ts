@@ -10,7 +10,7 @@ export const register = (data: { username: string; email: string; password: stri
 export const useLogin = (data: { identifier: string; password: string }) => {
   return fetch.post('api/auth/local', data).then((res) => {
     localStorage.setItem('jwt', res.data.jwt);
-  })
+  });
 };
 
 // ログアウト

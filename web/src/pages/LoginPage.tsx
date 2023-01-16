@@ -18,16 +18,18 @@ const LoginPage: FC = () => {
       password: password,
     };
 
-    useLogin(body).then((res) => {
-      navigate('/');
-    }).catch((err) => {
-      setErrorsDetails([]);
-      setError(err.response.data.error.message);
+    useLogin(body)
+      .then((res) => {
+        navigate('/');
+      })
+      .catch((err) => {
+        setErrorsDetails([]);
+        setError(err.response.data.error.message);
 
-      if (err.response.data.error.details.errors) {
-        setErrorsDetails(err.response.data.error.details.errors);
-      }
-    })
+        if (err.response.data.error.details.errors) {
+          setErrorsDetails(err.response.data.error.details.errors);
+        }
+      });
   };
 
   return (

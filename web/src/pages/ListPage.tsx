@@ -14,7 +14,6 @@ const ListPage: FC = () => {
   const [id, setId] = useState('');
   const { data: user } = useMe();
   const { data } = usePassengersFindWithFilterGroupId(location.state.id);
-  
 
   return (
     data && (
@@ -22,8 +21,7 @@ const ListPage: FC = () => {
         <Header title='乗車中園児 一覧' />
         <div className='mt-32 w-full flex items-center justify-center pb-4 flex-col space-y-4'>
           {data.map(
-            (user: any) =>
-              user && <ListCard key={user.id} name={user.displayname} createdAt={user.createdAt} />,
+            (user: any) => user && <ListCard key={user.id} name={user.displayname} createdAt={user.createdAt} />,
           )}
         </div>
       </>
