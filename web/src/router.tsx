@@ -12,6 +12,7 @@ import RegisterPage from './pages/RegisterPage';
 import GroupPage from './pages/GroupPage';
 import SettingsPage from './pages/SettingsPage';
 import RidePage from './pages/RidePage';
+import GettingOffPage from './pages/GettingOffPage';
 
 const Router: FC = () => {
   return (
@@ -27,6 +28,7 @@ const Router: FC = () => {
       <Route path='/group' element={<GroupPage />} />
       <Route path='/settings' element={<SettingsPage />} />
       <Route path='/ride/:id' element={<RidePage />} />
+      <Route path='/exit/:id' element={<GettingOffPage />} />
     </Routes>
   );
 };
