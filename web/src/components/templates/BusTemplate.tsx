@@ -23,13 +23,13 @@ const BusTemplate: FC<Props> = ({ data, user, onClickStart }) => {
   return (
     <>
       <Header title='乗車中園児 一覧' />
-      {data.data.attributes.status && <Background type='bus' />}
+      {data.attributes.status && <Background type='bus' />}
       <div className='bg-sora h-screen'>
         <div className='h-2/6 flex items-end justify-center'>
-          <BusStatus name={data.data.attributes.name} status={data.data.attributes.status} />
+          <BusStatus name={data.attributes.name} status={data.attributes.status} />
         </div>
         <div className='h-2/6 flex items-center justify-center'>
-          {data.data.attributes.status ? (
+          {data.attributes.status ? (
             <img src={BusRun} alt='bus' className='w-80' />
           ) : (
             <img src={Bus} alt='bus' className='w-80' />
@@ -37,7 +37,7 @@ const BusTemplate: FC<Props> = ({ data, user, onClickStart }) => {
         </div>
         <div className='h-2/6 flex items-center justify-center'>
           {user.driver ? (
-            !data.data.attributes.status ? (
+            !data.attributes.status ? (
               <>
                 <div className='w-8/12 h-16 flex items-center justify-center'>
                   <EmphasisButton
