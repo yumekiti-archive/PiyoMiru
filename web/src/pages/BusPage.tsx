@@ -6,6 +6,7 @@ import BusTemplate from '../components/templates/BusTemplate';
 
 import { useMe } from '../hooks/users';
 import { useBusesFindOne, useBusesUpdate } from '../hooks/buses';
+import { useOperationsCreate } from '../hooks/operations';
 
 const BusPage: FC = () => {
   const { id } = useParams<{ id: string }>();
@@ -15,19 +16,27 @@ const BusPage: FC = () => {
 
   if (data && !bus) setBus(data);
 
-  const Update = () => {
+  const Start = () => {
     const body = {
       data: {
-        status: !data.data.attributes.status,
+        status: !bus.attributes.status,
       },
     };
 
-    useBusesUpdate(data.data.id, body).then((res) => {
-      setBus(res.data);
+    useBusesUpdate(bus.id, body).then((res) => {
+      setBus(res.data.data);
     });
+
+    const operation = {
+      data: {
+        start: new Date(),
+        bus: bus.id,
+      },
+    };
+    useOperationsCreate(operation);
   };
 
-  return data && user && <BusTemplate data={bus} user={user} onClickStart={Update} />;
+  return data && user && <BusTemplate data={bus} user={user} onClickStart={Start} />;
 };
 
 export default BusPage;
