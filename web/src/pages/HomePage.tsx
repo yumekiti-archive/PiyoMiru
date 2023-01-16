@@ -1,11 +1,9 @@
 import { FC, useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
-import { useRecoilState } from 'recoil';
 
 import HomeTemplate from '../components/templates/HomeTemplate';
 
-import { userState } from '../recoil/atoms';
-import { useMe } from '../libs/users';
+import { useMe } from '../hooks/users';
 
 const HomePage: FC = () => {
   const navigate = useNavigate();
@@ -13,21 +11,13 @@ const HomePage: FC = () => {
   const [addBusFlag, setAddBusFlag] = useState(false);
   const [busName, setBusName] = useState('');
 
-  const [user, setUser] = useRecoilState(userState);
-  const { data, error, isLoading } = useMe();
+  if (localStorage.getItem('jwt') === null) navigate('/login');
+
+  const { data } = useMe();
 
   const AddBus = () => {
     console.log('hoge');
   };
-
-  useEffect(() => {
-    if (localStorage.getItem('jwt') === null) {
-      navigate('/login');
-    }
-    if (error) localStorage.removeItem('jwt');
-    if (!data) return;
-    setUser(data);
-  }, [data, error]);
 
   return (
     <HomeTemplate

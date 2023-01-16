@@ -1,12 +1,20 @@
 import { FC } from 'react';
-import { RecoilRoot } from 'recoil';
+import {
+  useQuery,
+  useMutation,
+  useQueryClient,
+  QueryClient,
+  QueryClientProvider,
+} from 'react-query'
 import Router from './router';
+
+const queryClient = new QueryClient()
 
 const App: FC = () => {
   return (
-    <RecoilRoot>
+    <QueryClientProvider client={queryClient}>
       <Router />
-    </RecoilRoot>
+    </QueryClientProvider>
   );
 };
 

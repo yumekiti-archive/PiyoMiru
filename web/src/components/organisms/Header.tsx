@@ -1,6 +1,5 @@
 import { FC } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
-import { useRecoilValue } from 'recoil';
 
 import HeaderButton from '../atoms/HeaderButton';
 
@@ -9,7 +8,7 @@ import NameLogo from '../../assets/nameLogo.svg';
 import Bear from '../../assets/button/bear.svg';
 import Frog from '../../assets/button/frog.svg';
 
-import { userState } from '../../recoil/atoms';
+import { useMe } from '../../hooks/users';
 
 interface Props {
   title: string;
@@ -17,14 +16,14 @@ interface Props {
 
 const Header: FC<Props> = ({ title }) => {
   const navigate = useNavigate();
-  const user = useRecoilValue(userState);
+  const { data } = useMe();
 
   const home = () => {
     navigate('/');
   };
 
   const usage = () => {
-    navigate('/list', { state: { id: user.group.id } });
+    navigate('/list', { state: { id: data.group.id} });
   };
 
   const settings = () => {
