@@ -1,4 +1,4 @@
-import { FC } from 'react';
+import { FC, useState } from 'react';
 import { useParams } from 'react-router-dom';
 
 import BusTemplate from '../components/templates/BusTemplate';
@@ -8,20 +8,25 @@ import { useBusesFindOne, useBusesUpdate } from '../hooks/buses';
 
 const BusPage: FC = () => {
   const { id } = useParams<{ id: string }>();
-  const { data } = useBusesFindOne(id);
+  const { isLoading, data } = useBusesFindOne(id);
   const { data: user } = useMe();
+  const [bus, setBus] = useState(data);
 
-  const BusUpdate = () => {
+  if (data && !bus) setBus(data);
+
+  const Update = () => {
     const body = {
       data: {
         status: !data.data.attributes.status,
       },
     };
 
-    useBusesUpdate(data.data.id, body);
+    useBusesUpdate(data.data.id, body).then((res) => {
+      setBus(res.data);
+    });
   };
 
-  return data && user && <BusTemplate data={data} user={user} onClickStart={BusUpdate} />;
+  return data && user && <BusTemplate data={bus} user={user} onClickStart={Update} />;
 };
 
 export default BusPage;

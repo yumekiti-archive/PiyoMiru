@@ -8,7 +8,7 @@ export const useBusesFindOne = (id: string | undefined) => {
 
 // update
 export const useBusesUpdate = (id: string | undefined, body: any) => {
-  return useQuery('buses', () => fetch.put(`/api/buses/${id}`, body).then((res) => res.data));
+  return fetch.put(`/api/buses/${id}`, body);
 };
 
 // create
