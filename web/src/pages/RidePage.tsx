@@ -18,12 +18,12 @@ const RidePage: FC = () => {
 
   const { data: user } = useQuery('user', () => useUsersFindOne(id).then((res) => res.data));
   const { data: operations } = useQuery('operations', () => useOperationsFind(busId).then((res) => res.data));
-  
+
   if (!flag && user && operations) {
     setFlag(true);
 
     usePassengersFindMyId(id).then((res) => {
-      if(res.data.data.length > 0 && res.data.data[0].attributes.status) {
+      if (res.data.data.length > 0 && res.data.data[0].attributes.status) {
         usePassengersUpdate(res.data.data[0].id, {
           data: {
             status: false,
@@ -42,7 +42,7 @@ const RidePage: FC = () => {
         });
       }
 
-      navigate(`/bus/${operations.data[0].attributes.bus.data.id}`)
+      navigate(`/bus/${operations.data[0].attributes.bus.data.id}`);
     });
   }
 
