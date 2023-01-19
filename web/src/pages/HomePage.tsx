@@ -10,11 +10,15 @@ const HomePage: FC = () => {
   const navigate = useNavigate();
   if (localStorage.getItem('jwt') === null) return <Navigate to='/login' />;
 
-  const { data: me, error } = useQuery('me', () => useMe().then((res) => res.data).catch((err) => {
-    if (err.response.status === 401) {
-      navigate('/login');
-    }
-  }));
+  const { data: me, error } = useQuery('me', () =>
+    useMe()
+      .then((res) => res.data)
+      .catch((err) => {
+        if (err.response.status === 401) {
+          navigate('/login');
+        }
+      }),
+  );
   const [addBusFlag, setAddBusFlag] = useState(false);
   const [busName, setBusName] = useState('');
 
