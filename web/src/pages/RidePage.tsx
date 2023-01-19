@@ -24,7 +24,7 @@ const RidePage: FC = () => {
 
     usePassengersFindMyId(id, operations.data[0].id).then((res) => {
       // ない場合
-      if(!(res.data.data.length > 0)) {
+      if (!(res.data.data.length > 0)) {
         usePassengersCreate({
           data: {
             operation: operations.data[0].id,
@@ -33,9 +33,9 @@ const RidePage: FC = () => {
         }).then((res) => {
           console.log('create', res);
         });
-      // ある場合
+        // ある場合
       } else {
-        if (!(res.data.data[0].attributes.status)) return
+        if (!res.data.data[0].attributes.status) return;
         usePassengersUpdate(res.data.data[0].id, {
           data: {
             status: false,

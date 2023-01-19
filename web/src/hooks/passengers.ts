@@ -11,7 +11,9 @@ export const usePassengersCreate = (body: any) => {
 
 // find my id
 export const usePassengersFindMyId = (id: string | undefined, operation: string | undefined) => {
-  return fetch.get(`api/passengers?populate=*&sort[0]=id:desc&filters[users_permissions_user][id][$eq]=${id}&filters[operation][id][$eq]=${operation}`);
+  return fetch.get(
+    `api/passengers?populate=*&sort[0]=id:desc&filters[users_permissions_user][id][$eq]=${id}&filters[operation][id][$eq]=${operation}`,
+  );
 };
 
 // update
