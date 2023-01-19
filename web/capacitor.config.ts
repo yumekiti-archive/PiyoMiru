@@ -4,7 +4,7 @@ const config: CapacitorConfig = {
   appId: 'piyomiru.yumekiti.net',
   appName: 'PiyoMiru',
   webDir: 'build',
-  bundledWebRuntime: false
+  bundledWebRuntime: false,
 };
 
 export default config;
