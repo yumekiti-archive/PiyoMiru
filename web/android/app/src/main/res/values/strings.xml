@@ -1,0 +1,7 @@
+<?xml version='1.0' encoding='utf-8'?>
+<resources>
+    <string name="app_name">PiyoMiru</string>
+    <string name="title_activity_main">PiyoMiru</string>
+    <string name="package_name">piyomiru.yumekiti.net</string>
+    <string name="custom_url_scheme">piyomiru.yumekiti.net</string>
+</resources>
