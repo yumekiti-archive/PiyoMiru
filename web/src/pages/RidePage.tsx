@@ -22,16 +22,9 @@ const RidePage: FC = () => {
   if (!flag && user && operations) {
     setFlag(true);
 
-    usePassengersFindMyId(id).then((res) => {
-      if (res.data.data.length > 0 && res.data.data[0].attributes.status) {
-        usePassengersUpdate(res.data.data[0].id, {
-          data: {
-            status: false,
-          },
-        }).then((res) => {
-          console.log('update', res);
-        });
-      } else {
+    usePassengersFindMyId(id, operations.data[0].id).then((res) => {
+      // ない場合
+      if(!(res.data.data.length > 0)) {
         usePassengersCreate({
           data: {
             operation: operations.data[0].id,
@@ -40,13 +33,23 @@ const RidePage: FC = () => {
         }).then((res) => {
           console.log('create', res);
         });
+      // ある場合
+      } else {
+        if (!(res.data.data[0].attributes.status)) return
+        usePassengersUpdate(res.data.data[0].id, {
+          data: {
+            status: false,
+          },
+        }).then((res) => {
+          console.log('update', res);
+        });
       }
 
-      navigate(`/bus/${operations.data[0].attributes.bus.data.id}`);
+      navigate(`/list/${operations.data[0].id}`);
     });
   }
 
-  return <p>{id}</p>;
+  return <></>;
   // return <Navigate to='/' />;
 };
 
