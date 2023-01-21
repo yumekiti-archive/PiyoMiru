@@ -1,6 +1,6 @@
-import { FC } from "react";
+import { FC } from 'react';
 
-import Button from "../atoms/Button";
+import Button from '../atoms/Button';
 
 interface Props {
   text: string;
@@ -40,7 +40,7 @@ const CheckModal: FC<Props> = ({ text, view, setView, bgColor, color, buttonText
         </div>
       )}
     </>
-  )
+  );
 };
 
 export default CheckModal;
