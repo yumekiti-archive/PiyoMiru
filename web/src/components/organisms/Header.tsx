@@ -44,9 +44,7 @@ const Header: FC<Props> = ({ title, driver, groupId }) => {
           <div className='w-1/2 flex justify-end items-center space-x-2 mr-2'>
             {window.location.pathname === '/' && (
               <>
-                <HeaderButton text={
-                  driver ? `園児` : `家族`
-                } img={Bear} onClick={usage} />
+                <HeaderButton text={driver ? `園児` : `家族`} img={Bear} onClick={usage} />
                 <HeaderButton text='設定' img={Frog} onClick={settings} />
               </>
             )}
