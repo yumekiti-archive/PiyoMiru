@@ -14,3 +14,8 @@ export const useUsersFindWithFilterGroupId = (id: string | undefined) => {
 export const useUsersFindOne = (id: string | undefined) => {
   return fetch.get(`/api/users/${id}?populate[family][populate]&populate[group][populate][buses][populate]`);
 };
+
+// update one user
+export const useUsersUpdateOne = (id: string | undefined, body: any) => {
+  return fetch.put(`/api/users/${id}`, body);
+}
