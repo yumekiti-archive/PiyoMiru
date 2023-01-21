@@ -37,14 +37,14 @@ const Header: FC<Props> = ({ title, driver, group }) => {
       {title === '' ? (
         <>
           <img src={NameLogo} alt='nameLogo' className='px-4 w-1/2 h-4/6' onClick={home} />
-          <div className='w-1/2 flex justify-end items-center space-x-2 mr-2'>
-            {window.location.pathname === '/' && (
-              <>
-                <HeaderButton text={driver ? `園児` : `家族`} img={Bear} onClick={usage} />
-                <HeaderButton text='設定' img={Frog} onClick={settings} />
-              </>
-            )}
-          </div>
+          {window.location.pathname === '/' ? (
+            <div className='w-1/2 flex justify-end items-center space-x-2 mr-2'>
+              <HeaderButton text={driver ? `園児` : `家族`} img={Bear} onClick={usage} />
+              <HeaderButton text='設定' img={Frog} onClick={settings} />
+            </div>
+          ) : (
+            <div className='w-1/2 flex justify-end items-center space-x-2 mr-2' />
+          )}
         </>
       ) : (
         <>
