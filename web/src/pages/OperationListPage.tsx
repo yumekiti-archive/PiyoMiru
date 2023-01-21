@@ -46,12 +46,12 @@ const OperationListPage: FC = () => {
     passengers &&
     me && (
       <>
-        <div className='h-screen w-full relative'>
-          <div className='h-1/6 w-full flex items-center justify-center'>
+        <div className='h-full w-full relative'>
+          <div className='w-full flex items-center justify-center'>
             <Header title='乗車中園児 一覧' />
           </div>
           {passengers.length !== 0 ? (
-            <div className='h-3/6 w-full flex items-center justify-start mb-40 flex-col space-y-4'>
+            <div className='h-full w-full flex items-center justify-start flex-col space-y-4 mb-10'>
               {passengers.map((passenger: any) => (
                 <ListCard
                   key={passenger.attributes.users_permissions_user.data.id}
@@ -62,15 +62,19 @@ const OperationListPage: FC = () => {
             </div>
           ) : (
             <>
-              <div className='h-2/6 w-full flex items-center justify-center'>現在、乗車中の園児はいません</div>
-              <div className='h-1/6 w-full flex items-center justify-center'>
-                <ThreePeople />
+              <div className='h-screen w-full'>
+                <div className='h-1/6 w-full' />
+                <div className='h-2/6 w-full flex items-center justify-center'>現在、乗車中の園児はいません</div>
+                <div className='h-1/6 w-full flex items-center justify-center'>
+                  <ThreePeople />
+                </div>
+                <div className='h-2/6 w-full' />
               </div>
             </>
           )}
           {me.driver && (
-            <div className='h-screen w-full flex items-end justify-center sticky bottom-0'>
-              <div className='w-8/12 h-16 flex items-center justify-center absolute bottom-10'>
+            <div className='w-full flex items-end justify-center sticky bottom-10'>
+              <div className='w-8/12 h-16 flex items-center justify-center z-10'>
                 <EmphasisButton
                   text='運転終了'
                   onClick={Stop}
@@ -83,7 +87,6 @@ const OperationListPage: FC = () => {
               </div>
             </div>
           )}
-          <div className='h-2/6 w-full' />
         </div>
       </>
     )
