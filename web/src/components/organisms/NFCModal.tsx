@@ -1,6 +1,6 @@
-import { FC, useState } from "react";
+import { FC, useState } from 'react';
 
-import Button from "../atoms/Button";
+import Button from '../atoms/Button';
 
 import Anzen from '../../assets/anzen.svg';
 

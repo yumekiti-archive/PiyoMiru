@@ -39,11 +39,21 @@ const GroupListPage: FC = () => {
             (user: any) =>
               !user.driver && <ListCard key={user.id} name={user.displayname} createdAt={user.createdAt} />,
           )}
-          <button className='w-11/12 h-24 rounded-xl border-2 border-[#FBD579] flex items-center justify-center' onClick={() => setModal(true)}>
+          <button
+            className='w-11/12 h-24 rounded-xl border-2 border-[#FBD579] flex items-center justify-center'
+            onClick={() => setModal(true)}
+          >
             <Plus />
           </button>
         </div>
-        <AddModal text={`お子様の名前を\n入力してください`} view={modal} setView={setModal} name={name} setName={setName} onClick={register} />
+        <AddModal
+          text={`お子様の名前を\n入力してください`}
+          view={modal}
+          setView={setModal}
+          name={name}
+          setName={setName}
+          onClick={register}
+        />
       </>
     )
   );
