@@ -10,7 +10,7 @@ const App: FC = () => {
     console.log('Connected to serve');
   });
 
-  socket.on("refresh", () => {
+  socket.on('refresh', () => {
     queryClient.invalidateQueries('me');
     queryClient.invalidateQueries('user');
     queryClient.invalidateQueries('bus');
