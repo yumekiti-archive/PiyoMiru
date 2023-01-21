@@ -29,29 +29,23 @@ const GroupListPage: FC = () => {
   const { data: group } = useQuery('group', () =>
     useUsersFindWithFilterGroup(location.state.id).then((res) => res.data),
   );
-  const { data: family } = useQuery('family', () =>
-    useUsersFindByFamily(location.state.id).then((res) => res.data),
-  );
+  const { data: family } = useQuery('family', () => useUsersFindByFamily(location.state.id).then((res) => res.data));
 
   if (location.state.id === 'group') return <Navigate to='/group' />;
   if (location.state.id === 'family') return <Navigate to='/family' />;
 
   return (
-    family && group && (
+    family &&
+    group && (
       <>
         <Header driver={me.driver} title={me.driver ? '園児 一覧' : '家族 一覧'} />
         <div className='mt-32 w-full flex items-center justify-center pb-4 flex-col space-y-4'>
-          {me.driver ? (
-            group.map(
-              (user: any) =>
-                !user.driver && <ListCard key={user.id} name={user.displayname} createdAt={user.createdAt} />,
-            )
-          ) : (  
-            family.map(
-              (user: any) =>
-                <ListCard key={user.id} name={user.displayname} createdAt={user.createdAt} />,
-            )
-          )}
+          {me.driver
+            ? group.map(
+                (user: any) =>
+                  !user.driver && <ListCard key={user.id} name={user.displayname} createdAt={user.createdAt} />,
+              )
+            : family.map((user: any) => <ListCard key={user.id} name={user.displayname} createdAt={user.createdAt} />)}
           <button
             className='w-11/12 h-24 rounded-xl border-2 border-[#FBD579] flex items-center justify-center'
             onClick={() => setAddModalView(true)}

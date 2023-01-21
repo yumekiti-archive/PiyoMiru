@@ -1,5 +1,5 @@
-import { FC } from "react";
-import { useQuery } from "react-query";
+import { FC } from 'react';
+import { useQuery } from 'react-query';
 
 const FamilyPage: FC = () => {
   return <></>;
