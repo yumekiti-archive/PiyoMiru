@@ -29,7 +29,6 @@ const HomePage: FC = () => {
   return (
     me && (
       <HomeTemplate
-        groupId={me.group.id}
         addBusFlag={addBusFlag}
         busName={busName}
         setBusName={setBusName}

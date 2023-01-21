@@ -5,10 +5,9 @@ import Header from '../components/organisms/Header';
 import Button from '../components/atoms/Button';
 
 const GroupPage: FC = () => {
-  const [name, setName] = useState('');
-  const [email, setEmail] = useState('');
+  const [groupname, setGroupname] = useState('');
 
-  const onClickRegister = () => {
+  const Register = () => {
     console.log('register');
   };
 
@@ -20,15 +19,12 @@ const GroupPage: FC = () => {
       <div className='h-3/6 flex justify-start flex-col items-center space-y-4 pt-10'>
         <p className='text-2xl'>---&ensp;所属情報登録&ensp;---</p>
         <div className='w-10/12 flex justify-center'>
-          <FormText icon={true} label='所属' value={name} onChange={(e) => setName(e.target.value)} />
-        </div>
-        <div className='w-10/12 flex justify-center'>
-          <FormText label='所属住所' value={email} onChange={(e) => setEmail(e.target.value)} />
+          <FormText icon={true} label='所属ID' value={groupname} onChange={(e) => setGroupname(e.target.value)} />
         </div>
       </div>
       <div className='h-2/6 w-full flex items-center justify-center'>
         <div className='w-10/12 h-16'>
-          <Button text='とうろく' onClick={onClickRegister} />
+          <Button text='とうろく' onClick={Register} />
         </div>
       </div>
     </div>

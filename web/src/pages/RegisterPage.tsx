@@ -29,7 +29,7 @@ const RegisterPage: FC = () => {
 
     useRegister(body)
       .then((res) => {
-        navigate('/');
+        navigate('/group');
       })
       .catch((err) => {
         setErrorsDetails([]);
