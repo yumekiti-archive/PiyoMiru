@@ -6,6 +6,7 @@ import Header from '../components/organisms/Header';
 import CheckModal from '../components/organisms/CheckModal';
 import ListCard from '../components/atoms/ListCard';
 import EmphasisButton from '../components/atoms/EmphasisButton';
+import socket from '../socket';
 
 import { ReactComponent as ThreePeople } from '../assets/threePeople.svg';
 import { ReactComponent as Plus } from '../assets/plus.svg';
@@ -26,6 +27,8 @@ const OperationListPage: FC = () => {
   const { data: me } = useQuery('me', () => useMe().then((res) => res.data));
 
   const Stop = () => {
+    socket.emit('stop', me.group.id);
+
     const body = {
       data: {
         status: !operation.attributes.bus.data.attributes.status,

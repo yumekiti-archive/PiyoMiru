@@ -1,6 +1,7 @@
 import { FC, useState } from 'react';
 import { useParams, useNavigate } from 'react-router-dom';
 import { useQuery, useQueryClient } from 'react-query';
+import socket from '../socket';
 
 import BusTemplate from '../components/templates/BusTemplate';
 
@@ -14,7 +15,7 @@ const BusPage: FC = () => {
   const { id } = useParams<{ id: string }>();
 
   const { data: bus } = useQuery('bus', () => useBusesFindOne(id).then((res) => res.data));
-  const { data: user } = useQuery('user', () => useMe().then((res) => res.data));
+  const { data: me } = useQuery('user', () => useMe().then((res) => res.data));
   const { data: operation } = useQuery('operation', () =>
     useOperationsFind(id).then((res) => {
       if (!res.data.data) return;
@@ -23,6 +24,8 @@ const BusPage: FC = () => {
   );
 
   const Start = () => {
+    socket.emit('start', me.group.id);
+
     const body = {
       data: {
         status: !bus.attributes.status,
@@ -52,7 +55,7 @@ const BusPage: FC = () => {
     localStorage.setItem('bus', bus.id);
   };
 
-  return bus && user && <BusTemplate data={bus} user={user} onClickStart={Start} onClickList={List} onClickNFC={NFC} />;
+  return bus && me && <BusTemplate data={bus} user={me} onClickStart={Start} onClickList={List} onClickNFC={NFC} />;
 };
 
 export default BusPage;
