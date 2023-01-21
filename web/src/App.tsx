@@ -2,6 +2,7 @@ import { FC, useEffect } from 'react';
 import { useQuery, useMutation, useQueryClient, QueryClient, QueryClientProvider } from 'react-query';
 import Router from './router';
 import socket from './socket';
+import AppUrlListener from './AppUrlListener';
 
 const queryClient = new QueryClient();
 
@@ -32,6 +33,7 @@ const App: FC = () => {
 
   return (
     <QueryClientProvider client={queryClient}>
+      <AppUrlListener />
       <Router />
     </QueryClientProvider>
   );
