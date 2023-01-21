@@ -10,7 +10,7 @@ import EmphasisButton from '../components/atoms/EmphasisButton';
 import AddModal from '../components/organisms/AddModal';
 import NFCModal from '../components/organisms/NFCModal';
 
-import { useUsersFindWithFilterGroup, useMe } from '../hooks/users';
+import { useUsersFindWithFilterGroup, useMe, useUsersFindByFamily } from '../hooks/users';
 
 const GroupListPage: FC = () => {
   const location = useLocation();
@@ -29,17 +29,28 @@ const GroupListPage: FC = () => {
   const { data: group } = useQuery('group', () =>
     useUsersFindWithFilterGroup(location.state.id).then((res) => res.data),
   );
+  const { data: family } = useQuery('family', () =>
+    useUsersFindByFamily(location.state.id).then((res) => res.data),
+  );
 
-  if (location.state.id === '0') return <Navigate to='/group' />;
+  if (location.state.id === 'group') return <Navigate to='/group' />;
+  if (location.state.id === 'family') return <Navigate to='/family' />;
 
   return (
-    group && (
+    family && group && (
       <>
-        <Header driver={me.status} title='乗車中園児 一覧' />
+        <Header driver={me.driver} title={me.driver ? '園児 一覧' : '家族 一覧'} />
         <div className='mt-32 w-full flex items-center justify-center pb-4 flex-col space-y-4'>
-          {group.map(
-            (user: any) =>
-              !user.driver && <ListCard key={user.id} name={user.displayname} createdAt={user.createdAt} />,
+          {me.driver ? (
+            group.map(
+              (user: any) =>
+                !user.driver && <ListCard key={user.id} name={user.displayname} createdAt={user.createdAt} />,
+            )
+          ) : (  
+            family.map(
+              (user: any) =>
+                <ListCard key={user.id} name={user.displayname} createdAt={user.createdAt} />,
+            )
           )}
           <button
             className='w-11/12 h-24 rounded-xl border-2 border-[#FBD579] flex items-center justify-center'

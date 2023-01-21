@@ -14,10 +14,10 @@ import { useMe } from '../../hooks/users';
 interface Props {
   title: string;
   driver?: boolean;
-  group?: string;
+  id?: string;
 }
 
-const Header: FC<Props> = ({ title, driver, group }) => {
+const Header: FC<Props> = ({ title, driver, id }) => {
   const navigate = useNavigate();
 
   const home = () => {
@@ -25,7 +25,7 @@ const Header: FC<Props> = ({ title, driver, group }) => {
   };
 
   const usage = () => {
-    navigate('/list', { state: { id: group } });
+    navigate('/list', { state: { id: id } });
   };
 
   const settings = () => {

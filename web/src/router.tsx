@@ -13,6 +13,8 @@ import GroupPage from './pages/GroupPage';
 import SettingsPage from './pages/SettingsPage';
 import RidePage from './pages/RidePage';
 import ScanPage from './pages/ScanPage';
+import FamilySetPage from './pages/FamilySetPage';
+import FamilyPage from './pages/FamilyPage';
 
 const Router: FC = () => {
   return (
@@ -28,7 +30,9 @@ const Router: FC = () => {
       <Route path='/group' element={<GroupPage />} />
       <Route path='/settings' element={<SettingsPage />} />
       <Route path='/ride/:id' element={<RidePage />} />
+      <Route path='/family/:id' element={<FamilySetPage />} />
       <Route path='/scan/:id' element={<ScanPage />} />
+      <Route path='/family' element={<FamilyPage />} />
     </Routes>
   );
 };

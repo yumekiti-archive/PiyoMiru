@@ -19,3 +19,8 @@ export const useUsersFindOne = (id: string | undefined) => {
 export const useUsersUpdateOne = (id: string | undefined, body: any) => {
   return fetch.put(`/api/users/${id}`, body);
 };
+
+// find by family
+export const useUsersFindByFamily = (id: string | undefined) => {
+  return fetch.get(`/api/users?filters[family][id][$eq]=${id}`);
+}

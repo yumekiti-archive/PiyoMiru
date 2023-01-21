@@ -10,6 +10,8 @@ const HomePage: FC = () => {
   const navigate = useNavigate();
   if (localStorage.getItem('jwt') === null) return <Navigate to='/login' />;
   localStorage.removeItem('bus');
+  localStorage.removeItem('family');
+  localStorage.removeItem('group');
 
   const { data: me, error } = useQuery('me', () =>
     useMe()
