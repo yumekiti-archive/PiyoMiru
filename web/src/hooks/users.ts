@@ -6,7 +6,7 @@ export const useMe = () => {
   );
 };
 
-export const useUsersFindWithFilterGroupId = (id: string | undefined) => {
+export const useUsersFindWithFilterGroup = (id: string | undefined) => {
   return fetch.get(`/api/users?filters[group][id][$eq]=${id}`);
 };
 

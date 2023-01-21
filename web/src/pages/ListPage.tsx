@@ -8,14 +8,14 @@ import Header from '../components/organisms/Header';
 import ListCard from '../components/atoms/ListCard';
 import EmphasisButton from '../components/atoms/EmphasisButton';
 
-import { useUsersFindWithFilterGroupId } from '../hooks/users';
+import { useUsersFindWithFilterGroup } from '../hooks/users';
 
 const GroupListPage: FC = () => {
   const location = useLocation();
 
   if (location.state === null) return <Navigate to='/' />;
 
-  const { data } = useQuery('group', () => useUsersFindWithFilterGroupId(location.state.id).then((res) => res.data));
+  const { data } = useQuery('group', () => useUsersFindWithFilterGroup(location.state.id).then((res) => res.data));
 
   if (location.state.id === '0') return <Navigate to='/group' />;
 

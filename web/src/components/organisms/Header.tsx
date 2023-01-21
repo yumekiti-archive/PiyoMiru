@@ -14,22 +14,18 @@ import { useMe } from '../../hooks/users';
 interface Props {
   title: string;
   driver?: boolean;
-  groupId?: string;
+  group?: string;
 }
 
-const Header: FC<Props> = ({ title, driver, groupId }) => {
+const Header: FC<Props> = ({ title, driver, group }) => {
   const navigate = useNavigate();
 
   const home = () => {
     navigate('/');
   };
 
-  const back = () => {
-    navigate(-1);
-  };
-
   const usage = () => {
-    navigate('/list', { state: { id: groupId } });
+    navigate('/list', { state: { id: group } });
   };
 
   const settings = () => {
@@ -53,9 +49,9 @@ const Header: FC<Props> = ({ title, driver, groupId }) => {
       ) : (
         <>
           <h1 className='text-2xl'>{title}</h1>
-          <button className='absolute left-4' onClick={back}>
+          <Link to='/' className='absolute left-4'>
             <img src={Back} alt='戻る' />
-          </button>
+          </Link>
         </>
       )}
     </div>
