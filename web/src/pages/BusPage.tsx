@@ -49,7 +49,7 @@ const BusPage: FC = () => {
   };
 
   const NFC = () => {
-    localStorage.setItem('busId', bus.id);
+    localStorage.setItem('bus', bus.id);
   };
 
   return bus && user && <BusTemplate data={bus} user={user} onClickStart={Start} onClickList={List} onClickNFC={NFC} />;

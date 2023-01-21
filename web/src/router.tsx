@@ -3,7 +3,7 @@ import { Routes, Route, Navigate } from 'react-router-dom';
 
 import LoginPage from './pages/LoginPage';
 import BusPage from './pages/BusPage';
-import GroupListPage from './pages/GroupListPage';
+import ListPage from './pages/ListPage';
 import OperationListPage from './pages/OperationListPage';
 import UsagePage from './pages/UsagePage';
 import HomePage from './pages/HomePage';
@@ -20,7 +20,7 @@ const Router: FC = () => {
       <Route path='/login' element={<LoginPage />} />
       <Route path='/usage' element={<UsagePage />} />
       <Route path='/bus/:id' element={<BusPage />} />
-      <Route path='/list' element={<GroupListPage />} />
+      <Route path='/list' element={<ListPage />} />
       <Route path='/list/:id' element={<OperationListPage />} />
       <Route path='/lp' element={<LP />} />
       <Route path='/register' element={<RegisterPage />} />

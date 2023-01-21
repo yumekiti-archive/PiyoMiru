@@ -13,14 +13,19 @@ import { useMe } from '../../hooks/users';
 
 interface Props {
   title: string;
+  driver?: boolean;
   groupId?: string;
 }
 
-const Header: FC<Props> = ({ title, groupId }) => {
+const Header: FC<Props> = ({ title, driver, groupId }) => {
   const navigate = useNavigate();
 
   const home = () => {
     navigate('/');
+  };
+
+  const back = () => {
+    navigate(-1);
   };
 
   const usage = () => {
@@ -39,7 +44,9 @@ const Header: FC<Props> = ({ title, groupId }) => {
           <div className='w-1/2 flex justify-end items-center space-x-2 mr-2'>
             {window.location.pathname === '/' && (
               <>
-                <HeaderButton text='園児' img={Bear} onClick={usage} />
+                <HeaderButton text={
+                  driver ? `園児` : `家族`
+                } img={Bear} onClick={usage} />
                 <HeaderButton text='設定' img={Frog} onClick={settings} />
               </>
             )}
@@ -48,9 +55,9 @@ const Header: FC<Props> = ({ title, groupId }) => {
       ) : (
         <>
           <h1 className='text-2xl'>{title}</h1>
-          <Link to='/' className='absolute left-4'>
+          <button className='absolute left-4' onClick={back}>
             <img src={Back} alt='戻る' />
-          </Link>
+          </button>
         </>
       )}
     </div>

@@ -9,6 +9,7 @@ import { useMe } from '../hooks/users';
 const HomePage: FC = () => {
   const navigate = useNavigate();
   if (localStorage.getItem('jwt') === null) return <Navigate to='/login' />;
+  localStorage.removeItem('bus');
 
   const { data: me, error } = useQuery('me', () =>
     useMe()

@@ -2,6 +2,8 @@ import { FC } from 'react';
 import { useLocation, Navigate } from 'react-router-dom';
 import { useQuery } from 'react-query';
 
+import { ReactComponent as Plus } from '../assets/plus.svg';
+
 import Header from '../components/organisms/Header';
 import ListCard from '../components/atoms/ListCard';
 import EmphasisButton from '../components/atoms/EmphasisButton';
@@ -26,6 +28,9 @@ const GroupListPage: FC = () => {
             (user: any) =>
               !user.driver && <ListCard key={user.id} name={user.displayname} createdAt={user.createdAt} />,
           )}
+          <button className='w-11/12 h-24 rounded-xl border-2 border-[#FBD579] flex items-center justify-center'>
+            <Plus />
+          </button>
         </div>
       </>
     )

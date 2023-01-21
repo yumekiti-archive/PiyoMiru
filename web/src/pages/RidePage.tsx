@@ -11,11 +11,11 @@ const RidePage: FC = () => {
   const navigate = useNavigate();
   const { id } = useParams<{ id: string }>();
 
-  const busId = localStorage.getItem('busId');
-  if (busId === null) return <Navigate to='/' />;
+  const bus = localStorage.getItem('bus');
+  if (bus === null) return <Navigate to='/' />;
 
   const { data: user } = useQuery('user', () => useUsersFindOne(id).then((res) => res.data));
-  const { data: operations } = useQuery('operations', () => useOperationsFind(busId).then((res) => res.data));
+  const { data: operations } = useQuery('operations', () => useOperationsFind(bus).then((res) => res.data));
 
   if (user && operations) {
     usePassengersFindMyId(id, operations.data[0].id).then((res) => {

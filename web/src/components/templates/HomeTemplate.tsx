@@ -22,7 +22,11 @@ const HomeTemplate: FC<Props> = ({ addBusFlag, busName, setBusName, setAddBusFla
     data && (
       <>
         <Background type='home' />
-        {data.group ? <Header title='' groupId={data.group.id} /> : <Header title='' groupId='0' />}
+        {data.driver ? (
+          data.group ? <Header driver={true} title='' groupId={data.group.id} /> : <Header driver={true} title='' groupId='0' />
+        ) : (
+          <Header title='' />
+        )}
         {addBusFlag && (
           <AddBus
             addBusFlag={addBusFlag}

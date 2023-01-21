@@ -1,8 +1,8 @@
 import { fetch } from '../libs/client';
 
 // find
-export const useOperationsFind = (busId: string | undefined | null) => {
-  return fetch.get(`/api/operations?populate=*&sort[0]=id:desc&filters[bus][id][$eq]=${busId}`);
+export const useOperationsFind = (bus: string | undefined | null) => {
+  return fetch.get(`/api/operations?populate=*&sort[0]=id:desc&filters[bus][id][$eq]=${bus}`);
 };
 
 // findOne
