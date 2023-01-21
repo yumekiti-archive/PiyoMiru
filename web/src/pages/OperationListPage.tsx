@@ -3,6 +3,7 @@ import { useParams, useNavigate } from 'react-router-dom';
 import { useQuery, useQueryClient } from 'react-query';
 
 import Header from '../components/organisms/Header';
+import CheckModal from '../components/organisms/CheckModal';
 import ListCard from '../components/atoms/ListCard';
 import EmphasisButton from '../components/atoms/EmphasisButton';
 
@@ -18,6 +19,7 @@ const OperationListPage: FC = () => {
   const queryClient = useQueryClient();
   const { id } = useParams<{ id: string }>();
   const navigate = useNavigate();
+  const [check, setCheck] = useState(false);
 
   const { data: passengers } = useQuery('passengers', () => usePassengersFind(id).then((res) => res.data.data));
   const { data: operation } = useQuery('operation', () => useOperationsFindOne(id).then((res) => res.data.data));
@@ -82,7 +84,7 @@ const OperationListPage: FC = () => {
               <div className='w-8/12 h-16 flex items-center justify-center z-10'>
                 <EmphasisButton
                   text='運転終了'
-                  onClick={Stop}
+                  onClick={() => setCheck(true)}
                   mainBgColor='bg-[#90D7EC]'
                   subBgColor='bg-[#6EC5CA]'
                   color='text-[#666666]'
@@ -92,6 +94,15 @@ const OperationListPage: FC = () => {
               </div>
             </div>
           )}
+          <CheckModal
+            text='本当に運転を終了しますか？'
+            color='text-[#666666]'
+            bgColor='bg-[#90D7EC]'
+            buttonText='終了'
+            view={check}
+            setView={setCheck}
+            onClick={Stop}
+          />
         </div>
       </>
     )

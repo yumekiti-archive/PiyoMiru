@@ -13,6 +13,7 @@ import Header from '../organisms/Header';
 import Background from '../organisms/Background';
 import EmphasisButton from '../atoms/EmphasisButton';
 import Button from '../atoms/Button';
+import CheckModal from '../organisms/CheckModal';
 
 interface Props {
   data: any;
@@ -24,6 +25,7 @@ interface Props {
 
 const BusTemplate: FC<Props> = ({ data, user, onClickStart, onClickList, onClickNFC }) => {
   const [modal, setModal] = useState(false);
+  const [check, setCheck] = useState(false);
 
   return (
     <>
@@ -48,13 +50,22 @@ const BusTemplate: FC<Props> = ({ data, user, onClickStart, onClickList, onClick
                 <div className='w-8/12 h-16 flex items-center justify-center'>
                   <EmphasisButton
                     text='運転開始'
-                    onClick={onClickStart}
+                    onClick={() => setCheck(true)}
                     mainBgColor='bg-[#ED6D47]'
                     subBgColor='bg-[#DC3C14]'
                     color='text-white'
                     size='text-4xl'
                     top='top-4'
                     chick={true}
+                  />
+                  <CheckModal
+                    text='本当に運転を開始しますか？'
+                    view={check}
+                    setView={setCheck}
+                    onClick={onClickStart}
+                    color='text-white'
+                    bgColor='bg-[#ED6D47]'
+                    buttonText='開始'
                   />
                 </div>
               </>
