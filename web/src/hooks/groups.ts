@@ -13,4 +13,4 @@ export const useGroupsCreate = (body: any) => {
 // update
 export const useGroupsUpdate = (id: string, body: any) => {
   return fetch.put(`/api/groups/${id}`, body);
-}
+};
