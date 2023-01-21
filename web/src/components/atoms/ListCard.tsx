@@ -8,7 +8,7 @@ interface Props {
   status?: boolean;
 }
 
-const ListCard: FC<Props> = ({ name, status, createdAt }) => {
+const ListCard: FC<Props> = ({ name, status = true, createdAt }) => {
   const date = new Date(createdAt);
 
   return (
