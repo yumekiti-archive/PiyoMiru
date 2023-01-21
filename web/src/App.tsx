@@ -7,20 +7,18 @@ const queryClient = new QueryClient();
 
 const App: FC = () => {
   useEffect(() => {
-    if ("Notification" in window) {
-      // 通知が許可されていたら早期リターン
+    if ('Notification' in window) {
       const permission = Notification.permission;
-      if (permission === "denied" || permission === "granted") {
+      if (permission === 'denied' || permission === 'granted') {
         return;
       }
-      // 通知の許可を求める
       Notification.requestPermission();
     }
   }, []);
 
   const handlePushNotif = () => {
-    if ("Notification" in window) {
-      const notif = new Notification("バスに動きがありました");
+    if ('Notification' in window) {
+      const notif = new Notification('バスに動きがありました');
     }
   };
 
