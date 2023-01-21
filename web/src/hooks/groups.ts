@@ -9,3 +9,8 @@ export const useGroupsFindOne = (groupname: string | undefined) => {
 export const useGroupsCreate = (body: any) => {
   return fetch.post('/api/groups', body);
 };
+
+// update
+export const useGroupsUpdate = (id: string, body: any) => {
+  return fetch.put(`/api/groups/${id}`, body);
+}
