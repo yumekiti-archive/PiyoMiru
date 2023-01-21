@@ -20,7 +20,7 @@ const Modal: FC<Props> = ({ text, view, onClick }) => {
             onClick={onClick}
           >
             <div className='w-5/6 h-1/2 flex items-center justify-center flex-col'>
-              <p className='text-2xl text-center mb-8 mt-4'>{text}</p>
+              <p className='text-2xl text-center mb-8 mt-4 whitespace-pre-wrap'>{text}</p>
               <div className='p-2 flex items-center justify-center bg-[#E3EEF9] rounded-xl'>
                 <Button
                   text='キャンセル'

@@ -8,17 +8,19 @@ import Header from '../components/organisms/Header';
 import ListCard from '../components/atoms/ListCard';
 import EmphasisButton from '../components/atoms/EmphasisButton';
 import AddModal from '../components/organisms/AddModal';
+import NFCModal from '../components/organisms/NFCModal';
 
 import { useUsersFindWithFilterGroup, useMe } from '../hooks/users';
 
 const GroupListPage: FC = () => {
   const location = useLocation();
-  const [modal, setModal] = useState(false);
+  const [AddModalView, setAddModalView] = useState(false);
+  const [NFCModalView, setNFCModalView] = useState(false);
   const [name, setName] = useState('');
 
-  const register = () => {
-    setModal(!modal);
-    console.log(name);
+  const NFC = () => {
+    if (me.family === null) return;
+    localStorage.setItem('family', me.family.id);
   };
 
   if (location.state === null) return <Navigate to='/' />;
@@ -41,19 +43,23 @@ const GroupListPage: FC = () => {
           )}
           <button
             className='w-11/12 h-24 rounded-xl border-2 border-[#FBD579] flex items-center justify-center'
-            onClick={() => setModal(true)}
+            onClick={() => setAddModalView(true)}
           >
             <Plus />
           </button>
         </div>
         <AddModal
           text={`お子様の名前を\n入力してください`}
-          view={modal}
-          setView={setModal}
+          view={AddModalView}
+          setView={setAddModalView}
           name={name}
           setName={setName}
-          onClick={register}
+          onClick={() => {
+            setNFCModalView(true)
+            NFC()
+          }}
         />
+        <NFCModal text={`お子様のカードを\nスキャンしてください`} view={NFCModalView} onClick={() => setNFCModalView(false)} />
       </>
     )
   );
