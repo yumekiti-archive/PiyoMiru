@@ -12,12 +12,19 @@ io.on('connection', (socket) => {
     console.log('user disconnected');
   });
 
+  socket.on('join', (group) => {
+    socket.join(group);
+    console.log('join group: ' + group);
+  });
+
   socket.on('start', (msg) => {
-    io.emit('refresh', msg);
+    console.log(msg);
+    io.to(msg).emit('refresh', msg);
   });
 
   socket.on('stop', (msg) => {
-    io.emit('refresh', msg);
+    console.log(msg);
+    io.to(msg).emit('refresh', msg);
   });
 });
 

@@ -22,10 +22,6 @@ const App: FC = () => {
     }
   };
 
-  socket.on('connect', () => {
-    console.log('Connected to serve');
-  });
-
   socket.on('refresh', () => {
     handlePushNotif();
     queryClient.invalidateQueries('me');
