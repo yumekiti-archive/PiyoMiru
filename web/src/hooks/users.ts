@@ -18,4 +18,4 @@ export const useUsersFindOne = (id: string | undefined) => {
 // update one user
 export const useUsersUpdateOne = (id: string | undefined, body: any) => {
   return fetch.put(`/api/users/${id}`, body);
-}
+};

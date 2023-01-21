@@ -29,7 +29,7 @@ const GroupPage: FC = () => {
         group: res.data.data[0].id,
       };
 
-      useUsersUpdateOne(me.id, data)
+      useUsersUpdateOne(me.id, data);
 
       navigate('/');
     });
