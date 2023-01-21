@@ -19,11 +19,11 @@ const GroupRegisterPage: FC = () => {
 
   const Register = () => {
     const data = {
-      data : {
+      data: {
         groupname: groupname,
         displayname: displayname,
         address: address,
-      }
+      },
     };
 
     useGroupsCreate(data).then((res) => {
