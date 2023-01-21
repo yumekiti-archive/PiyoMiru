@@ -7,6 +7,7 @@ import TulipTag from '../../assets/button/tulipTag.svg';
 import ChickTag from '../../assets/button/chickTag.svg';
 import Anzen from '../../assets/anzen.svg';
 
+import NFCModal from '../organisms/NFCModal';
 import BusStatus from '../atoms/BusStatus';
 import Header from '../organisms/Header';
 import Background from '../organisms/Background';
@@ -40,31 +41,7 @@ const BusTemplate: FC<Props> = ({ data, user, onClickStart, onClickList, onClick
           )}
         </div>
         <div className='h-2/6 flex items-center justify-center'>
-          {modal && (
-            <div className='fixed z-50 top-0 left-0 w-full h-full bg-black bg-opacity-50 flex items-center justify-center'>
-              <div
-                className='bg-white w-10/12 h-48 rounded-2xl flex flex-col items-center justify-center relative'
-                onClick={() => {
-                  setModal(false);
-                  onClickNFC();
-                }}
-              >
-                <div className='w-5/6 h-1/2 flex items-center justify-center flex-col'>
-                  <p className='text-2xl text-center mb-8 mt-4'>NFCカードをスキャンしてください</p>
-                  <div className='p-2 flex items-center justify-center bg-[#E3EEF9] rounded-xl'>
-                    <Button
-                      text='キャンセル'
-                      onClick={() => setModal(false)}
-                      bgColor='bg-[#E3EEF9]'
-                      color='text-[#666666]'
-                      size='text-2xl'
-                    />
-                  </div>
-                </div>
-                <img src={Anzen} alt='anzen' className='w-20 absolute left-0 -top-10' />
-              </div>
-            </div>
-          )}
+          <NFCModal view={modal} text='NFCカードをスキャンしてください' onClick={() => setModal(false)} />
           {user.driver ? (
             !data.attributes.status ? (
               <>

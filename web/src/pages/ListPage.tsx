@@ -1,4 +1,4 @@
-import { FC } from 'react';
+import { FC, useState } from 'react';
 import { useLocation, Navigate } from 'react-router-dom';
 import { useQuery } from 'react-query';
 
@@ -7,11 +7,19 @@ import { ReactComponent as Plus } from '../assets/plus.svg';
 import Header from '../components/organisms/Header';
 import ListCard from '../components/atoms/ListCard';
 import EmphasisButton from '../components/atoms/EmphasisButton';
+import AddModal from '../components/organisms/AddModal';
 
 import { useUsersFindWithFilterGroup, useMe } from '../hooks/users';
 
 const GroupListPage: FC = () => {
   const location = useLocation();
+  const [modal, setModal] = useState(false);
+  const [name, setName] = useState('');
+
+  const register = () => {
+    setModal(!modal);
+    console.log(name);
+  };
 
   if (location.state === null) return <Navigate to='/' />;
 
@@ -31,10 +39,11 @@ const GroupListPage: FC = () => {
             (user: any) =>
               !user.driver && <ListCard key={user.id} name={user.displayname} createdAt={user.createdAt} />,
           )}
-          <button className='w-11/12 h-24 rounded-xl border-2 border-[#FBD579] flex items-center justify-center'>
+          <button className='w-11/12 h-24 rounded-xl border-2 border-[#FBD579] flex items-center justify-center' onClick={() => setModal(true)}>
             <Plus />
           </button>
         </div>
+        <AddModal text={`お子様の名前を\n入力してください`} view={modal} setView={setModal} name={name} setName={setName} onClick={register} />
       </>
     )
   );

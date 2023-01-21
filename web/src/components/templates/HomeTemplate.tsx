@@ -2,7 +2,7 @@ import { FC } from 'react';
 
 import Header from '../organisms/Header';
 import Background from '../organisms/Background';
-import AddBus from '../organisms/AddBus';
+import AddModal from '../organisms/AddModal';
 import BusButton from '../atoms/BusButton';
 
 import Pluss from '../../assets/button/pluss.svg';
@@ -22,24 +22,15 @@ const HomeTemplate: FC<Props> = ({ addBusFlag, busName, setBusName, setAddBusFla
     data && (
       <>
         <Background type='home' />
-        {data.driver ? (
-          data.group ? (
-            <Header driver={true} title='' group={data.group.id} />
-          ) : (
-            <Header driver={true} title='' group='0' />
-          )
-        ) : (
-          <Header title='' />
-        )}
-        {addBusFlag && (
-          <AddBus
-            addBusFlag={addBusFlag}
-            busName={busName}
-            setBusName={setBusName}
-            setAddBusFlag={setAddBusFlag}
-            addBus={addBus}
-          />
-        )}
+        <Header driver={data.driver} title='' group={data.group.id ? data.group.id : '0'} />
+        <AddModal
+          text='バスの名前を入力してください'
+          view={addBusFlag}
+          setView={setAddBusFlag}
+          name={busName}
+          setName={setBusName}
+          onClick={addBus}
+        />
         <div className='h-screen w-full'>
           <div className='h-1/6' />
           <div className='h-5/6'>
