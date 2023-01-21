@@ -69,8 +69,8 @@ const GroupListPage: FC = () => {
           text={`お子様のカードを\nスキャンしてください`}
           view={NFCModalView}
           onClick={() => {
-            setNFCModalView(false)
-            NFC()
+            setNFCModalView(false);
+            NFC();
           }}
         />
       </>
