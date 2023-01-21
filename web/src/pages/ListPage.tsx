@@ -55,11 +55,15 @@ const GroupListPage: FC = () => {
           name={name}
           setName={setName}
           onClick={() => {
-            setNFCModalView(true)
-            NFC()
+            setNFCModalView(true);
+            NFC();
           }}
         />
-        <NFCModal text={`お子様のカードを\nスキャンしてください`} view={NFCModalView} onClick={() => setNFCModalView(false)} />
+        <NFCModal
+          text={`お子様のカードを\nスキャンしてください`}
+          view={NFCModalView}
+          onClick={() => setNFCModalView(false)}
+        />
       </>
     )
   );
