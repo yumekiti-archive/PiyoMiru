@@ -16,6 +16,7 @@ import ScanPage from './pages/ScanPage';
 import FamilySetPage from './pages/FamilySetPage';
 import FamilyPage from './pages/FamilyPage';
 import GroupSetPage from './pages/GroupSetPage';
+import GroupRegisterPage from './pages/GroupRegisterPage';
 
 const Router: FC = () => {
   return (
@@ -35,6 +36,7 @@ const Router: FC = () => {
       <Route path='/scan/:id' element={<ScanPage />} />
       <Route path='/family' element={<FamilyPage />} />
       <Route path='/group/:id' element={<GroupSetPage />} />
+      <Route path='/group/register' element={<GroupRegisterPage />} />
     </Routes>
   );
 };
