@@ -1,12 +1,13 @@
 import axios from 'axios';
+import { getHost } from './host';
 
 export const fetch = axios.create({
-  baseURL: `${window.location.origin}`,
+  baseURL: getHost(),
 });
 
 export const fetchWithOauth = (jwt: any) =>
   axios.create({
-    baseURL: `${window.location.origin}`,
+    baseURL: getHost(),
     headers: {
       Authorization: `Bearer ${jwt}`,
     },
