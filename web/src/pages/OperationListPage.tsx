@@ -6,7 +6,7 @@ import Header from '../components/organisms/Header';
 import CheckModal from '../components/organisms/CheckModal';
 import ListCard from '../components/atoms/ListCard';
 import EmphasisButton from '../components/atoms/EmphasisButton';
-import socket from '../socket';
+import socket from '../libs/socket';
 
 import { ReactComponent as ThreePeople } from '../assets/threePeople.svg';
 import { ReactComponent as Plus } from '../assets/plus.svg';

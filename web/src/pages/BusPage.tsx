@@ -1,7 +1,7 @@
 import { FC, useState } from 'react';
 import { useParams, useNavigate } from 'react-router-dom';
 import { useQuery, useQueryClient } from 'react-query';
-import socket from '../socket';
+import socket from '../libs/socket';
 
 import BusTemplate from '../components/templates/BusTemplate';
 

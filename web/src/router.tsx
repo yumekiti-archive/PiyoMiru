@@ -2,7 +2,7 @@ import { FC, useEffect } from 'react';
 import { Routes, Route, Navigate } from 'react-router-dom';
 import { useQuery } from 'react-query';
 import { useMe } from './hooks/users';
-import socket from './socket';
+import socket from './libs/socket';
 
 import LoginPage from './pages/LoginPage';
 import BusPage from './pages/BusPage';
