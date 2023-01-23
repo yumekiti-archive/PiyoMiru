@@ -1,0 +1,5 @@
+[{
+  "relation": ["delegate_permission/common.handle_all_urls"],
+  "target" : { "namespace": "android_app", "package_name": "piyomiru.yumekiti.net",
+  "sha256_cert_fingerprints": ["56:05:34:66:2C:BE:02:9E:E4:B3:6E:16:4D:D5:E2:B8:A7:D9:FC:6C:49:BC:85:1D:D3:27:5C:6E:D6:7A:47:D2"] }
+}]
