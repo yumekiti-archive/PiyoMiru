@@ -8,12 +8,12 @@ import { useLogout } from '../hooks/auth';
 const SettingsPage: FC = () => {
   const navigate = useNavigate();
 
-  const Logout = () => {
+  const HandleLogout = () => {
     useLogout();
     navigate('/login');
   };
 
-  return <SettingsTemplate onClickLogout={Logout} />;
+  return <SettingsTemplate onClickLogout={HandleLogout} />;
 };
 
 export default SettingsPage;

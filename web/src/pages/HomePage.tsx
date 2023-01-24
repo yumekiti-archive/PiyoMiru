@@ -15,33 +15,18 @@ const HomePage: FC = () => {
   localStorage.removeItem('family');
   localStorage.removeItem('group');
 
-  // TODO: 401の時にログインページに飛ばす
-  const { data: me } = useMeQuery();
+  const { data: me, error } = useMeQuery();
   const [addBusFlag, setAddBusFlag] = useState(false);
   const [busName, setBusName] = useState('');
 
-  const AddBus = () => {
-    const data = {
-      data: {
-        name: busName,
-      },
-    };
+  if (error) return <Navigate to='/login' />;
 
-    useBusesCreate(data).then((res) => {
-      const buses = [];
-      me.group.buses.forEach((bus: any) => {
-        buses.push(bus.id);
-      });
-      buses.push(res.data.data.id);
-      const data = {
-        data: {
-          buses,
-        },
-      };
-      useGroupsUpdate(me.group.id, data);
-      useRefresh(queryClient);
-      setAddBusFlag(false);
-    });
+  const handleAddBus = async () => {
+    const { data: bus } = await useBusesCreate({ data: { name: busName } });
+    const buses = [...me.group.buses.map((bus: any) => bus.id), bus.data.id];
+    useGroupsUpdate(me.group.id, { data: { buses } });
+    useRefresh(queryClient);
+    setAddBusFlag(false);
   };
 
   return (
@@ -51,7 +36,7 @@ const HomePage: FC = () => {
         busName={busName}
         setBusName={setBusName}
         setAddBusFlag={setAddBusFlag}
-        addBus={AddBus}
+        addBus={handleAddBus}
         data={me}
       />
     )

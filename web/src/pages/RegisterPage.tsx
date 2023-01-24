@@ -18,7 +18,7 @@ const RegisterPage: FC = () => {
   const [error, setError] = useState('');
   const [errorDetails, setErrorsDetails] = useState([]);
 
-  const Register = () => {
+  const handleSubmit = () => {
     const body = {
       username: username,
       displayname: displayname,
@@ -57,7 +57,7 @@ const RegisterPage: FC = () => {
       setNextFlag={setNextFlag}
       error={error}
       errorDetails={errorDetails}
-      onClickRegister={Register}
+      onClickRegister={handleSubmit}
     />
   );
 };

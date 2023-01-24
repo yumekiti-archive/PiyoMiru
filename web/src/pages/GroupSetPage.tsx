@@ -12,11 +12,7 @@ const GroupSetPage: FC = () => {
   if (!me) return <></>;
   if (me.driver) return <Navigate to='/' />;
 
-  const data = {
-    group: me.group.id,
-  };
-
-  useUsersUpdateOne(id, data).then(() => {
+  useUsersUpdateOne(id, { group: me.group.id }).then(() => {
     navigate('/list', { state: { id: me.group.id } });
   });
 

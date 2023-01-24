@@ -12,11 +12,7 @@ const FamilySetPage: FC = () => {
   if (!me) return <></>;
   if (me.driver) return <Navigate to='/' />;
 
-  const data = {
-    family: me.family.id,
-  };
-
-  useUsersUpdateOne(id, data).then(() => {
+  useUsersUpdateOne(id, { family: me.family.id }).then(() => {
     navigate('/list', { state: { id: me.family.id } });
   });
 

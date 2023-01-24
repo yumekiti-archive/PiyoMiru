@@ -1,13 +1,13 @@
 import { FC } from 'react';
 import { useParams, useNavigate } from 'react-router-dom';
 import { useQueryClient } from 'react-query';
-import socket from '../libs/socket';
-import { useMeQuery, useBusesFindOneQuery, useOperationsFindQuery, useRefresh } from '../hooks/queries';
 
 import BusTemplate from '../components/templates/BusTemplate';
 
+import socket from '../libs/socket';
 import { useBusesUpdate } from '../hooks/buses';
 import { useOperationsCreate } from '../hooks/operations';
+import { useMeQuery, useBusesFindOneQuery, useOperationsFindQuery, useRefresh } from '../hooks/queries';
 
 const BusPage: FC = () => {
   const navigate = useNavigate();

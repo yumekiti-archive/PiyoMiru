@@ -44,8 +44,8 @@ const RidePage: FC = () => {
     });
   }
 
-  return <></>;
-  // return <Navigate to='/' />;
+  // return <></>;
+  return <Navigate to='/' />;
 };
 
 export default RidePage;

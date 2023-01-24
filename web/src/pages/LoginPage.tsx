@@ -12,13 +12,8 @@ const LoginPage: FC = () => {
   const [error, setError] = useState('');
   const [errorDetails, setErrorsDetails] = useState([]);
 
-  const Login = (identifier: string, password: string) => {
-    const body = {
-      identifier: identifier,
-      password: password,
-    };
-
-    useLogin(body)
+  const handleLogin = (identifier: string, password: string) => {
+    useLogin({ identifier, password })
       .then(() => {
         navigate('/');
       })
@@ -40,7 +35,7 @@ const LoginPage: FC = () => {
       errorDetails={errorDetails}
       setIdentifier={setIdentifier}
       setPassword={setPassword}
-      onClickLogin={() => Login(identifier, password)}
+      onClickLogin={() => handleLogin(identifier, password)}
     />
   );
 };

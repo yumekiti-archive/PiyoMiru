@@ -28,21 +28,12 @@ const OperationListPage: FC = () => {
 
   const Stop = () => {
     socket.emit('stop', me.group.id);
-
-    const body = {
-      data: {
-        status: !operation.attributes.bus.data.attributes.status,
-      },
-    };
-    useBusesUpdate(operation.attributes.bus.data.id, body);
+    useBusesUpdate(operation.attributes.bus.data.id, {
+      data: { status: !operation.attributes.bus.data.attributes.status },
+    });
     useRefresh(queryClient);
 
-    const operationBody = {
-      data: {
-        end: new Date(),
-      },
-    };
-    useOperationsUpdate(operation.id, operationBody);
+    useOperationsUpdate(operation.id, { data: { end: new Date() } });
     useRefresh(queryClient);
 
     navigate('/');

@@ -12,8 +12,8 @@ const ScanPage: FC = () => {
   if (family !== null) return <Navigate to={`/family/${id}`} />;
   if (group !== null) return <Navigate to={`/group/${id}`} />;
 
-  return <></>;
-  // return <Navigate to='/' />;
+  // return <></>;
+  return <Navigate to='/' />;
 };
 
 export default ScanPage;
