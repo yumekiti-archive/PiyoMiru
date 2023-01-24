@@ -18,7 +18,7 @@ const BusPage: FC = () => {
   const { data: me } = useMeQuery();
   const { data: operation } = useOperationsFindQuery(id);
 
-  const Start = () => {
+  const handleStart = async () => {
     socket.emit('start', me.group.id);
 
     const body = {
@@ -26,10 +26,8 @@ const BusPage: FC = () => {
         status: !bus.attributes.status,
       },
     };
-
-    useBusesUpdate(bus.id, body).then(() => {
-      useRefresh(queryClient);
-    });
+    useBusesUpdate(bus.id, body);
+    useRefresh(queryClient);
 
     const operationBody = {
       data: {
@@ -37,20 +35,24 @@ const BusPage: FC = () => {
         bus: bus.id,
       },
     };
-    useOperationsCreate(operationBody).then(() => {
-      useRefresh(queryClient);
-    });
+    useOperationsCreate(operationBody);
+    useRefresh(queryClient);
   };
 
-  const List = () => {
+  const handleList = () => {
     navigate(`/list/${operation.data[0].id}`);
   };
 
-  const NFC = () => {
+  const handleNFC = () => {
     localStorage.setItem('bus', bus.id);
   };
 
-  return bus && me && <BusTemplate data={bus} user={me} onClickStart={Start} onClickList={List} onClickNFC={NFC} />;
+  return (
+    bus &&
+    me && (
+      <BusTemplate data={bus} user={me} onClickStart={handleStart} onClickList={handleList} onClickNFC={handleNFC} />
+    )
+  );
 };
 
 export default BusPage;

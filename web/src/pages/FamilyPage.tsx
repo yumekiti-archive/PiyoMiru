@@ -16,14 +16,17 @@ const FamilyPage: FC = () => {
 
   const Register = () => {
     const data = {
-      family: name,
+      data: {
+        name: name,
+      }
     };
     useFamiliesCreate(data).then((res) => {
       const data = {
-        family: res.data.id,
+        family: res.data.data.id,
       };
-      useUsersUpdateOne(me.id, data).then((res) => {
-        navigate('/list', { state: { id: res.data.family.id } });
+
+      useUsersUpdateOne(me.id, data).then(() => {
+        navigate('/list', { state: { id: res.data.data.id } });
       });
     });
   };
