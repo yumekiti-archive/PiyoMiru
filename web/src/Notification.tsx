@@ -1,4 +1,4 @@
-import { FC, useEffect } from "react";
+import { FC, useEffect } from 'react';
 
 const NotificationFC: FC = () => {
   useEffect(() => {

@@ -5,10 +5,11 @@ export const fetch = axios.create({
   baseURL: getHost(),
 });
 
-export const fetchWithOauth = (jwt: any) =>
-  axios.create({
+export const fetchWithOauth = (jwt: any) => {
+  return axios.create({
     baseURL: getHost(),
     headers: {
       Authorization: `Bearer ${jwt}`,
     },
   });
+};

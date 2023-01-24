@@ -1,8 +1,5 @@
 import { FC, useEffect } from 'react';
 import { Routes, Route, Navigate } from 'react-router-dom';
-import { useQuery } from 'react-query';
-import { useMe } from './hooks/users';
-import socket from './libs/socket';
 
 import LoginPage from './pages/LoginPage';
 import BusPage from './pages/BusPage';
@@ -22,16 +19,6 @@ import GroupSetPage from './pages/GroupSetPage';
 import GroupRegisterPage from './pages/GroupRegisterPage';
 
 const Router: FC = () => {
-  const { data: me } = useQuery('me', () => useMe().then((res) => res.data));
-
-  socket.on('connect', () => {
-    console.log('connected');
-  });
-
-  useEffect(() => {
-    me && me.group && socket.emit('join', me.group.id);
-  }, [me]);
-
   return (
     <Routes>
       <Route path='/' element={<HomePage />} />
