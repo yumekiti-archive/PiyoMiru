@@ -21,22 +21,11 @@ const BusPage: FC = () => {
   const handleStart = async () => {
     socket.emit('start', me.group.id);
 
-    const body = {
-      data: {
-        status: !bus.attributes.status,
-      },
-    };
-    useBusesUpdate(bus.id, body);
-    useRefresh(queryClient);
+    await useBusesUpdate(bus.id, { data: { status: !bus.attributes.status } });
+    await useRefresh(queryClient);
 
-    const operationBody = {
-      data: {
-        start: new Date(),
-        bus: bus.id,
-      },
-    };
-    useOperationsCreate(operationBody);
-    useRefresh(queryClient);
+    await useOperationsCreate({ data: { start: new Date(), bus: bus.id } });
+    await useRefresh(queryClient);
   };
 
   const handleList = () => {
