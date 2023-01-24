@@ -18,7 +18,7 @@ const FamilyPage: FC = () => {
     const data = {
       data: {
         name: name,
-      }
+      },
     };
     useFamiliesCreate(data).then((res) => {
       const data = {

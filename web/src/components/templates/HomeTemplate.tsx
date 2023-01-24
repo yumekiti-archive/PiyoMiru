@@ -25,7 +25,7 @@ const HomeTemplate: FC<Props> = ({ addBusFlag, busName, setBusName, setAddBusFla
         <Header
           driver={data.driver}
           title=''
-          id={data.driver ? (data.group ? data.group.id : 'group') : (data.family ? data.family.id : 'family')}
+          id={data.driver ? (data.group ? data.group.id : 'group') : data.family ? data.family.id : 'family'}
         />
         <AddModal
           text='バスの名前を入力してください'
