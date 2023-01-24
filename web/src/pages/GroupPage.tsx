@@ -16,22 +16,16 @@ const GroupPage: FC = () => {
 
   const { data: me } = useMeQuery();
 
-  const Register = () => {
-    useGroupsFindOne(groupname).then((res) => {
-      if (!res.data.data.length) {
-        setError(true);
-        return;
-      }
-      setError(false);
+  const handleSubmit = async () => {
+    const { data: group } = await useGroupsFindOne(groupname);
+    if (!group.data.length) {
+      setError(true);
+      return;
+    }
+    setError(false);
 
-      const data = {
-        group: res.data.data[0].id,
-      };
-
-      useUsersUpdateOne(me.id, data);
-
-      navigate('/');
-    });
+    await useUsersUpdateOne(me.id, { group: group.data[0].id });
+    navigate('/');
   };
 
   return (
@@ -48,7 +42,7 @@ const GroupPage: FC = () => {
       </div>
       <div className='h-2/6 w-full flex items-center justify-center flex-col'>
         <div className='w-10/12 h-16'>
-          <Button text='とうろく' onClick={Register} />
+          <Button text='とうろく' onClick={handleSubmit} />
         </div>
         <p className='text-center text-sm mt-4'>
           所属IDをお持ちでない方は
