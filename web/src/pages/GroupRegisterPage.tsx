@@ -17,19 +17,10 @@ const GroupRegisterPage: FC = () => {
 
   const { data: me } = useMeQuery();
 
-  const Register = () => {
-    const data = {
-      data: {
-        groupname: groupname,
-        displayname: displayname,
-        address: address,
-      },
-    };
-
-    useGroupsCreate(data).then((res) => {
-      useUsersUpdateOne(me.id, { group: res.data.data.id });
-      navigate('/');
-    });
+  const handleSubmit = async () => {
+    const { data: group } = await useGroupsCreate({ data: { groupname, displayname, address } });
+    useUsersUpdateOne(me.id, { group: group.data.id });
+    navigate('/');
   };
 
   return (
@@ -51,7 +42,7 @@ const GroupRegisterPage: FC = () => {
       </div>
       <div className='h-2/6 w-full flex items-center justify-center flex-col'>
         <div className='w-10/12 h-16'>
-          <Button text='とうろく' onClick={Register} />
+          <Button text='とうろく' onClick={handleSubmit} />
         </div>
       </div>
     </div>
