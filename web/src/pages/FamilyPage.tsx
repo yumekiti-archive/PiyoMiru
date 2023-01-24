@@ -6,7 +6,7 @@ import Header from '../components/organisms/Header';
 import Button from '../components/atoms/Button';
 
 import { useFamiliesCreate } from '../hooks/families';
-import { useMe, useUsersUpdateOne } from '../hooks/users';
+import { useUsersUpdateOne } from '../hooks/users';
 import { useMeQuery } from '../hooks/queries';
 
 const FamilyPage: FC = () => {

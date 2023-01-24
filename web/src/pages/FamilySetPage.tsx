@@ -17,7 +17,7 @@ const FamilySetPage: FC = () => {
     family: me.family.id,
   };
 
-  useUsersUpdateOne(id, data).then((res) => {
+  useUsersUpdateOne(id, data).then(() => {
     navigate('/list', { state: { id: me.family.id } });
   });
 

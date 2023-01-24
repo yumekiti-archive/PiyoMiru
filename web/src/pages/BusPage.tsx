@@ -27,7 +27,7 @@ const BusPage: FC = () => {
       },
     };
 
-    useBusesUpdate(bus.id, body).then((res) => {
+    useBusesUpdate(bus.id, body).then(() => {
       useRefresh(queryClient);
     });
 
@@ -37,7 +37,7 @@ const BusPage: FC = () => {
         bus: bus.id,
       },
     };
-    useOperationsCreate(operationBody).then((res) => {
+    useOperationsCreate(operationBody).then(() => {
       useRefresh(queryClient);
     });
   };

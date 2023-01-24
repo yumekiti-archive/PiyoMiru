@@ -1,8 +1,7 @@
-import { FC, useState } from 'react';
-import { useParams, useNavigate, Navigate } from 'react-router-dom';
+import { FC } from 'react';
+import { useParams, Navigate } from 'react-router-dom';
 
 const ScanPage: FC = () => {
-  const navigate = useNavigate();
   const { id } = useParams<{ id: string }>();
 
   const bus = localStorage.getItem('bus');

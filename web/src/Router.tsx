@@ -1,5 +1,5 @@
-import { FC, useEffect } from 'react';
-import { Routes, Route, Navigate } from 'react-router-dom';
+import { FC } from 'react';
+import { Routes, Route } from 'react-router-dom';
 
 import LoginPage from './pages/LoginPage';
 import BusPage from './pages/BusPage';

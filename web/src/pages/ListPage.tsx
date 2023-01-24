@@ -11,9 +11,9 @@ import { useMeQuery, useUsersFindWithFilterGroupQuery, useUsersFindByFamilyQuery
 
 const GroupListPage: FC = () => {
   const location = useLocation();
-  const [AddModalView, setAddModalView] = useState(false);
   const [NFCModalView, setNFCModalView] = useState(false);
-  const [name, setName] = useState('');
+  // const [AddModalView, setAddModalView] = useState(false);
+  // const [name, setName] = useState('');
 
   const NFC = () => {
     if (me.family === null) return;

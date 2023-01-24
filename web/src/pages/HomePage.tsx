@@ -16,7 +16,7 @@ const HomePage: FC = () => {
   localStorage.removeItem('group');
 
   // TODO: 401の時にログインページに飛ばす
-  const { data: me, error } = useMeQuery();
+  const { data: me } = useMeQuery();
   const [addBusFlag, setAddBusFlag] = useState(false);
   const [busName, setBusName] = useState('');
 

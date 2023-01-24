@@ -1,9 +1,5 @@
-import { FC, useState } from 'react';
+import { FC } from 'react';
 import { useParams, useNavigate, Navigate } from 'react-router-dom';
-import { useQuery } from 'react-query';
-
-import { useUsersFindOne } from '../hooks/users';
-import { useOperationsFind } from '../hooks/operations';
 import { usePassengersCreate } from '../hooks/passengers';
 import { usePassengersFindMyId, usePassengersUpdate } from '../hooks/passengers';
 

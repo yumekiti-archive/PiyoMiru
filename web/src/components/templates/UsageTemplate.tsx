@@ -1,5 +1,4 @@
-import { FC, useState } from 'react';
-import { useNavigate } from 'react-router-dom';
+import { FC } from 'react';
 
 import Button from '../atoms/Button';
 import UsageButton from '../atoms/UsageButton';

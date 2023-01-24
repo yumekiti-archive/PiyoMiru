@@ -19,7 +19,7 @@ const LoginPage: FC = () => {
     };
 
     useLogin(body)
-      .then((res) => {
+      .then(() => {
         navigate('/');
       })
       .catch((err) => {

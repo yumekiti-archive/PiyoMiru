@@ -7,7 +7,6 @@ import Button from '../components/atoms/Button';
 
 import { useUsersUpdateOne } from '../hooks/users';
 import { useGroupsFindOne } from '../hooks/groups';
-import { useMe } from '../hooks/users';
 import { useMeQuery } from '../hooks/queries';
 
 const GroupPage: FC = () => {

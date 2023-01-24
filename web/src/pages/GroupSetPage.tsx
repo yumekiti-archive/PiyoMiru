@@ -16,7 +16,7 @@ const GroupSetPage: FC = () => {
     group: me.group.id,
   };
 
-  useUsersUpdateOne(id, data).then((res) => {
+  useUsersUpdateOne(id, data).then(() => {
     navigate('/list', { state: { id: me.group.id } });
   });
 

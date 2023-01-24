@@ -1,18 +1,15 @@
 import { FC, useState } from 'react';
-import { Link, useNavigate } from 'react-router-dom';
 
 import Bus from '../../assets/bus.svg';
 import BusRun from '../../assets/busRun.svg';
 import TulipTag from '../../assets/button/tulipTag.svg';
 import ChickTag from '../../assets/button/chickTag.svg';
-import Anzen from '../../assets/anzen.svg';
 
 import NFCModal from '../organisms/NFCModal';
 import BusStatus from '../atoms/BusStatus';
 import Header from '../organisms/Header';
 import Background from '../organisms/Background';
 import EmphasisButton from '../atoms/EmphasisButton';
-import Button from '../atoms/Button';
 import CheckModal from '../organisms/CheckModal';
 
 interface Props {
