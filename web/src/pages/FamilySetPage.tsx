@@ -9,7 +9,6 @@ const FamilySetPage: FC = () => {
   const { id } = useParams<{ id: string }>();
   const { data: me } = useMeQuery();
 
-  // TODO: 下の処理なにこれ
   if (!me) return <></>;
   if (me.driver) return <Navigate to='/' />;
 

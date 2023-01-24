@@ -16,8 +16,8 @@ const FamilyPage: FC = () => {
 
   const handleSubmit = async () => {
     const { data: newFamily } = await useFamiliesCreate({ data: { name: familyName } });
-    await useUsersUpdateOne(me.id, { family: newFamily.id });
-    navigate('/list', { state: { id: newFamily.id } });
+    await useUsersUpdateOne(me.id, { family: newFamily.data.id });
+    navigate('/list', { state: { id: newFamily.data.id } });
   };
 
   return (
