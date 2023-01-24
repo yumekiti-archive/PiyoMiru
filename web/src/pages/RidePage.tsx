@@ -7,15 +7,17 @@ import { useOperationsFind } from '../hooks/operations';
 import { usePassengersCreate } from '../hooks/passengers';
 import { usePassengersFindMyId, usePassengersUpdate } from '../hooks/passengers';
 
+import { useOperationsFindQuery, useUsersFindOneQuery } from '../hooks/queries';
+
 const RidePage: FC = () => {
   const navigate = useNavigate();
   const { id } = useParams<{ id: string }>();
 
-  const bus = localStorage.getItem('bus');
-  if (bus === null) return <Navigate to='/' />;
+  const busID = localStorage.getItem('bus');
+  if (busID === null) return <Navigate to='/' />;
 
-  const { data: user } = useQuery('user', () => useUsersFindOne(id).then((res) => res.data));
-  const { data: operations } = useQuery('operations', () => useOperationsFind(bus).then((res) => res.data));
+  const { data: user } = useUsersFindOneQuery(id);
+  const { data: operations } = useOperationsFindQuery(busID);
 
   if (user && operations) {
     usePassengersFindMyId(id, operations.data[0].id).then((res) => {

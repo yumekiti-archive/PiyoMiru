@@ -1,30 +1,22 @@
 import { FC, useState } from 'react';
-import { Navigate, useNavigate } from 'react-router-dom';
-import { useQuery, useQueryClient } from 'react-query';
+import { Navigate } from 'react-router-dom';
+import { useQueryClient } from 'react-query';
 
 import HomeTemplate from '../components/templates/HomeTemplate';
 
-import { useMe } from '../hooks/users';
 import { useBusesCreate } from '../hooks/buses';
 import { useGroupsUpdate } from '../hooks/groups';
+import { useMeQuery, useRefresh } from '../hooks/queries';
 
 const HomePage: FC = () => {
   const queryClient = useQueryClient();
-  const navigate = useNavigate();
   if (localStorage.getItem('jwt') === null) return <Navigate to='/login' />;
   localStorage.removeItem('bus');
   localStorage.removeItem('family');
   localStorage.removeItem('group');
 
-  const { data: me, error } = useQuery('me', () =>
-    useMe()
-      .then((res) => res.data)
-      .catch((err) => {
-        if (err.response.status === 401) {
-          navigate('/login');
-        }
-      }),
-  );
+  // TODO: 401の時にログインページに飛ばす
+  const { data: me, error } = useMeQuery();
   const [addBusFlag, setAddBusFlag] = useState(false);
   const [busName, setBusName] = useState('');
 
@@ -47,7 +39,7 @@ const HomePage: FC = () => {
         },
       };
       useGroupsUpdate(me.group.id, data);
-      queryClient.invalidateQueries('me');
+      useRefresh(queryClient);
       setAddBusFlag(false);
     });
   };

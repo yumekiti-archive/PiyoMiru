@@ -1,6 +1,5 @@
 import { FC } from 'react';
-import { Link, useNavigate } from 'react-router-dom';
-import { useQuery } from 'react-query';
+import { Link, useNavigate } from 'react-router-dom'
 
 import HeaderButton from '../atoms/HeaderButton';
 
@@ -8,8 +7,6 @@ import Back from '../../assets/button/back.svg';
 import NameLogo from '../../assets/nameLogo.svg';
 import Bear from '../../assets/button/bear.svg';
 import Frog from '../../assets/button/frog.svg';
-
-import { useMe } from '../../hooks/users';
 
 interface Props {
   title: string;

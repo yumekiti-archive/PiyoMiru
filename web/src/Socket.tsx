@@ -1,13 +1,13 @@
 import { FC, useEffect } from 'react';
-import { useQueryClient, useQuery } from 'react-query';
+import { useQueryClient } from 'react-query';
 import socket from './libs/socket';
 
 import { handlePushNotif } from './Notification';
-import { useMe } from './hooks/users';
+import { useRefresh, useMeQuery } from './hooks/queries';
 
 const SocketFC: FC = () => {
   const queryClient = useQueryClient();
-  const { data: me } = useQuery('me', () => useMe().then((res: any) => res.data));
+  const { data: me } = useMeQuery();
 
   useEffect(() => {
     me && me.group && socket.emit('join', me.group.id);
@@ -20,10 +20,7 @@ const SocketFC: FC = () => {
 
     socket.on('refresh', () => {
       handlePushNotif();
-      queryClient.invalidateQueries('me');
-      queryClient.invalidateQueries('user');
-      queryClient.invalidateQueries('bus');
-      queryClient.invalidateQueries('operation');
+      useRefresh(queryClient);
     });
   }, []);
 

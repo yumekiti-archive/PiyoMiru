@@ -1,5 +1,5 @@
-import { FC, useEffect } from 'react';
-import { useQuery, useMutation, useQueryClient, QueryClient, QueryClientProvider } from 'react-query';
+import { FC } from 'react';
+import { QueryClient, QueryClientProvider } from 'react-query';
 import Router from './Router';
 import AppUrlListener from './AppUrlListener';
 import NotificationFC from './Notification';

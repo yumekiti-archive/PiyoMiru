@@ -1,27 +1,23 @@
-import { FC, useState } from 'react';
+import { FC } from 'react';
 import { useParams, useNavigate } from 'react-router-dom';
-import { useQuery, useQueryClient } from 'react-query';
+import { useQueryClient } from 'react-query';
 import socket from '../libs/socket';
+import { useMeQuery, useBusesFindOneQuery, useOperationsFindQuery, useRefresh } from '../hooks/queries';
 
 import BusTemplate from '../components/templates/BusTemplate';
 
-import { useMe } from '../hooks/users';
-import { useBusesFindOne, useBusesUpdate } from '../hooks/buses';
-import { useOperationsCreate, useOperationsFind } from '../hooks/operations';
+import { useBusesUpdate } from '../hooks/buses';
+import { useOperationsCreate } from '../hooks/operations';
 
 const BusPage: FC = () => {
   const navigate = useNavigate();
   const queryClient = useQueryClient();
   const { id } = useParams<{ id: string }>();
 
-  const { data: bus } = useQuery('bus', () => useBusesFindOne(id).then((res) => res.data));
-  const { data: me } = useQuery('user', () => useMe().then((res) => res.data));
-  const { data: operation } = useQuery('operation', () =>
-    useOperationsFind(id).then((res) => {
-      if (!res.data.data) return;
-      return res.data.data[0];
-    }),
-  );
+  // 壊れてそう
+  const { data: bus } = useBusesFindOneQuery(id);
+  const { data: me } = useMeQuery();
+  const { data: operation } = useOperationsFindQuery(id);
 
   const Start = () => {
     socket.emit('start', me.group.id);
@@ -33,7 +29,7 @@ const BusPage: FC = () => {
     };
 
     useBusesUpdate(bus.id, body).then((res) => {
-      queryClient.invalidateQueries('bus');
+      useRefresh(queryClient);
     });
 
     const operationBody = {
@@ -43,7 +39,7 @@ const BusPage: FC = () => {
       },
     };
     useOperationsCreate(operationBody).then((res) => {
-      queryClient.invalidateQueries('operation');
+      useRefresh(queryClient);
     });
   };
 

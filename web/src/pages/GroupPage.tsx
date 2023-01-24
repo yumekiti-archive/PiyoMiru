@@ -1,5 +1,4 @@
 import { FC, useState } from 'react';
-import { useQuery } from 'react-query';
 import { useNavigate, Link } from 'react-router-dom';
 
 import FormText from '../components/atoms/FormText';
@@ -9,13 +8,14 @@ import Button from '../components/atoms/Button';
 import { useUsersUpdateOne } from '../hooks/users';
 import { useGroupsFindOne } from '../hooks/groups';
 import { useMe } from '../hooks/users';
+import { useMeQuery } from '../hooks/queries';
 
 const GroupPage: FC = () => {
   const navigate = useNavigate();
   const [groupname, setGroupname] = useState('');
   const [error, setError] = useState(false);
 
-  const { data: me } = useQuery('me', () => useMe().then((res) => res.data));
+  const { data: me } = useMeQuery();
 
   const Register = () => {
     useGroupsFindOne(groupname).then((res) => {

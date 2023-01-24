@@ -1,13 +1,13 @@
 import { FC, useState } from 'react';
-import { useNavigate, Link } from 'react-router-dom';
-import { useQuery } from 'react-query';
+import { useNavigate } from 'react-router-dom';
 
 import FormText from '../components/atoms/FormText';
 import Header from '../components/organisms/Header';
 import Button from '../components/atoms/Button';
 
 import { useGroupsCreate } from '../hooks/groups';
-import { useMe, useUsersUpdateOne } from '../hooks/users';
+import { useUsersUpdateOne } from '../hooks/users';
+import { useMeQuery } from '../hooks/queries';
 
 const GroupRegisterPage: FC = () => {
   const navigate = useNavigate();
@@ -15,7 +15,7 @@ const GroupRegisterPage: FC = () => {
   const [displayname, setDisplayname] = useState('');
   const [address, setAddress] = useState('');
 
-  const { data: me } = useQuery('me', () => useMe().then((res) => res.data));
+  const { data: me } = useMeQuery();
 
   const Register = () => {
     const data = {

@@ -1,18 +1,17 @@
 import { FC } from 'react';
-import { useQuery } from 'react-query';
 import { Navigate, useParams, useNavigate } from 'react-router-dom';
 
-import { useMe, useUsersUpdateOne } from '../hooks/users';
+import { useUsersUpdateOne } from '../hooks/users';
+import { useMeQuery } from '../hooks/queries';
 
 const GroupSetPage: FC = () => {
   const navigate = useNavigate();
   const { id } = useParams<{ id: string }>();
-  const { data: me } = useQuery('me', () => useMe().then((res) => res.data));
+  const { data: me } = useMeQuery();
 
   if (!me) return <></>;
   if (me.driver) return <Navigate to='/' />;
 
-  console.log(me);
   const data = {
     group: me.group.id,
   };
@@ -21,7 +20,7 @@ const GroupSetPage: FC = () => {
     navigate('/list', { state: { id: me.group.id } });
   });
 
-  return <></>;
+  return <Navigate to='/' />;
 };
 
 export default GroupSetPage;

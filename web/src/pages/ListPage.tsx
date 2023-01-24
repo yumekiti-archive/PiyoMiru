@@ -1,16 +1,13 @@
 import { FC, useState } from 'react';
 import { useLocation, Navigate } from 'react-router-dom';
-import { useQuery } from 'react-query';
 
 import { ReactComponent as Plus } from '../assets/plus.svg';
 
 import Header from '../components/organisms/Header';
 import ListCard from '../components/atoms/ListCard';
-import EmphasisButton from '../components/atoms/EmphasisButton';
-import AddModal from '../components/organisms/AddModal';
 import NFCModal from '../components/organisms/NFCModal';
 
-import { useUsersFindWithFilterGroup, useMe, useUsersFindByFamily, useUsersUpdateOne } from '../hooks/users';
+import { useMeQuery, useUsersFindWithFilterGroupQuery, useUsersFindByFamilyQuery } from '../hooks/queries';
 
 const GroupListPage: FC = () => {
   const location = useLocation();
@@ -26,11 +23,9 @@ const GroupListPage: FC = () => {
 
   if (location.state === null) return <Navigate to='/' />;
 
-  const { data: me } = useQuery('me', () => useMe().then((res) => res.data));
-  const { data: group } = useQuery('group', () =>
-    useUsersFindWithFilterGroup(location.state.id).then((res) => res.data),
-  );
-  const { data: family } = useQuery('family', () => useUsersFindByFamily(location.state.id).then((res) => res.data));
+  const { data: me } = useMeQuery();
+  const { data: group } = useUsersFindWithFilterGroupQuery(location.state.id);
+  const { data: family } = useUsersFindByFamilyQuery(location.state.id);
 
   if (location.state.id === 'group') return <Navigate to='/group' />;
   if (location.state.id === 'family') return <Navigate to='/family' />;

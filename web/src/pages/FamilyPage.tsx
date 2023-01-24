@@ -1,6 +1,5 @@
 import { FC, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
-import { useQuery } from 'react-query';
 
 import FormText from '../components/atoms/FormText';
 import Header from '../components/organisms/Header';
@@ -8,11 +7,12 @@ import Button from '../components/atoms/Button';
 
 import { useFamiliesCreate } from '../hooks/families';
 import { useMe, useUsersUpdateOne } from '../hooks/users';
+import { useMeQuery } from '../hooks/queries';
 
 const FamilyPage: FC = () => {
   const navigate = useNavigate();
   const [name, setGroupname] = useState('');
-  const { data: me } = useQuery('me', () => useMe().then((res) => res.data));
+  const { data: me } = useMeQuery();
 
   const Register = () => {
     const data = {

@@ -1,6 +1,6 @@
 import { FC, useState } from 'react';
 import { useParams, useNavigate } from 'react-router-dom';
-import { useQuery, useQueryClient } from 'react-query';
+import { useQueryClient } from 'react-query';
 
 import Header from '../components/organisms/Header';
 import CheckModal from '../components/organisms/CheckModal';
@@ -12,9 +12,9 @@ import { ReactComponent as ThreePeople } from '../assets/threePeople.svg';
 import { ReactComponent as Plus } from '../assets/plus.svg';
 
 import { useBusesUpdate } from '../hooks/buses';
-import { usePassengersFind } from '../hooks/passengers';
-import { useOperationsFindOne, useOperationsUpdate } from '../hooks/operations';
-import { useMe } from '../hooks/users';
+import { useOperationsUpdate } from '../hooks/operations';
+
+import { usePassengersFindQuery, useOperationsFindOneQuery, useMeQuery, useRefresh } from '../hooks/queries';
 
 const OperationListPage: FC = () => {
   const queryClient = useQueryClient();
@@ -22,9 +22,9 @@ const OperationListPage: FC = () => {
   const navigate = useNavigate();
   const [check, setCheck] = useState(false);
 
-  const { data: passengers } = useQuery('passengers', () => usePassengersFind(id).then((res) => res.data.data));
-  const { data: operation } = useQuery('operation', () => useOperationsFindOne(id).then((res) => res.data.data));
-  const { data: me } = useQuery('me', () => useMe().then((res) => res.data));
+  const { data: passengers } = usePassengersFindQuery(id);
+  const { data: operation } = useOperationsFindOneQuery(id);
+  const { data: me } = useMeQuery();
 
   const Stop = () => {
     socket.emit('stop', me.group.id);
@@ -35,7 +35,7 @@ const OperationListPage: FC = () => {
       },
     };
     useBusesUpdate(operation.attributes.bus.data.id, body);
-    queryClient.invalidateQueries('bus');
+    useRefresh(queryClient);
 
     const operationBody = {
       data: {
@@ -43,7 +43,7 @@ const OperationListPage: FC = () => {
       },
     };
     useOperationsUpdate(operation.id, operationBody);
-    queryClient.invalidateQueries('operation');
+    useRefresh(queryClient);
 
     navigate('/');
   };
