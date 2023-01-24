@@ -14,7 +14,6 @@ const BusPage: FC = () => {
   const queryClient = useQueryClient();
   const { id } = useParams<{ id: string }>();
 
-  // 壊れてそう
   const { data: bus } = useBusesFindOneQuery(id);
   const { data: me } = useMeQuery();
   const { data: operation } = useOperationsFindQuery(id);
@@ -44,7 +43,7 @@ const BusPage: FC = () => {
   };
 
   const List = () => {
-    navigate(`/list/${operation.id}`);
+    navigate(`/list/${operation.data[0].id}`);
   };
 
   const NFC = () => {
