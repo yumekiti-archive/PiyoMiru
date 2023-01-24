@@ -19,32 +19,28 @@ export const useMeQuery = () => {
 
 export const useBusesFindOneQuery = (id: any) => {
   return useQuery('bus', () => useBusesFindOne(id).then((res) => res.data));
-}
+};
 
 export const useOperationsFindQuery = (id: any) => {
-  return useQuery('operation', () => 
-    useOperationsFind(id).then((res) => res.data)
-  );
-}
+  return useQuery('operation', () => useOperationsFind(id).then((res) => res.data));
+};
 
 export const useUsersFindWithFilterGroupQuery = (id: any) => {
-  return useQuery('group', () =>
-    useUsersFindWithFilterGroup(id).then((res) => res.data),
-  );
-}
+  return useQuery('group', () => useUsersFindWithFilterGroup(id).then((res) => res.data));
+};
 
 export const useUsersFindByFamilyQuery = (id: any) => {
-  return useQuery('family', () => useUsersFindByFamily(id).then((res) => res.data))
-}
+  return useQuery('family', () => useUsersFindByFamily(id).then((res) => res.data));
+};
 
 export const usePassengersFindQuery = (id: any) => {
   return useQuery('passengers', () => usePassengersFind(id).then((res) => res.data.data));
-}
+};
 
 export const useOperationsFindOneQuery = (id: any) => {
   return useQuery('operation', () => useOperationsFindOne(id).then((res) => res.data.data));
-}
+};
 
 export const useUsersFindOneQuery = (id: any) => {
   return useQuery('user', () => useUsersFindOne(id).then((res) => res.data));
-}
+};
