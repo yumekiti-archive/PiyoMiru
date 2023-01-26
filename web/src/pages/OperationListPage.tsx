@@ -28,15 +28,15 @@ const OperationListPage: FC = () => {
 
   useRefresh(queryClient);
 
-  const Stop = () => {
+  const Stop = async () => {
     socket.emit('stop', me.group.id);
-    useBusesUpdate(operation.attributes.bus.data.id, {
+    await useBusesUpdate(operation.attributes.bus.data.id, {
       data: { status: false },
     });
-    useRefresh(queryClient);
+    await useRefresh(queryClient);
 
-    useOperationsUpdate(operation.id, { data: { end: new Date() } });
-    useRefresh(queryClient);
+    await useOperationsUpdate(operation.id, { data: { end: new Date() } });
+    await useRefresh(queryClient);
 
     navigate('/');
   };
