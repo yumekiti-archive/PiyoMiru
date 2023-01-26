@@ -48,18 +48,20 @@ const OperationListPage: FC = () => {
             <Header title='乗車中園児 一覧' />
           </div>
           {passengers.length !== 0 ? (
-            <div className='min-h-screen h-full w-full flex items-center justify-start flex-col space-y-4 mb-10 mt-28'>
-              {passengers.map((passenger: any) => (
-                <ListCard
-                  status={passenger.attributes.status}
-                  key={passenger.attributes.users_permissions_user.data.id}
-                  name={passenger.attributes.users_permissions_user.data.attributes.displayname}
-                  createdAt={passenger.attributes.createdAt}
-                />
-              ))}
-              <button className='w-11/12 h-24 rounded-xl border-2 border-[#FBD579] flex items-center justify-center'>
-                <Plus />
-              </button>
+            <div className='h-full w-full min-h-screen'>
+              <div className='flex items-center justify-start flex-col space-y-4 mb-10 mt-28'>
+                {passengers.map((passenger: any) => (
+                  <ListCard
+                    status={passenger.attributes.status}
+                    key={passenger.attributes.users_permissions_user.data.id}
+                    name={passenger.attributes.users_permissions_user.data.attributes.displayname}
+                    createdAt={passenger.attributes.createdAt}
+                  />
+                ))}
+                <button className='w-11/12 h-24 rounded-xl border-2 border-[#FBD579] flex items-center justify-center'>
+                  <Plus />
+                </button>
+              </div>
             </div>
           ) : (
             <>
