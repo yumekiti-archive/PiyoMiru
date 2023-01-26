@@ -26,6 +26,8 @@ const OperationListPage: FC = () => {
   const { data: operation } = useOperationsFindOneQuery(id);
   const { data: me } = useMeQuery();
 
+  useRefresh(queryClient);
+
   const Stop = () => {
     socket.emit('stop', me.group.id);
     useBusesUpdate(operation.attributes.bus.data.id, {

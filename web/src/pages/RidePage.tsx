@@ -1,11 +1,13 @@
 import { FC } from 'react';
 import { useParams, useNavigate, Navigate } from 'react-router-dom';
+import { useQueryClient } from 'react-query';
+
 import { usePassengersCreate } from '../hooks/passengers';
 import { usePassengersFindMyId, usePassengersUpdate } from '../hooks/passengers';
-
-import { useOperationsFindQuery, useUsersFindOneQuery } from '../hooks/queries';
+import { useOperationsFindQuery, useUsersFindOneQuery, useRefresh } from '../hooks/queries';
 
 const RidePage: FC = () => {
+  const queryClient = useQueryClient();
   const navigate = useNavigate();
   const { id } = useParams<{ id: string }>();
 
@@ -40,6 +42,7 @@ const RidePage: FC = () => {
         }
       }
 
+      useRefresh(queryClient);
       navigate(`/list/${operations.data[0].id}`);
     });
   }
