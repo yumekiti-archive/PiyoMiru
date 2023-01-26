@@ -16,7 +16,8 @@ const GroupSetPage: FC = () => {
     navigate('/list', { state: { id: me.group.id } });
   });
 
-  return <Navigate to='/' />;
+  return <></>;
+  // return <Navigate to='/' />;
 };
 
 export default GroupSetPage;

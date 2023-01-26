@@ -16,7 +16,8 @@ const FamilySetPage: FC = () => {
     navigate('/list', { state: { id: me.family.id } });
   });
 
-  return <Navigate to='/' />;
+  return <></>;
+  // return <Navigate to='/' />;
 };
 
 export default FamilySetPage;
