@@ -10,7 +10,6 @@ import { useMeQuery, useRefresh } from '../hooks/queries';
 
 const HomePage: FC = () => {
   const queryClient = useQueryClient();
-  if (localStorage.getItem('jwt') === null) return <Navigate to='/login' />;
   localStorage.removeItem('bus');
   localStorage.removeItem('family');
   localStorage.removeItem('group');
