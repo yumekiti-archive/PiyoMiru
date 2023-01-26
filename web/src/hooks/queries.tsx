@@ -22,7 +22,7 @@ export const useBusesFindOneQuery = (id: any) => {
 };
 
 export const useOperationsFindQuery = (id: any) => {
-  return useQuery('operation', () => useOperationsFind(id).then((res) => res.data));
+  return useQuery('operations', () => useOperationsFind(id).then((res) => res.data));
 };
 
 export const useUsersFindWithFilterGroupQuery = (id: any) => {
