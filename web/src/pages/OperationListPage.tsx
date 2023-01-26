@@ -31,7 +31,7 @@ const OperationListPage: FC = () => {
   const Stop = () => {
     socket.emit('stop', me.group.id);
     useBusesUpdate(operation.attributes.bus.data.id, {
-      data: { status: !operation.attributes.bus.data.attributes.status },
+      data: { status: false },
     });
     useRefresh(queryClient);
 

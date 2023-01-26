@@ -21,7 +21,7 @@ const BusPage: FC = () => {
   const handleStart = async () => {
     socket.emit('start', me.group.id);
 
-    await useBusesUpdate(bus.id, { data: { status: !bus.attributes.status } });
+    await useBusesUpdate(bus.id, { data: { status: true } });
     await useRefresh(queryClient);
 
     await useOperationsCreate({ data: { start: new Date(), bus: bus.id } });
