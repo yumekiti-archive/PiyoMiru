@@ -44,7 +44,7 @@ const OperationListPage: FC = () => {
     me && (
       <>
         <div className='h-full w-full'>
-          <div className='w-full flex items-center justify-center'>
+          <div className='w-full h-full flex items-center justify-center'>
             <Header title='乗車中園児 一覧' />
           </div>
           {passengers.length !== 0 ? (
