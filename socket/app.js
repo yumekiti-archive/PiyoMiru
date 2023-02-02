@@ -30,6 +30,11 @@ io.on('connection', (socket) => {
     console.log(msg);
     io.to(msg).emit('refresh', msg);
   });
+
+  socket.on('leave', (msg) => {
+    console.log(msg);
+    io.to(msg).emit('hogefugapiyo', msg);
+  });
 });
 
 // サーバーの実行

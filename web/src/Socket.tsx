@@ -19,8 +19,12 @@ const SocketFC: FC = () => {
     });
 
     socket.on('refresh', () => {
-      handlePushNotif();
+      handlePushNotif('バスに動きがありました');
       useRefresh(queryClient);
+    });
+
+    socket.on('hogefugapiyo', () => {
+      handlePushNotif('置き去りにされている可能性があります');
     });
   }, []);
 

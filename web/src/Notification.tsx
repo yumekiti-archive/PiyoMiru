@@ -14,9 +14,9 @@ const NotificationFC: FC = () => {
   return null;
 };
 
-export const handlePushNotif = () => {
+export const handlePushNotif = (text: string) => {
   if ('Notification' in window) {
-    new Notification('バスに動きがありました');
+    new Notification(text);
   }
 };
 
