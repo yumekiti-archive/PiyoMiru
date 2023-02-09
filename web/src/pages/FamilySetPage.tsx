@@ -13,7 +13,7 @@ const FamilySetPage: FC = () => {
   const { data: me } = useMeQuery();
 
   if (!me) return <></>;
-  if (me.driver) return <Navigate to='/' />;
+  if (me && me.driver) return <Navigate to='/' />;
 
   useUsersUpdateOne(id, { family: me.family.id }).then(() => {
     navigate('/list', { state: { id: me.family.id } });

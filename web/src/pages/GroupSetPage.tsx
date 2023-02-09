@@ -13,11 +13,11 @@ const GroupSetPage: FC = () => {
   const { data: me } = useMeQuery();
 
   if (!me) return <></>;
-  if (me.driver) return <Navigate to='/' />;
+  if (me && !me.driver) return <Navigate to='/' />;
 
   useUsersUpdateOne(id, { group: me.group.id }).then(() => {
-    navigate('/list', { state: { id: me.group.id } });
     useRefresh(queryClient);
+    navigate('/list', { state: { id: me.group.id } });
   });
 
   return <></>;

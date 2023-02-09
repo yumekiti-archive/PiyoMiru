@@ -26,15 +26,11 @@ const OperationListPage: FC = () => {
   const { data: operation } = useOperationsFindOneQuery(id);
   const { data: me } = useMeQuery();
 
-  useRefresh(queryClient);
-
   const Stop = async () => {
     socket.emit('stop', me.group.id);
     await useBusesUpdate(operation.attributes.bus.data.id, {
       data: { status: false },
     });
-    await useRefresh(queryClient);
-
     await useOperationsUpdate(operation.id, { data: { end: new Date() } });
     await useRefresh(queryClient);
 

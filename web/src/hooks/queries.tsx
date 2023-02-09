@@ -11,6 +11,10 @@ export const useRefresh = (queryClient: any) => {
   queryClient.invalidateQueries('user');
   queryClient.invalidateQueries('bus');
   queryClient.invalidateQueries('operation');
+  queryClient.invalidateQueries('operations');
+  queryClient.invalidateQueries('group');
+  queryClient.invalidateQueries('family');
+  queryClient.invalidateQueries('passengers');
 };
 
 export const useMeQuery = () => {

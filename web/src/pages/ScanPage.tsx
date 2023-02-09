@@ -8,9 +8,13 @@ const ScanPage: FC = () => {
   const family = localStorage.getItem('family');
   const group = localStorage.getItem('group');
 
-  if (bus !== null) return <Navigate to={`/ride/${id}`} />;
-  if (family !== null) return <Navigate to={`/family/${id}`} />;
-  if (group !== null) return <Navigate to={`/group/${id}`} />;
+  if (bus != null) return <Navigate to={`/ride/${id}`} />;
+  if (family != null) return <Navigate to={`/family/${id}`} />;
+  if (group != null) return <Navigate to={`/group/${id}`} />;
+
+  localStorage.removeItem('bus');
+  localStorage.removeItem('family');
+  localStorage.removeItem('group');
 
   // return <></>;
   return <Navigate to='/' />;

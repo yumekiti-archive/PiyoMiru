@@ -16,7 +16,6 @@ const GroupListPage: FC = () => {
   // const [name, setName] = useState('');
 
   const NFC = () => {
-    if (me.family === null) return;
     if (me.driver) localStorage.setItem('group', me.group.id);
     else localStorage.setItem('family', me.family.id);
   };
@@ -44,7 +43,10 @@ const GroupListPage: FC = () => {
             : family.map((user: any) => <ListCard key={user.id} name={user.displayname} createdAt={user.createdAt} />)}
           <button
             className='w-11/12 h-24 rounded-xl border-2 border-[#FBD579] flex items-center justify-center'
-            onClick={() => setNFCModalView(true)}
+            onClick={() => {
+              setNFCModalView(true)
+              NFC();
+            }}
           >
             <Plus />
           </button>
@@ -65,7 +67,6 @@ const GroupListPage: FC = () => {
           view={NFCModalView}
           onClick={() => {
             setNFCModalView(false);
-            NFC();
           }}
         />
       </>
