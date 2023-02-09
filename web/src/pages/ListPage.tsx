@@ -44,7 +44,7 @@ const GroupListPage: FC = () => {
           <button
             className='w-11/12 h-24 rounded-xl border-2 border-[#FBD579] flex items-center justify-center'
             onClick={() => {
-              setNFCModalView(true)
+              setNFCModalView(true);
               NFC();
             }}
           >
